@@ -32,8 +32,7 @@ const imageAltText = "desktop with books and laptop";
 const projectList = [
   {
     title: "Leading into the Age of AI | Innosight",
-    description:
-      "Leadership alignment relating to AI must start with a shared foundational understanding and common language of AI, which makes it possible for leaders to engage in coherent conversations without inadvertently talking past each other. ",
+    description:"Leadership alignment relating to AI must start with a shared foundational understanding and common language of AI, which makes it possible for leaders to engage.",
     url: "https://www.innosight.com/wp-content/uploads/2023/10/Innosight_Leading-into-the-Age-of-AI.pdf",
   },
  

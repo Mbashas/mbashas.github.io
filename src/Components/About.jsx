@@ -24,7 +24,7 @@ const imageAltText = "purple and blue abstract background";
  * Sort description that expands on your title on the Home component.
  */
 const description =
-  "I am a computer science student, currently studying at Uganda Christian University. I love learning new things and experimenting new technologies. My passion lies in solving humanities pressing problems with technological tools.";
+  "I am a computer science student, currently studying at Uganda Christian University. I am driven by my passion for solving problems and making a positive impact wherever I go.";
 
 /**
  * List of some of skills or technologies you work on, are learning,
