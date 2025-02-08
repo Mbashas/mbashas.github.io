@@ -12,6 +12,7 @@
     "deploy": "gh-pages -d dist"
   },
   "repository": {
+    // The repository name was changed from "myportfolio" to "mbashas.github.io"
     "type": "git",
     "url": "git+https://github.com/microsoft/codespaces-teaching-template-js.git"
   },
