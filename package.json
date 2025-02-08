@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "Seth - Portofolio",
   "source": "src/index.html",
-  "homepage": "http://mbashas.github.io/myportfolio",
+  "homepage": "http://mbashas.github.io",
   "scripts": {
     "start": "parcel",
     "build": "parcel build",
