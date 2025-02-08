@@ -3,11 +3,11 @@
   "version": "1.0.0",
   "description": "Seth - Portofolio",
   "source": "src/index.html",
-  "homepage": "https://mbashas.github.io/myportfolio",
+  "homepage": "https://mbashas.github.io",
   "scripts": {
     "start": "parcel",
     "build": "parcel build",
-    "build-gh": "parcel build --public-url 'https://mbashas.github.io/myportfolio'",
+    "build-gh": "parcel build --public-url 'https://mbashas.github.io'",
     "predeploy": "npm run build-gh",
     "deploy": "gh-pages -d dist"
   },
