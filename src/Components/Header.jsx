@@ -9,7 +9,7 @@ import React from "react";
 const links = [
   {
     name: "Home",
-    to: "#home",
+    to: "/",
     external: false
   },
   {
@@ -24,7 +24,7 @@ const links = [
   },
   {
     name: "Projects",
-    to: "./projects.html",
+    to: "./projects.html",  // Make sure it starts with forward slash
     external: false
   }
 ];
