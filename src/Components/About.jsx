@@ -31,12 +31,12 @@ const description =
  * passionate about, or enjoy,
  */
 const skillsList = [
-  "Web design",
-  "Project Management",
-  "database design",
-  "data analyst",
-  "Graphic design",
-  "Python",
+  "Embedded Systems", 
+  "Machine Learning", 
+  "Data Analysis", 
+  "Leadership Skills", 
+  "Project Management Skills", 
+  "Back End Software Dev Skills"
 ];
 
 /**
@@ -45,7 +45,7 @@ const skillsList = [
  * about you on a professional level.
  */
 const detailOrQuote =
-  "The future is much brighter than the past. You just have to find the light switch. Debasish Mridha.";
+  "Innovation thrives at the intersection of technical expertise and visionary leadership. Embrace every challenge as a pathway to success.";
 
 const About = () => {
   return (
@@ -78,6 +78,67 @@ const About = () => {
         </ul>
         <hr />
         <p style={{ padding: "1rem 3rem 0" }}>{detailOrQuote}</p>
+      </div>
+      <div style={{ backgroundColor: "white", padding: "2rem", margin: "2rem auto", maxWidth: "900px" }}>
+        <h2 style={{ textAlign: "center", color: "#4E567E", marginBottom: "1.5rem" }}>Skills</h2>
+        <div style={{
+          display: "flex",
+          flexWrap: "wrap",
+          justifyContent: "center",
+          gap: "2rem"
+        }}>
+          <div style={{
+            flex: "1 1 300px",
+            background: "#f9f9f9",
+            borderRadius: "8px",
+            boxShadow: "0 2px 6px rgba(0,0,0,0.1)",
+            padding: "1.5rem",
+            textAlign: "center"
+          }}>
+            <h3 style={{ color: "#4E567E" }}>Embedded Systems</h3>
+            <ul style={{ listStyleType: "none", padding: 0 }}>
+              <li>Microcontroller Programming</li>
+              <li>Real-time Systems</li>
+              <li>IoT Development</li>
+              <li>Hardware Interfacing</li>
+              <li>Firmware Development</li>
+            </ul>
+          </div>
+          <div style={{
+            flex: "1 1 300px",
+            background: "#f9f9f9",
+            borderRadius: "8px",
+            boxShadow: "0 2px 6px rgba(0,0,0,0.1)",
+            padding: "1.5rem",
+            textAlign: "center"
+          }}>
+            <h3 style={{ color: "#4E567E" }}>Machine Learning</h3>
+            <ul style={{ listStyleType: "none", padding: 0 }}>
+              <li>Neural Networks</li>
+              <li>Deep Learning</li>
+              <li>Computer Vision</li>
+              <li>TensorFlow/PyTorch</li>
+              <li>Model Deployment</li>
+            </ul>
+          </div>
+          <div style={{
+            flex: "1 1 300px",
+            background: "#f9f9f9",
+            borderRadius: "8px",
+            boxShadow: "0 2px 6px rgba(0,0,0,0.1)",
+            padding: "1.5rem",
+            textAlign: "center"
+          }}>
+            <h3 style={{ color: "#4E567E" }}>Data Analysis</h3>
+            <ul style={{ listStyleType: "none", padding: 0 }}>
+              <li>Python/Pandas</li>
+              <li>Data Visualization</li>
+              <li>Statistical Analysis</li>
+              <li>Data Processing</li>
+              <li>Predictive Modeling</li>
+            </ul>
+          </div>
+        </div>
       </div>
     </section>
   );
