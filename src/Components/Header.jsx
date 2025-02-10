@@ -9,19 +9,23 @@ import React from "react";
 const links = [
   {
     name: "Home",
-    to: "#home"
+    to: "#home",
+    external: false
   },
   {
     name: "About",
-    to: "#about"
+    to: "#about",
+    external: false
   },
   {
     name: "Portfolio",
-    to: "#portfolio"
+    to: "#portfolio",
+    external: false
   },
   {
     name: "Projects",
-    to: "#projects"
+    to: "/projects.html",
+    external: true
   }
 ];
 
@@ -32,7 +36,13 @@ const Header = () => {
         <ul style={{ display: 'flex', listStyleType: 'none' }}>
           {links.map((link, index) => (
             <li key={index} style={{ marginRight: '20px' }}>
-              <a href={link.to}>{link.name}</a>
+              <a 
+                href={link.to}
+                target={link.external ? "_blank" : "_self"}
+                rel={link.external ? "noopener noreferrer" : ""}
+              >
+                {link.name}
+              </a>
             </li>
           ))}
         </ul>
