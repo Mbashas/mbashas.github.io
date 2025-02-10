@@ -24,7 +24,7 @@ const links = [
   },
   {
     name: "Projects",
-    to: "./projects.html",  // Make sure it starts with forward slash
+    to: "/projects.html",  // Update path
     external: false
   }
 ];
