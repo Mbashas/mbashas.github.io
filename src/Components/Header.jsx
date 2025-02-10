@@ -24,8 +24,8 @@ const links = [
   },
   {
     name: "Projects",
-    to: "/projects.html",
-    external: true
+    to: "./projects.html",
+    external: false
   }
 ];
 

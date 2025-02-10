@@ -6,8 +6,8 @@
   "homepage": "https://mbashas.github.io",
   "scripts": {
     "start": "parcel",
-    "build": "parcel build",
-    "build-gh": "parcel build --public-url 'https://mbashas.github.io'",
+    "build": "parcel build src/index.html public/projects.html",
+    "build-gh": "parcel build src/index.html public/projects.html --public-url 'https://mbashas.github.io'",
     "predeploy": "npm run build-gh",
     "deploy": "gh-pages -d dist"
   },

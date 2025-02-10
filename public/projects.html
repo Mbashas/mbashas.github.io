@@ -4,21 +4,73 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>My Projects</title>
-    <link rel="stylesheet" href="../src/styles.css">
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: #f5f5f5;
+        }
+        header {
+            background-color: #4E567E;
+            padding: 1rem;
+            position: fixed;
+            width: 100%;
+            top: 0;
+        }
+        header a {
+            color: white;
+            text-decoration: none;
+            padding: 0.5rem 1rem;
+        }
+        .projects-container {
+            margin-top: 80px;
+            padding: 2rem;
+            max-width: 1200px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        .project-card {
+            background: white;
+            border-radius: 8px;
+            padding: 20px;
+            margin-bottom: 20px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        h1 {
+            text-align: center;
+            color: #4E567E;
+        }
+    </style>
 </head>
 <body>
     <header>
         <nav>
-            <ul>
-                <li><a href="index.html">Home</a></li>
-            </ul>
+            <a href="/">← Back to Home</a>
         </nav>
     </header>
-    <main>
+    <div class="projects-container">
         <h1>My Projects</h1>
-        <div class="projects-container">
-            <!-- Add your projects content here -->
+        
+        <div class="project-card">
+            <h2>Project 1: AI Research Project</h2>
+            <p>A deep learning model for image classification using TensorFlow</p>
+            <p><strong>Technologies:</strong> Python, TensorFlow, OpenCV</p>
+            <a href="https://github.com/yourusername/project1">View on GitHub</a>
         </div>
-    </main>
+
+        <div class="project-card">
+            <h2>Project 2: Web Application</h2>
+            <p>Full-stack web application for task management</p>
+            <p><strong>Technologies:</strong> React, Node.js, MongoDB</p>
+            <a href="https://github.com/yourusername/project2">View on GitHub</a>
+        </div>
+
+        <div class="project-card">
+            <h2>Project 3: Mobile App</h2>
+            <p>Cross-platform mobile application for fitness tracking</p>
+            <p><strong>Technologies:</strong> React Native, Firebase</p>
+            <a href="https://github.com/yourusername/project3">View on GitHub</a>
+        </div>
+    </div>
 </body>
 </html>
