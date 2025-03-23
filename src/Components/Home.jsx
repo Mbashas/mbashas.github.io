@@ -6,58 +6,67 @@
  */
 
 import React from "react";
-import arrowSvg from "../images/down-arrow.svg";
 import PropTypes from "prop-types";
 
-/**
- * Home background image
- *
- * Below is a sample image. Upload the image of your choice into the "images"
- * directory and import here for use. Then, set imageAltText to string that 
- * represents what you see in that image.
- *
- *
- * Need an image? Check out https://unsplash.com to download a photo you
- * freely use on your site.
- */
-import image from "../images/csme.jpg";
-
-const imageAltText = "A photo of me seating in a garden";
 const Home = ({ name, title }) => {
   return (
-    <section id="home" className="min-height">
-      <img className="background" src={image} alt="" />
-      <div style={{ 
-        position: "absolute", 
-        top: "5rem", 
-        left: "2rem", 
-        width: "20rem",
-        backgroundColor: "rgba(245, 245, 240, 0.8)",
-        padding: "2rem",
-        borderRadius: "10px",
-        boxShadow: "0 4px 8px rgba(0,0,0,0.2)"
-      }}>
-        <h1>{name}</h1>
-        <h2>{title}</h2>
-        <p style={{ marginTop: "1rem", fontSize: "1.1rem" }}>
-          Combining ancient African wisdom with modern technology to build innovative solutions
-        </p>
+    <section id="home" className="hero">
+      <div 
+        style={{
+          backgroundImage: `url(https://images.unsplash.com/photo-1516410529446-2c777cb7366d?q=80&w=1974&auto=format&fit=crop)`,
+          position: "absolute",
+          top: 0,
+          left: 0,
+          right: 0,
+          bottom: 0,
+          backgroundSize: "cover",
+          backgroundPosition: "center",
+          zIndex: -1
+        }}
+      />
+      
+      <div className="container">
+        <div className="hero-content">
+          <h1>{name}</h1>
+          <p className="lead">
+            {title}
+          </p>
+          <p>
+            Combining ancient African wisdom with modern technology to build innovative solutions for tomorrow's challenges.
+          </p>
+          <div className="flex" style={{ gap: "1rem", marginTop: "2rem" }}>
+            <a href="#portfolio" className="btn">View My Work</a>
+            <a href="#contact" className="btn btn-outline">Get In Touch</a>
+          </div>
+        </div>
       </div>
-      <div style={{ position: "absolute", bottom: "3rem", left: "50%" }}>
-        <img src={arrowSvg} style={{ height: "3rem", width: "3rem" }} alt={imageAltText} />
+      
+      <div 
+        style={{ 
+          position: "absolute", 
+          bottom: "2rem", 
+          left: "50%", 
+          transform: "translateX(-50%)",
+          animation: "bounce 2s infinite"
+        }}
+      >
+        <svg width="40" height="40" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M12 5V19" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+          <path d="M19 12L12 19L5 12" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+        </svg>
       </div>
     </section>
   );
 };
 
-Home.defaultProps = {
-  name: "",
-  title: "",
-};
-
 Home.propTypes = {
   name: PropTypes.string.isRequired,
-  title: PropTypes.string.isRequired,
+  title: PropTypes.string.isRequired
+};
+
+Home.defaultProps = {
+  name: "Seth Mbasha",
+  title: "Computer Science Student & Embedded Systems Enthusiast"
 };
 
 export default Home;

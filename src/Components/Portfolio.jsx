@@ -10,69 +10,75 @@
 
 import React from "react";
 
-/**
- * Desk image
- *
- * Below is a sample desk image. Feel free to update this to an image of your choice,
- * updating below imageAltText to string that represents what you see in that image.
- *
- * Need an image? Check out https://unsplash.com to download a photo you
- * freely use on your site.
- */
-import image from "../images/design-desk.jpeg";
-
-const imageAltText = "desktop with books and laptop";
-
-/**
- * Project list
- *
- * An array of objects that will be used to display for your project
- * links section. Below is a sample, update to reflect links you'd like to highlight.
- */
-const projectList = [
-  {
-    title: "Smart Home Security System",
-    description: "Built an embedded system prototype integrating ultrasonic and LDR sensors with an Arduino microcontroller to detect intruders, programmed in C/C++ for sensor readings.",
-    url: "https://github.com/mbashas/smart-home-security",
-  },
-  {
-    title: "Fake News Detection in Luganda",
-    description: "Implementing a machine learning model to detect and classify misinformation in the Luganda language, exploring approaches for model optimization.",
-    url: "https://github.com/mbashas/luganda-fake-news-detection",
-  },
-  {
-    title: "Campus Food Management System",
-    description: "Collaborated on an embedded-systems project to streamline campus restaurant operations by designing microcontroller logic to automate order placements.",
-    url: "https://github.com/mbashas/campus-food-management",
-  },
-  {
-    title: "EY Data Challenge – Urban Heat Island Prediction",
-    description: "Designing a machine learning model to pinpoint urban heat island hotspots, leveraging geospatial data and analytics to help city planners.",
-    url: "https://github.com/mbashas/urban-heat-island",
-  },
-];
-
 const Portfolio = () => {
+  const projects = [
+    {
+      title: "Smart Home Security System",
+      category: "Embedded Systems",
+      image: "https://images.unsplash.com/photo-1558959356-2d5b3b3b2b2b?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60",
+      link: "https://github.com/mbashas/smart-home-security"
+    },
+    {
+      title: "Fake News Detection in Luganda",
+      category: "Machine Learning",
+      image: "https://images.unsplash.com/photo-1504711434969-e33886168f5c?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60",
+      link: "https://github.com/mbashas/luganda-fake-news-detection"
+    },
+    {
+      title: "Campus Food Management System",
+      category: "Embedded Systems",
+      image: "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60",
+      link: "https://github.com/mbashas/campus-food-management"
+    },
+    {
+      title: "Urban Heat Island Prediction",
+      category: "Data Analysis",
+      image: "https://images.unsplash.com/photo-1477959858617-67f85cf4f1df?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60",
+      link: "https://github.com/mbashas/urban-heat-island"
+    },
+    {
+      title: "Big Data Analytics & Mining",
+      category: "Data Science",
+      image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60",
+      link: "#"
+    },
+    {
+      title: "IoT Weather Station",
+      category: "Embedded Systems",
+      image: "https://images.unsplash.com/photo-1492011221367-f47e3ccd77a0?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60",
+      link: "#"
+    }
+  ];
+
   return (
-    <section className="padding" id="portfolio">
-      <h2 style={{ textAlign: "center" }}>Portfolio</h2>
-      <div style={{ display: "flex", flexDirection: "row", paddingTop: "3rem" }}>
-        <div style={{ maxWidth: "40%", alignSelf: "center" }}>
-          <img
-            src={image}
-            style={{ height: "90%", width: "100%", objectFit: "cover", animation: "1s ease-out 0s 1 slideInLeft", borderRadius: "8px", boxShadow: "0 4px 8px rgba(0,0,0,0.1)" }}
-            alt={imageAltText}
-          />
-        </div>
-        <div className="container">
-          {projectList.map((project) => (
-            <div className="box" key={project.title}>
-              <a href={project.url} target="_blank" rel="noopener noreferrer">
-                <h3 style={{ flexBasis: "40px" }}>{project.title}</h3>
-              </a>
-              <p className="small">{project.description}</p>
+    <section id="portfolio" className="section section-dark">
+      <div className="container">
+        <h2 className="text-center">My Portfolio</h2>
+        <p className="lead text-center" style={{ marginBottom: "3rem" }}>
+          Here are some of my recent projects that showcase my skills and experience
+        </p>
+        
+        <div className="grid-3">
+          {projects.map((project, index) => (
+            <div className="portfolio-item" key={index}>
+              <img 
+                src={project.image} 
+                alt={project.title} 
+                className="portfolio-img"
+              />
+              <div className="portfolio-overlay">
+                <h3 className="portfolio-title">{project.title}</h3>
+                <div className="portfolio-category">{project.category}</div>
+                <a href={project.link} className="btn btn-outline" target="_blank" rel="noopener noreferrer">
+                  View Project
+                </a>
+              </div>
             </div>
           ))}
+        </div>
+        
+        <div className="text-center" style={{ marginTop: "3rem" }}>
+          <a href="/projects.html" className="btn">View All Projects</a>
         </div>
       </div>
     </section>

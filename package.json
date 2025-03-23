@@ -6,8 +6,8 @@
   "homepage": "https://mbashas.github.io",
   "scripts": {
     "start": "parcel",
-    "build": "parcel build src/index.html src/projects.html src/blog.html --dist-dir dist",
-    "build-gh": "parcel build src/index.html src/projects.html src/blog.html --public-url '/mbashas.github.io'",
+    "build": "parcel build src/index.html src/projects.html src/blog.html src/blog-post.html --dist-dir dist",
+    "build-gh": "parcel build src/index.html src/projects.html src/blog.html src/blog-post.html --public-url '/mbashas.github.io'",
     "predeploy": "npm run build-gh",
     "deploy": "gh-pages -d dist"
   },
@@ -26,6 +26,7 @@
     "watch": "^0.13.0"
   },
   "devDependencies": {
+    "@parcel/transformer-image": "^2.7.0",
     "eslint": "^8.23.0",
     "eslint-config-prettier": "^8.5.0",
     "eslint-plugin-jsx-a11y": "^6.6.1",
