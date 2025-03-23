@@ -11,6 +11,7 @@ import Footer from "./Components/Footer";
 import Header from "./Components/Header";
 import Home from "./Components/Home";
 import Portfolio from "./Components/Portfolio";
+import Blog from "./Components/Blog";
 import "./styles.css";
 
 /**
@@ -23,6 +24,8 @@ import "./styles.css";
  * If you don't have one of the social sites listed, leave it as an empty string.
  */
 const siteProps = {
+  name: "Seth Mbasha",
+  title: "Software & Hardware Engineer",
   email: "sethmbasha@gmail.com",
   gitHub: "mbashas",
   instagram: "onlymbasha",
@@ -32,16 +35,18 @@ const siteProps = {
   youTube: "mbashaseth",
 };
 
-const primaryColor = "#4E567E";
-const secondaryColor = "#D2F1E4";
+// Avocado-inspired color palette with Kongo influence
+const primaryColor = "#3a5a40"; // Dark avocado green
+const secondaryColor = "#a3b18a"; // Light avocado green
 
 const App = () => {
   return (
     <div id="main">
       <Header />
-      <Home name={siteProps.name} title={siteProps.title} />
+      <Home name="Seth Mbasha" title="Computer Science Student & Embedded Systems Enthusiast" />
       <About />
       <Portfolio />
+      <Blog />
       <Footer {...siteProps} primaryColor={primaryColor} secondaryColor={secondaryColor} />
     </div>
   );

@@ -1,24 +1,24 @@
 {
-  "name": "Seth - Portofolio",
+  "name": "seth-portfolio",
   "version": "1.0.0",
-  "description": "Seth - Portofolio",
+  "description": "Seth Mbasha - Portfolio Site",
   "source": "src/index.html",
   "homepage": "https://mbashas.github.io",
   "scripts": {
     "start": "parcel",
-    "build": "parcel build src/index.html src/projects.html --dist-dir dist",
-    "build-gh": "parcel build src/index.html src/projects.html --public-url '/mbashas.github.io'",
+    "build": "parcel build src/index.html src/projects.html src/blog.html --dist-dir dist",
+    "build-gh": "parcel build src/index.html src/projects.html src/blog.html --public-url '/mbashas.github.io'",
     "predeploy": "npm run build-gh",
     "deploy": "gh-pages -d dist"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/microsoft/codespaces-teaching-template-js.git"
+    "url": "git+https://github.com/mbashas/mbashas.github.io.git"
   },
-  "author": "Microsoft",
+  "author": "Seth Mbasha",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/microsoft/codespaces-teaching-template-js/issues"
+    "url": "https://github.com/mbashas/mbashas.github.io/issues"
   },
   "dependencies": {
     "react": "^18.2.0",

@@ -31,11 +31,25 @@ const imageAltText = "desktop with books and laptop";
  */
 const projectList = [
   {
-    title: "Leading into the Age of AI | Innosight",
-    description:"Leadership alignment relating to AI must start with a shared foundational understanding and common language of AI, which makes it possible for leaders to engage.",
-    url: "https://www.innosight.com/wp-content/uploads/2023/10/Innosight_Leading-into-the-Age-of-AI.pdf",
+    title: "Smart Home Security System",
+    description: "Built an embedded system prototype integrating ultrasonic and LDR sensors with an Arduino microcontroller to detect intruders, programmed in C/C++ for sensor readings.",
+    url: "https://github.com/mbashas/smart-home-security",
   },
- 
+  {
+    title: "Fake News Detection in Luganda",
+    description: "Implementing a machine learning model to detect and classify misinformation in the Luganda language, exploring approaches for model optimization.",
+    url: "https://github.com/mbashas/luganda-fake-news-detection",
+  },
+  {
+    title: "Campus Food Management System",
+    description: "Collaborated on an embedded-systems project to streamline campus restaurant operations by designing microcontroller logic to automate order placements.",
+    url: "https://github.com/mbashas/campus-food-management",
+  },
+  {
+    title: "EY Data Challenge – Urban Heat Island Prediction",
+    description: "Designing a machine learning model to pinpoint urban heat island hotspots, leveraging geospatial data and analytics to help city planners.",
+    url: "https://github.com/mbashas/urban-heat-island",
+  },
 ];
 
 const Portfolio = () => {
@@ -46,7 +60,7 @@ const Portfolio = () => {
         <div style={{ maxWidth: "40%", alignSelf: "center" }}>
           <img
             src={image}
-            style={{ height: "90%", width: "100%", objectFit: "cover" }}
+            style={{ height: "90%", width: "100%", objectFit: "cover", animation: "1s ease-out 0s 1 slideInLeft", borderRadius: "8px", boxShadow: "0 4px 8px rgba(0,0,0,0.1)" }}
             alt={imageAltText}
           />
         </div>

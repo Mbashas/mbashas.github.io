@@ -24,7 +24,7 @@ const imageAltText = "purple and blue abstract background";
  * Sort description that expands on your title on the Home component.
  */
 const description =
-  "Curious and resourceful computer science student with leadership experience in AIESEC. Skilled in embedded systems, microcontroller programming, and machine learning projects. Passionate about leveraging tech for research and innovation, while mentoring peers and spearheading initiatives that drive positive change. Eager to learn, grow, and contribute.";
+  "Results-oriented Computer Science student with a strong ability to tackle challenges and excel in various domains. Experienced in software engineering, embedded systems, microcontroller programming, and machine learning. I draw inspiration from ancient African wisdom, particularly the Kongo civilization, applying their principles of community and harmony to modern technology.";
 
 /**
  * List of some of skills or technologies you work on, are learning,
@@ -45,7 +45,7 @@ const skillsList = [
  * about you on a professional level.
  */
 const detailOrQuote =
-  "Innovation thrives at the intersection of technical expertise and visionary leadership. Embrace every challenge as a pathway to success.";
+  "I believe in the ancient Kongo philosophy of 'muntu' - we're connected to one another through our shared humanity. This influences how I approach technology: not just as tools, but as bridges between people and possibilities. Innovation thrives at the intersection of technical expertise and visionary leadership, where ancient wisdom meets modern solutions.";
 
 const About = () => {
   return (
@@ -58,6 +58,9 @@ const About = () => {
           padding: "4rem",
           margin: "3rem auto",
           textAlign: "center",
+          borderRadius: "10px",
+          boxShadow: "0 4px 8px rgba(0,0,0,0.1)",
+          border: "1px solid #e0e0e0"
         }}
       >
         <h2>About Myself</h2>
@@ -79,8 +82,8 @@ const About = () => {
         <hr />
         <p style={{ padding: "1rem 3rem 0" }}>{detailOrQuote}</p>
       </div>
-      <div style={{ backgroundColor: "white", padding: "2rem", margin: "2rem auto", maxWidth: "900px" }}>
-        <h2 style={{ textAlign: "center", color: "#4E567E", marginBottom: "1.5rem" }}>Skills</h2>
+      <div style={{ backgroundColor: "white", padding: "2rem", margin: "2rem auto", maxWidth: "900px", borderRadius: "10px", boxShadow: "0 4px 8px rgba(0,0,0,0.1)" }}>
+        <h2 style={{ textAlign: "center", color: "#3a5a40", marginBottom: "1.5rem" }}>Skills</h2>
         <div style={{
           display: "flex",
           flexWrap: "wrap",
@@ -89,13 +92,14 @@ const About = () => {
         }}>
           <div style={{
             flex: "1 1 300px",
-            background: "#f9f9f9",
+            background: "#f9f9f0",
             borderRadius: "8px",
             boxShadow: "0 2px 6px rgba(0,0,0,0.1)",
             padding: "1.5rem",
-            textAlign: "center"
+            textAlign: "center",
+            border: "1px solid #e0e0e0"
           }}>
-            <h3 style={{ color: "#4E567E" }}>Embedded Systems</h3>
+            <h3 style={{ color: "#3a5a40" }}>Embedded Systems</h3>
             <ul style={{ listStyleType: "none", padding: 0 }}>
               <li>Microcontroller Programming</li>
               <li>Real-time Systems</li>
@@ -106,13 +110,14 @@ const About = () => {
           </div>
           <div style={{
             flex: "1 1 300px",
-            background: "#f9f9f9",
+            background: "#f9f9f0",
             borderRadius: "8px",
             boxShadow: "0 2px 6px rgba(0,0,0,0.1)",
             padding: "1.5rem",
-            textAlign: "center"
+            textAlign: "center",
+            border: "1px solid #e0e0e0"
           }}>
-            <h3 style={{ color: "#4E567E" }}>Machine Learning</h3>
+            <h3 style={{ color: "#3a5a40" }}>Machine Learning</h3>
             <ul style={{ listStyleType: "none", padding: 0 }}>
               <li>Neural Networks</li>
               <li>Deep Learning</li>
@@ -123,13 +128,14 @@ const About = () => {
           </div>
           <div style={{
             flex: "1 1 300px",
-            background: "#f9f9f9",
+            background: "#f9f9f0",
             borderRadius: "8px",
             boxShadow: "0 2px 6px rgba(0,0,0,0.1)",
             padding: "1.5rem",
-            textAlign: "center"
+            textAlign: "center",
+            border: "1px solid #e0e0e0"
           }}>
-            <h3 style={{ color: "#4E567E" }}>Data Analysis</h3>
+            <h3 style={{ color: "#3a5a40" }}>Data Analysis</h3>
             <ul style={{ listStyleType: "none", padding: 0 }}>
               <li>Python/Pandas</li>
               <li>Data Visualization</li>

@@ -23,8 +23,13 @@ const links = [
     external: false
   },
   {
+    name: "Blog",
+    to: "#blog",
+    external: false
+  },
+  {
     name: "Projects",
-    to: "/projects.html",  // Update path
+    to: "/projects.html",
     external: false
   }
 ];
