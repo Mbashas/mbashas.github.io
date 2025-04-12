@@ -5,7 +5,7 @@
  * open source contributions, articles you've written and more.
  */
 
-import React, { useState } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import { useInView } from "react-intersection-observer";
 
 const Portfolio = () => {
@@ -15,6 +15,9 @@ const Portfolio = () => {
   });
   
   const [activeCategory, setActiveCategory] = useState("All");
+  const [hoveredProject, setHoveredProject] = useState(null);
+  const filterLineRef = useRef(null);
+  const filterBtnsRef = useRef([]);
   
   const projects = [
     {
@@ -67,10 +70,27 @@ const Portfolio = () => {
     ? projects 
     : projects.filter(project => project.category === activeCategory);
 
+  // Handle category change and animated filter indicator
+  useEffect(() => {
+    if (filterLineRef.current && filterBtnsRef.current.length > 0) {
+      const activeBtn = filterBtnsRef.current.find(btn => 
+        btn && btn.textContent === activeCategory
+      );
+      
+      if (activeBtn) {
+        const { offsetLeft, offsetWidth } = activeBtn;
+        filterLineRef.current.style.width = `${offsetWidth}px`;
+        filterLineRef.current.style.left = `${offsetLeft}px`;
+      }
+    }
+  }, [activeCategory]);
+
   return (
     <section id="portfolio" className="portfolio-section" ref={ref}>
       <div className="lightning-background">
         <div className="lightning-glow"></div>
+        <div className="lightning-glow secondary"></div>
+        <div className="grid-pattern"></div>
       </div>
       
       <div className="container">
@@ -83,15 +103,19 @@ const Portfolio = () => {
         </div>
         
         <div className={`portfolio-filter ${inView ? 'animate-fade-in' : ''}`}>
-          {categories.map((category, index) => (
-            <button 
-              key={index}
-              className={`filter-btn ${category === activeCategory ? 'active' : ''}`}
-              onClick={() => setActiveCategory(category)}
-            >
-              {category}
-            </button>
-          ))}
+          <div className="filter-container">
+            {categories.map((category, index) => (
+              <button 
+                key={index}
+                ref={el => filterBtnsRef.current[index] = el}
+                className={`filter-btn ${category === activeCategory ? 'active' : ''}`}
+                onClick={() => setActiveCategory(category)}
+              >
+                {category}
+              </button>
+            ))}
+            <div className="filter-active-indicator" ref={filterLineRef}></div>
+          </div>
         </div>
         
         <div className="portfolio-bento">
@@ -100,21 +124,43 @@ const Portfolio = () => {
               className={`portfolio-item ${inView ? 'animate-in' : ''}`} 
               key={index}
               style={{ animationDelay: `${index * 0.1}s` }}
+              onMouseEnter={() => setHoveredProject(index)}
+              onMouseLeave={() => setHoveredProject(null)}
             >
-              <div className="portfolio-item-inner">
+              <div 
+                className="portfolio-item-inner"
+                style={{
+                  transform: hoveredProject === index ? 'scale(1.03) translateY(-10px)' : 'scale(1) translateY(0)'
+                }}
+              >
                 <div className="portfolio-img-container">
+                  <div className="card-shine"></div>
                   <img 
                     src={project.image} 
                     alt={project.title} 
                     className="portfolio-img" 
                   />
-                  <div className="portfolio-overlay">
+                  <div 
+                    className={`portfolio-overlay ${hoveredProject === index ? 'active' : ''}`}
+                  >
                     <div className="portfolio-category">{project.category}</div>
                     <h3 className="portfolio-title">{project.title}</h3>
                     <p className="portfolio-description">{project.description}</p>
-                    <a href={project.link} className="portfolio-link" target="_blank" rel="noopener noreferrer">
+                    <a 
+                      href={project.link} 
+                      className="portfolio-link" 
+                      target="_blank" 
+                      rel="noopener noreferrer"
+                    >
                       View Project
-                      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <svg 
+                        className="link-arrow" 
+                        width="20" 
+                        height="20" 
+                        viewBox="0 0 24 24" 
+                        fill="none" 
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
                         <path d="M7 17L17 7" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
                         <path d="M7 7H17V17" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
                       </svg>
@@ -127,8 +173,12 @@ const Portfolio = () => {
         </div>
         
         <div className={`portfolio-cta ${inView ? 'animate-fade-in' : ''}`}>
-          <a href="/projects.html" className="btn btn-primary">
-            View All Projects
+          <a href="/projects.html" className="btn-view-all">
+            <span>View All Projects</span>
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M5 12H19" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+              <path d="M12 5L19 12L12 19" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+            </svg>
           </a>
         </div>
       </div>

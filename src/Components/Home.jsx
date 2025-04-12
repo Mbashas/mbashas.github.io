@@ -5,13 +5,15 @@
  * choice, name and title that describes your career focus.
  */
 
-import React, { useEffect, useRef } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import PropTypes from "prop-types";
 
 const Home = ({ name, title }) => {
   const nameRef = useRef(null);
   const titleRef = useRef(null);
   const subtitleRef = useRef(null);
+  const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
+  const [isHovered, setIsHovered] = useState(false);
   
   useEffect(() => {
     // Text reveal animation on load
@@ -39,14 +41,40 @@ const Home = ({ name, title }) => {
         subtitleElement.style.transform = "translateY(0)";
       }, 1300);
     }
+    
+    // Add mouse move event for 3D parallax effect
+    const handleMouseMove = (event) => {
+      const { clientX, clientY } = event;
+      const { innerWidth, innerHeight } = window;
+      const x = (clientX / innerWidth - 0.5) * 20;
+      const y = (clientY / innerHeight - 0.5) * 20;
+      setMousePosition({ x, y });
+    };
+    
+    window.addEventListener('mousemove', handleMouseMove);
+    
+    return () => {
+      window.removeEventListener('mousemove', handleMouseMove);
+    };
   }, []);
 
   return (
     <section id="home" className="hero">
-      <div className="hero-background"></div>
+      <div className="hero-background">
+        <div className="hero-pattern"></div>
+        <div className="hero-glow"></div>
+      </div>
       
       <div className="container">
-        <div className="hero-content">
+        <div 
+          className="hero-content" 
+          style={{
+            transform: `perspective(1000px) rotateX(${mousePosition.y * 0.015}deg) rotateY(${-mousePosition.x * 0.015}deg)`,
+            transition: isHovered ? 'transform 0.1s ease-out' : 'transform 0.5s ease-out'
+          }}
+          onMouseEnter={() => setIsHovered(true)}
+          onMouseLeave={() => setIsHovered(false)}
+        >
           <h1 ref={nameRef} className="hero-name">
             <span className="text-red">{name.split(' ')[0]}</span>
             <span className="text-white">{name.split(' ')[1]}</span>
@@ -61,8 +89,18 @@ const Home = ({ name, title }) => {
           </p>
           
           <div className="hero-buttons">
-            <a href="#portfolio" className="btn btn-primary">View My Work</a>
-            <a href="#contact" className="btn btn-outline">Get In Touch</a>
+            <a href="#portfolio" className="btn btn-primary">
+              <span className="btn-text">View My Work</span>
+              <span className="btn-icon">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M5 12H19" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                  <path d="M12 5L19 12L12 19" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                </svg>
+              </span>
+            </a>
+            <a href="#contact" className="btn btn-outline">
+              <span className="btn-text">Get In Touch</span>
+            </a>
           </div>
         </div>
       </div>
