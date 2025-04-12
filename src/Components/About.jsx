@@ -4,7 +4,8 @@
  * Space for you to describe more about yourself.
  */
 
-import React from "react";
+import React, { useEffect, useRef } from "react";
+import { useInView } from "react-intersection-observer";
 
 /**
  * About background image
@@ -21,102 +22,77 @@ import image from "../images/motion-background.jpg";
 const imageAltText = "purple and blue abstract background";
 
 const About = () => {
+  const { ref: sectionRef, inView } = useInView({
+    threshold: 0.1,
+    triggerOnce: true
+  });
+  
   const skills = [
-    "Embedded Systems",
-    "Machine Learning",
-    "Data Analysis",
-    "Leadership",
-    "Project Management",
-    "Backend Development",
-    "IoT Development",
-    "Hardware Interfacing"
+    { category: "Programming", items: ["C/C++", "Python", "JavaScript", "Java"] },
+    { category: "Embedded Systems", items: ["Arduino", "Raspberry Pi", "ESP32", "Microcontrollers"] },
+    { category: "Machine Learning", items: ["TensorFlow", "PyTorch", "Data Analysis", "NLP"] },
+    { category: "Web Development", items: ["React", "Node.js", "HTML/CSS", "RESTful APIs"] }
+  ];
+  
+  const education = [
+    {
+      degree: "Bachelor of Science in Computer Science",
+      institution: "Makerere University",
+      period: "2020 - 2024",
+      description: "Focused on embedded systems, artificial intelligence, and software engineering."
+    }
   ];
 
   return (
-    <section id="about" className="section">
+    <section id="about" className="section-about" ref={sectionRef}>
       <div className="container">
-        <div className="grid-2">
-          <div>
-            <h2>About Me</h2>
-            <p className="lead">
-              Results-oriented Computer Science student with a strong ability to tackle challenges and excel in various domains.
-            </p>
-            
-            <p>
-              I'm experienced in software engineering, embedded systems, microcontroller programming, and machine learning. 
-              I draw inspiration from ancient African wisdom, particularly the Kongo civilization, applying their principles
-              of community and harmony to modern technology development.
-            </p>
-            
-            <p>
-              I believe in the ancient Kongo philosophy of 'muntu' - we're connected to one another through our shared humanity. 
-              This influences how I approach technology: not just as tools, but as bridges between people and possibilities. 
-              Innovation thrives at the intersection of technical expertise and visionary leadership, where ancient wisdom meets modern solutions.
-            </p>
-            
-            <ul className="skills-list">
-              {skills.map((skill, index) => (
-                <li key={index}>{skill}</li>
-              ))}
-            </ul>
-            
-            <a href="/resume.pdf" className="btn" target="_blank" rel="noopener noreferrer">
-              Download CV
-            </a>
-          </div>
-          
-          <div className="flex-center">
-            <img 
-              src="https://images.unsplash.com/photo-1629904853716-f0bc54eea481?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80" 
-              alt="Seth Mbasha" 
-              className="about-img"
-            />
-          </div>
+        <div className={`section-header ${inView ? 'animate-fade-in' : ''}`}>
+          <h2 className="section-title">About Me</h2>
+          <div className="section-title-underline"></div>
         </div>
-      </div>
-      
-      <div className="kongo-divider"></div>
-      
-      <div className="container">
-        <h3 className="text-center" style={{ marginBottom: "3rem" }}>My Expertise</h3>
         
-        <div className="grid-3">
-          <div className="card">
-            <div className="card-body">
-              <h3>Embedded Systems</h3>
-              <ul style={{ listStyleType: "none", paddingLeft: 0 }}>
-                <li>Microcontroller Programming</li>
-                <li>Real-time Systems</li>
-                <li>IoT Development</li>
-                <li>Hardware Interfacing</li>
-                <li>Firmware Development</li>
-              </ul>
-            </div>
+        <div className="about-content">
+          <div className={`about-text morphism-card ${inView ? 'animate-fade-in-left' : ''}`}>
+            <p className="about-description">
+              I'm a Computer Science student with a passion for embedded systems and machine learning. 
+              My journey bridges traditional wisdom with modern technology, creating innovative solutions 
+              for real-world challenges.
+            </p>
+            <p className="about-quote">
+              "Technology should be a tool for empowerment, connecting communities and solving problems 
+              that matter. My goal is to build systems that make a meaningful difference in people's lives."
+            </p>
           </div>
           
-          <div className="card">
-            <div className="card-body">
-              <h3>Machine Learning</h3>
-              <ul style={{ listStyleType: "none", paddingLeft: 0 }}>
-                <li>Neural Networks</li>
-                <li>Deep Learning</li>
-                <li>Computer Vision</li>
-                <li>TensorFlow/PyTorch</li>
-                <li>Model Deployment</li>
-              </ul>
+          <div className={`bento-grid ${inView ? 'animate-fade-in-right' : ''}`}>
+            {/* Education Card */}
+            <div className="bento-item education-card">
+              <h3>Education</h3>
+              {education.map((item, index) => (
+                <div className="education-item" key={index}>
+                  <div className="education-period">{item.period}</div>
+                  <h4 className="education-degree">{item.degree}</h4>
+                  <div className="education-institution">{item.institution}</div>
+                  <p className="education-description">{item.description}</p>
+                </div>
+              ))}
             </div>
-          </div>
-          
-          <div className="card">
-            <div className="card-body">
-              <h3>Data Analysis</h3>
-              <ul style={{ listStyleType: "none", paddingLeft: 0 }}>
-                <li>Python/Pandas</li>
-                <li>Data Visualization</li>
-                <li>Statistical Analysis</li>
-                <li>Data Processing</li>
-                <li>Predictive Modeling</li>
-              </ul>
+            
+            {/* Skills Card */}
+            <div className="bento-item skills-card">
+              <h3>Skills</h3>
+              <div className="skills-grid">
+                {skills.map((skillGroup, index) => (
+                  <div className="skill-category" key={index}>
+                    <h4 className="skill-category-title">{skillGroup.category}</h4>
+                    <ul className="skill-list">
+                      {skillGroup.items.map((skill, skillIndex) => (
+                        <li key={skillIndex} className="skill-item">{skill}</li>
+                      ))}
+                    </ul>
+                  </div>
+                ))}
+              </div>
             </div>
           </div>
         </div>

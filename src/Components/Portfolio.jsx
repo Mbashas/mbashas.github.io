@@ -1,84 +1,135 @@
 /**
  * Portfolio component
  *
- * Highlights some of  your creations. These can be designs, websites,
+ * Highlights some of your creations. These can be designs, websites,
  * open source contributions, articles you've written and more.
- *
- * This is a great area for you to to continually add to and refine
- * as you continue to learn and create.
  */
 
-import React from "react";
+import React, { useState } from "react";
+import { useInView } from "react-intersection-observer";
 
 const Portfolio = () => {
+  const { ref, inView } = useInView({
+    threshold: 0.1,
+    triggerOnce: true
+  });
+  
+  const [activeCategory, setActiveCategory] = useState("All");
+  
   const projects = [
     {
       title: "Smart Home Security System",
       category: "Embedded Systems",
       image: "https://images.unsplash.com/photo-1558959356-2d5b3b3b2b2b?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60",
-      link: "https://github.com/mbashas/smart-home-security"
+      link: "https://github.com/mbashas/smart-home-security",
+      description: "IoT-based security system using sensors and real-time monitoring"
     },
     {
       title: "Fake News Detection in Luganda",
       category: "Machine Learning",
       image: "https://images.unsplash.com/photo-1504711434969-e33886168f5c?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60",
-      link: "https://github.com/mbashas/luganda-fake-news-detection"
+      link: "https://github.com/mbashas/luganda-fake-news-detection",
+      description: "NLP model for detecting misinformation in local language content"
     },
     {
       title: "Campus Food Management System",
       category: "Embedded Systems",
       image: "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60",
-      link: "https://github.com/mbashas/campus-food-management"
+      link: "https://github.com/mbashas/campus-food-management",
+      description: "Automated inventory and ordering system for campus dining"
     },
     {
       title: "Urban Heat Island Prediction",
       category: "Data Analysis",
       image: "https://images.unsplash.com/photo-1477959858617-67f85cf4f1df?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60",
-      link: "https://github.com/mbashas/urban-heat-island"
+      link: "https://github.com/mbashas/urban-heat-island",
+      description: "Predictive model for urban temperature patterns using satellite data"
     },
     {
       title: "Big Data Analytics & Mining",
       category: "Data Science",
       image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60",
-      link: "#"
+      link: "#",
+      description: "Processing large datasets to extract meaningful insights"
     },
     {
       title: "IoT Weather Station",
       category: "Embedded Systems",
       image: "https://images.unsplash.com/photo-1492011221367-f47e3ccd77a0?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60",
-      link: "#"
+      link: "#",
+      description: "Solar-powered weather monitoring using distributed sensors"
     }
   ];
+  
+  const categories = ["All", ...new Set(projects.map(project => project.category))];
+  
+  const filteredProjects = activeCategory === "All" 
+    ? projects 
+    : projects.filter(project => project.category === activeCategory);
 
   return (
-    <section id="portfolio" className="section section-dark">
+    <section id="portfolio" className="portfolio-section" ref={ref}>
+      <div className="lightning-background">
+        <div className="lightning-glow"></div>
+      </div>
+      
       <div className="container">
-        <h2 className="text-center">My Portfolio</h2>
-        <p className="lead text-center" style={{ marginBottom: "3rem" }}>
-          Here are some of my recent projects that showcase my skills and experience
-        </p>
+        <div className={`section-header ${inView ? 'animate-fade-in' : ''}`}>
+          <h2 className="section-title">My Projects</h2>
+          <div className="section-title-underline"></div>
+          <p className="section-subtitle">
+            Explore my latest work spanning embedded systems, machine learning, and more
+          </p>
+        </div>
         
-        <div className="grid-3">
-          {projects.map((project, index) => (
-            <div className="portfolio-item" key={index}>
-              <img 
-                src={project.image} 
-                alt={project.title} 
-                className="portfolio-img"
-              />
-              <div className="portfolio-overlay">
-                <h3 className="portfolio-title">{project.title}</h3>
-                <div className="portfolio-category">{project.category}</div>
-                <a href={project.link} className="btn btn-outline" target="_blank" rel="noopener noreferrer">
-                  View Project
-                </a>
+        <div className={`portfolio-filter ${inView ? 'animate-fade-in' : ''}`}>
+          {categories.map((category, index) => (
+            <button 
+              key={index}
+              className={`filter-btn ${category === activeCategory ? 'active' : ''}`}
+              onClick={() => setActiveCategory(category)}
+            >
+              {category}
+            </button>
+          ))}
+        </div>
+        
+        <div className="portfolio-bento">
+          {filteredProjects.map((project, index) => (
+            <div 
+              className={`portfolio-item ${inView ? 'animate-in' : ''}`} 
+              key={index}
+              style={{ animationDelay: `${index * 0.1}s` }}
+            >
+              <div className="portfolio-item-inner">
+                <div className="portfolio-img-container">
+                  <img 
+                    src={project.image} 
+                    alt={project.title} 
+                    className="portfolio-img" 
+                  />
+                  <div className="portfolio-overlay">
+                    <div className="portfolio-category">{project.category}</div>
+                    <h3 className="portfolio-title">{project.title}</h3>
+                    <p className="portfolio-description">{project.description}</p>
+                    <a href={project.link} className="portfolio-link" target="_blank" rel="noopener noreferrer">
+                      View Project
+                      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M7 17L17 7" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                        <path d="M7 7H17V17" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                      </svg>
+                    </a>
+                  </div>
+                </div>
               </div>
             </div>
           ))}
         </div>
         
-        <div className="text-center" style={{ marginTop: "3rem" }}>
-          <a href="/projects.html" className="btn">View All Projects</a>
+        <div className={`portfolio-cta ${inView ? 'animate-fade-in' : ''}`}>
+          <a href="/projects.html" className="btn btn-primary">
+            View All Projects
+          </a>
         </div>
       </div>
     </section>
