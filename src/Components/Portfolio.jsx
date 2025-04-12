@@ -25,7 +25,7 @@ const Portfolio = () => {
       category: "Embedded Systems",
       image: "https://images.unsplash.com/photo-1558959356-2d5b3b3b2b2b?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60",
       link: "https://github.com/mbashas/smart-home-security",
-      description: "IoT-based security system using sensors and real-time monitoring"
+      description: "IoT-based security system using sensors and real-time monitoring 🛡️"
     },
     {
       title: "Fake News Detection in Luganda",
@@ -39,7 +39,7 @@ const Portfolio = () => {
       category: "Embedded Systems",
       image: "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60",
       link: "https://github.com/mbashas/campus-food-management",
-      description: "Automated inventory and ordering system for campus dining"
+      description: "Automated inventory and ordering system for campus dining 🍲"
     },
     {
       title: "Urban Heat Island Prediction",
@@ -60,7 +60,7 @@ const Portfolio = () => {
       category: "Embedded Systems",
       image: "https://images.unsplash.com/photo-1492011221367-f47e3ccd77a0?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60",
       link: "#",
-      description: "Solar-powered weather monitoring using distributed sensors"
+      description: "Solar-powered weather monitoring using distributed sensors ☁️"
     }
   ];
   
@@ -95,7 +95,7 @@ const Portfolio = () => {
       
       <div className="container">
         <div className={`section-header ${inView ? 'animate-fade-in' : ''}`}>
-          <h2 className="section-title">My Projects</h2>
+          <h2 className="section-title">My Artifacts</h2>
           <div className="section-title-underline"></div>
           <p className="section-subtitle">
             Explore my latest work spanning embedded systems, machine learning, and more
@@ -152,7 +152,7 @@ const Portfolio = () => {
                       target="_blank" 
                       rel="noopener noreferrer"
                     >
-                      View Project
+                      View Artifact
                       <svg 
                         className="link-arrow" 
                         width="20" 
@@ -174,7 +174,7 @@ const Portfolio = () => {
         
         <div className={`portfolio-cta ${inView ? 'animate-fade-in' : ''}`}>
           <a href="/projects.html" className="btn-view-all">
-            <span>View All Projects</span>
+            <span>Explore the Archives</span>
             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
               <path d="M5 12H19" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
               <path d="M12 5L19 12L12 19" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>

@@ -76,7 +76,7 @@ const About = () => {
               <p className="about-description">
                 I'm a Computer Science student with a passion for embedded systems and machine learning. 
                 My journey bridges traditional wisdom with modern technology, creating innovative solutions 
-                for real-world challenges.
+                for real-world challenges. 🧠⚙️
               </p>
               <p className="about-quote">
                 "Technology should be a tool for empowerment, connecting communities and solving problems 
@@ -92,8 +92,8 @@ const About = () => {
               <h3>Education</h3>
               {education.map((item, index) => (
                 <div className="education-item" key={index}>
+                  <div className="period-icon"></div>
                   <div className="education-period">
-                    <span className="period-icon"></span>
                     {item.period}
                   </div>
                   <h4 className="education-degree">{item.degree}</h4>

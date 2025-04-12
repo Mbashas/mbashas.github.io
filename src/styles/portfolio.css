@@ -290,13 +290,16 @@
 }
 
 .portfolio-title {
-  color: var(--color-white);
+  color: var(--color-parchment);
   font-size: 1.4rem;
   margin-bottom: 8px;
   font-weight: 700;
   opacity: 0;
   transform: translateY(10px);
   transition: all 0.3s ease 0.2s;
+  font-family: var(--font-secondary);
+  border-left: 2px solid var(--color-terracotta);
+  padding-left: 10px;
 }
 
 .portfolio-overlay.active .portfolio-title {
@@ -305,7 +308,7 @@
 }
 
 .portfolio-description {
-  color: var(--color-white-dim);
+  color: var(--color-stone);
   font-size: 0.95rem;
   margin-bottom: 15px;
   line-height: 1.5;
@@ -315,26 +318,28 @@
 }
 
 .portfolio-overlay.active .portfolio-description {
-  opacity: 0.8;
+  opacity: 0.9;
   transform: translateY(0);
 }
 
-/* Enhanced Interactive Link */
+/* Enhanced Interactive Link with Historical Style */
 .portfolio-link {
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  color: var(--color-white);
+  color: var(--color-parchment);
   font-size: 0.95rem;
   font-weight: 600;
   text-decoration: none;
   transition: all 0.3s ease;
   width: fit-content;
   padding: 5px 0;
-  border-bottom: 2px solid var(--color-red);
+  border-bottom: 2px solid var(--color-terracotta);
   opacity: 0;
   transform: translateY(10px);
   transition: all 0.3s ease 0.4s;
+  font-family: var(--font-secondary);
+  letter-spacing: 0.5px;
 }
 
 .portfolio-overlay.active .portfolio-link {
@@ -343,7 +348,7 @@
 }
 
 .portfolio-link:hover {
-  color: var(--color-red-light);
+  color: var(--color-terracotta-light);
   transform: translateX(5px);
   transition: all 0.3s ease 0s;
 }
@@ -356,7 +361,7 @@
   transform: translate(3px, -3px);
 }
 
-/* Enhanced CTA Section */
+/* Enhanced CTA Section with Historical Styling */
 .portfolio-cta {
   text-align: center;
   margin-top: var(--space-xl);
@@ -376,9 +381,9 @@
   align-items: center;
   gap: 10px;
   background: transparent;
-  color: var(--color-white);
-  border: 2px solid var(--color-red);
-  border-radius: 30px;
+  color: var(--color-parchment);
+  border: 2px solid var(--color-terracotta);
+  border-radius: 2px;
   padding: 12px 28px;
   font-size: 1rem;
   font-weight: 600;
@@ -387,6 +392,9 @@
   position: relative;
   overflow: hidden;
   z-index: 1;
+  font-family: var(--font-secondary);
+  letter-spacing: 1px;
+  text-transform: uppercase;
 }
 
 .btn-view-all::before {
@@ -396,7 +404,7 @@
   left: 0;
   width: 100%;
   height: 100%;
-  background: var(--color-red);
+  background: var(--color-terracotta);
   transform: scaleX(0);
   transform-origin: right;
   transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
@@ -404,9 +412,9 @@
 }
 
 .btn-view-all:hover {
-  color: var(--color-white);
+  color: var(--color-parchment);
   transform: translateY(-5px);
-  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2), 0 0 0 1px rgba(200, 85, 61, 0.1);
 }
 
 .btn-view-all:hover::before {
@@ -420,6 +428,18 @@
 
 .btn-view-all:hover svg {
   transform: translateX(5px);
+}
+
+/* Add fade-in animation */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 /* Media query for reduced motion */
@@ -470,7 +490,7 @@
   }
   
   .filter-btn.active {
-    background-color: var(--color-red);
+    background-color: var(--color-terracotta);
   }
 }
 

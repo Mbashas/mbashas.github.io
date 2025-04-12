@@ -85,7 +85,7 @@ const Home = ({ name, title }) => {
           </p>
           
           <p ref={subtitleRef} className="hero-subtitle">
-            Combining ancient African wisdom with modern technology to build innovative solutions for tomorrow's challenges.
+            Combining ancient African wisdom with modern technology to build innovative solutions for tomorrow's challenges. 🏛️✨
           </p>
           
           <div className="hero-buttons">

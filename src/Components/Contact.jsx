@@ -60,7 +60,7 @@ const Contact = () => {
       
       <div className="container">
         <div className={`section-header ${inView ? 'animate-fade-in' : ''}`}>
-          <h2 className="section-title">Get In Touch</h2>
+          <h2 className="section-title">Correspondence</h2>
           <div className="section-title-underline"></div>
           <p className="section-subtitle">
             Have a question or want to work together? Reach out below.
@@ -71,7 +71,7 @@ const Contact = () => {
           <div className={`contact-info ${inView ? 'animate-fade-in-left' : ''}`}>
             <div className="contact-card">
               <div className="card-glow"></div>
-              <h3 className="contact-card-title">Contact Information</h3>
+              <h3 className="contact-card-title">Contact Details</h3>
               
               <div className="contact-methods">
                 <div className="contact-method">
@@ -97,7 +97,7 @@ const Contact = () => {
                   </div>
                   <div className="contact-text">
                     <h4>Working Hours</h4>
-                    <p>Monday - Friday, 9AM - 5PM (EAT)</p>
+                    <p>Monday - Friday, 9AM - 5PM (EAT) ⏰</p>
                   </div>
                 </div>
                 
@@ -147,7 +147,7 @@ const Contact = () => {
                   </svg>
                 </div>
                 <h3>Message Sent!</h3>
-                <p>Thank you for reaching out. I'll get back to you shortly.</p>
+                <p>Thank you for your correspondence. I shall reply with haste. 📜✨</p>
                 <div className="success-glow"></div>
               </div>
             ) : (
