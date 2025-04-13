@@ -9,7 +9,7 @@ import Contact from '../Components/Contact';
 const HomePage = () => {
   const siteProps = {
     name: "Seth Mbasha",
-    title: "Computer Science Student & Embedded Systems Enthusiast"
+    title: "Computer Science Student | Embedded Systems | Machine Learning",
   };
 
   return (

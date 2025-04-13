@@ -163,26 +163,66 @@
   transform: translateY(0);
 }
 
-/* About Portrait Section with 3D Effects and Styling */
+/* About Portrait Section with Enhanced 3D Effects and Thematic Styling */
 .portrait-frame {
   position: relative;
   width: 100%;
   max-width: 280px;
   height: auto;
-  /* Removed aspect-ratio: 3/4 to fix space below image */
   perspective: 1000px;
   transform-style: preserve-3d;
   transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
   display: inline-block;
-  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3), 0 0 0 1px rgba(200, 85, 61, 0.1);
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3), 0 0 0 1px rgba(200, 85, 61, 0.2);
   border-radius: 3px;
   overflow: hidden;
   transform: rotate(-2deg) perspective(1000px);
   margin: 0;
+  border: 3px solid rgba(200, 85, 61, 0.7);
+}
+
+.portrait-frame::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 4px;
+  background: linear-gradient(to right, 
+    var(--color-terracotta-dark), 
+    var(--color-terracotta), 
+    var(--color-terracotta-light)
+  );
+  opacity: 0.8;
+  transform: scaleX(0.85);
+  transform-origin: center;
+  transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.portrait-frame::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  border-left: 4px solid var(--color-terracotta);
+  opacity: 0.7;
+  z-index: 3;
+  transition: opacity 0.5s ease;
 }
 
 .portrait-frame:hover {
   transform: rotate(0deg) perspective(1000px) translateY(-10px);
+  border-color: rgba(200, 85, 61, 0.9);
+}
+
+.portrait-frame:hover::after {
+  transform: scaleX(1);
+}
+
+.portrait-frame:hover::before {
+  opacity: 0.9;
 }
 
 .about-portrait-image {
@@ -190,14 +230,14 @@
   height: auto;
   display: block;
   object-fit: cover;
-  filter: sepia(20%) contrast(110%) brightness(95%);
-  border-radius: 2px;
+  filter: sepia(25%) contrast(110%) brightness(1.05) saturate(1.15);
+  border-radius: 1px;
   box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3), 0 0 0 1px rgba(200, 85, 61, 0.2);
   transition: all 0.5s ease;
 }
 
 .portrait-frame:hover .about-portrait-image {
-  filter: sepia(10%) contrast(115%) brightness(100%);
+  filter: sepia(15%) contrast(115%) brightness(1.1) saturate(1.25);
   transform: scale(1.04);
 }
 
@@ -930,6 +970,15 @@
   
   .timeline-item:hover .timeline-content {
     transform: none;
+  }
+  
+  .portrait-frame:hover .about-portrait-image {
+    transform: none;
+    filter: sepia(25%) contrast(110%) brightness(1.05) saturate(1.15);
+  }
+  
+  .portrait-frame:hover::after {
+    transform: scaleX(0.85);
   }
 }
 

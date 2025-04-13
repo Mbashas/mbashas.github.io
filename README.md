@@ -108,7 +108,7 @@ const siteProps = {
   instagram: "microsoft",
   linkedIn: "satyanadella",
   medium: "",
-  twitter: "microsoft",
+  x: "microsoft",
   youTube: "microsoft",
 };
 ```
