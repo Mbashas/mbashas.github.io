@@ -35104,7 +35104,7 @@ const Footer = ({ name ="Seth Mbasha"  })=>{
                                         }, undefined),
                                         /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("li", {
                                             children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("a", {
-                                                href: "mailto:hello@sethmbasha.com",
+                                                href: "mailto:sethmbashas@gmail.com",
                                                 ...interactiveProps,
                                                 children: [
                                                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("svg", {
@@ -35123,7 +35123,7 @@ const Footer = ({ name ="Seth Mbasha"  })=>{
                                                         lineNumber: 134,
                                                         columnNumber: 19
                                                     }, undefined),
-                                                    "hello@sethmbasha.com"
+                                                    "sethmbashas@gmail.com"
                                                 ]
                                             }, void 0, true, {
                                                 fileName: "src/Components/Footer.jsx",
@@ -35156,7 +35156,7 @@ const Footer = ({ name ="Seth Mbasha"  })=>{
                                                         lineNumber: 142,
                                                         columnNumber: 19
                                                     }, undefined),
-                                                    "+256 778 123 456"
+                                                    "+256 781 347 647"
                                                 ]
                                             }, void 0, true, {
                                                 fileName: "src/Components/Footer.jsx",
@@ -43205,7 +43205,7 @@ const About = ()=>{
     const timelineData = [
         {
             year: "2022",
-            title: "Started Computer Science Journey",
+            title: "Started Computer Science degree",
             institution: "Uganda Christian University",
             description: "Began Bachelor of Science in Computer Science with a focus on embedded systems & robotics.",
             type: "education"
@@ -43213,14 +43213,14 @@ const About = ()=>{
         {
             year: "2023",
             title: "First Embedded Systems Project",
-            institution: "Campus Innovation Lab",
-            description: "Built my first Arduino-based smart home prototype with sensors for temperature, motion, and light control.",
+            institution: "Uganda Industrial Research Institute",
+            description: "Built an Arduino-based smart home prototype with sensors for motion, and light control.",
             type: "project"
         },
         {
             year: "2024",
             title: "Machine Learning Research",
-            institution: "University Research Program",
+            institution: "Research Project",
             description: "Started research on NLP applications for local languages, focusing on Luganda text processing.",
             type: "research"
         },
@@ -45417,9 +45417,9 @@ const Contact = ()=>{
                                                                     columnNumber: 21
                                                                 }, undefined),
                                                                 /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("a", {
-                                                                    href: "mailto:contact@sethmbasha.com",
+                                                                    href: "mailto:sethmbashas@gmail.com",
                                                                     className: "contact-link",
-                                                                    children: "contact@sethmbasha.com"
+                                                                    children: "sethmbashas@gmail.com"
                                                                 }, void 0, false, {
                                                                     fileName: "src/Components/Contact.jsx",
                                                                     lineNumber: 86,
