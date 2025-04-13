@@ -43205,22 +43205,22 @@ const About = ()=>{
     const timelineData = [
         {
             year: "2022",
-            title: "Started my studies",
+            title: "Started Computer Science Journey",
             institution: "Uganda Christian University",
             description: "Began Bachelor of Science in Computer Science with a focus on embedded systems & robotics.",
             type: "education"
         },
         {
-            year: "2024",
-            title: "Embedded Systems Project",
-            institution: "Uganda Industrial Research Institute",
-            description: "Built Arduino-based smart home prototype with sensors for temperature, motion, and light control.",
+            year: "2023",
+            title: "First Embedded Systems Project",
+            institution: "Campus Innovation Lab",
+            description: "Built my first Arduino-based smart home prototype with sensors for temperature, motion, and light control.",
             type: "project"
         },
         {
             year: "2024",
             title: "Machine Learning Research",
-            institution: "Research Project",
+            institution: "University Research Program",
             description: "Started research on NLP applications for local languages, focusing on Luganda text processing.",
             type: "research"
         },
