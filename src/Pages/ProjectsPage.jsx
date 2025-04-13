@@ -6,7 +6,7 @@ const ProjectsPage = () => {
     {
       title: "Smart Home Security System",
       category: "Embedded Systems",
-      image: "https://images.unsplash.com/photo-1558959356-2d5b3b3b2b2b?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60",
+      image: "https://plus.unsplash.com/premium_photo-1661297461253-ae1968b5d46c?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
       description: "Built an embedded system prototype integrating ultrasonic and LDR sensors with an Arduino microcontroller to detect intruders. The system automatically locks doors and alerts residents through a mobile buzzer system when unauthorized access is detected.",
       technologies: ["Arduino", "C++", "IoT", "Security"],
       demoLink: "#",

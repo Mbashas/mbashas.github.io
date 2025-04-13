@@ -1,4 +1,26 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, memo } from "react";
+
+// Memoized BlogPost component
+const BlogPost = memo(({ post, index }) => {
+  return (
+    <div className="blog-card" key={index}>
+      <img 
+        src={post.image} 
+        alt={post.title} 
+        className="blog-img" 
+        loading="lazy" 
+      />
+      <div className="blog-content">
+        <div className="blog-date">{post.date}</div>
+        <h3 className="blog-title">{post.title}</h3>
+        <p className="blog-excerpt">{post.excerpt}</p>
+        <a href={post.link} className="blog-link" target="_blank" rel="noopener noreferrer">
+          Read More
+        </a>
+      </div>
+    </div>
+  );
+});
 
 const Blog = () => {
   const [posts, setPosts] = useState([]);
@@ -114,17 +136,7 @@ const Blog = () => {
             
             <div className="blog-grid">
               {(posts.length > 0 ? posts : fallbackPosts).slice(0, 3).map((post, index) => (
-                <div className="blog-card" key={index}>
-                  <img src={post.image} alt={post.title} className="blog-img" />
-                  <div className="blog-content">
-                    <div className="blog-date">{post.date}</div>
-                    <h3 className="blog-title">{post.title}</h3>
-                    <p className="blog-excerpt">{post.excerpt}</p>
-                    <a href={post.link} className="blog-link" target="_blank" rel="noopener noreferrer">
-                      Read More
-                    </a>
-                  </div>
-                </div>
+                <BlogPost key={index} post={post} index={index} />
               ))}
             </div>
             

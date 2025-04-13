@@ -15,22 +15,43 @@ const Home = ({ name, title }) => {
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
   const [isHovered, setIsHovered] = useState(false);
   
+  // Split the name into individual letters
+  const renderAnimatedName = () => {
+    // Remove any spaces from name for array processing
+    const fullName = name.toUpperCase();
+    const firstNameEndIndex = fullName.indexOf(' ');
+    
+    return fullName.split('').map((letter, index) => {
+      // Determine letter color based on position (before or after space)
+      const isFirstName = index < firstNameEndIndex || letter === ' ';
+      const letterColor = isFirstName ? 'var(--color-terracotta)' : 'var(--color-parchment)';
+      
+      // Apply different styling to space
+      if (letter === ' ') {
+        return <span key={index} style={{ width: '0.3em', display: 'inline-block' }}>&nbsp;</span>;
+      }
+      
+      return (
+        <span 
+          key={index}
+          className="hero-letter"
+          style={{ 
+            color: letterColor,
+            animationDelay: `${index * 0.07}s`
+          }}
+        >
+          {letter}
+        </span>
+      );
+    });
+  };
+
   useEffect(() => {
-    // Text reveal animation on load
-    const nameElement = nameRef.current;
+    // Init animation for title and subtitle
     const titleElement = titleRef.current;
     const subtitleElement = subtitleRef.current;
     
-    if (nameElement && titleElement && subtitleElement) {
-      nameElement.style.opacity = "0";
-      titleElement.style.opacity = "0";
-      subtitleElement.style.opacity = "0";
-      
-      setTimeout(() => {
-        nameElement.style.opacity = "1";
-        nameElement.style.transform = "translateY(0)";
-      }, 300);
-      
+    if (titleElement && subtitleElement) {
       setTimeout(() => {
         titleElement.style.opacity = "1";
         titleElement.style.transform = "translateY(0)";
@@ -76,8 +97,7 @@ const Home = ({ name, title }) => {
           onMouseLeave={() => setIsHovered(false)}
         >
           <h1 ref={nameRef} className="hero-name">
-            <span className="text-red">{name.split(' ')[0]}</span>
-            <span className="text-white">{name.split(' ')[1]}</span>
+            {renderAnimatedName()}
           </h1>
           
           <p ref={titleRef} className="hero-title">
@@ -85,7 +105,7 @@ const Home = ({ name, title }) => {
           </p>
           
           <p ref={subtitleRef} className="hero-subtitle">
-            Combining ancient African wisdom with modern technology to build innovative solutions for tomorrow's challenges. 🏛️✨
+          Building innovative solutions for tomorrow's greteast challenges. 🏛️✨
           </p>
           
           <div className="hero-buttons">
