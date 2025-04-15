@@ -114,8 +114,8 @@ const About = () => {
     {
       year: "2023",
       title: "Embedded Systems Project",
-      institution: "Campus Innovation Lab",
-      description: "Built an Arduino-based smart home prototype with sensors for temperature, motion, and light control.",
+      institution: "Uganda Industrial Research Institute",
+      description: "Built an Arduino-based smart home prototype with sensors for motion, and light control.",
       type: "project"
     },
     {
