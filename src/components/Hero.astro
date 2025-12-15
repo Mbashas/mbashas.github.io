@@ -1,0 +1,101 @@
+---
+import site from '../data/site.json';
+
+const name = site.name;
+const title = site.title;
+const subtitle = site.subtitle;
+
+// Split name for animation
+const firstName = name.split(' ')[0];
+const lastName = name.split(' ')[1] || '';
+---
+
+<section id="home" class="hero">
+  <div class="hero-background">
+    <div class="hero-pattern"></div>
+    <div class="hero-glow"></div>
+  </div>
+
+  <div class="container">
+    <div class="hero-content" id="hero-content">
+      <h1 class="hero-name">
+        {firstName.split('').map((letter, i) => (
+          <span
+            class="hero-letter"
+            style={`color: var(--color-terracotta); animation-delay: ${i * 0.07}s`}
+          >
+            {letter}
+          </span>
+        ))}
+        <span style="width: 0.3em; display: inline-block">&nbsp;</span>
+        {lastName.split('').map((letter, i) => (
+          <span
+            class="hero-letter"
+            style={`color: var(--color-parchment); animation-delay: ${(firstName.length + 1 + i) * 0.07}s`}
+          >
+            {letter}
+          </span>
+        ))}
+      </h1>
+
+      <p class="hero-title">{title}</p>
+
+      <p class="hero-subtitle">{subtitle}</p>
+
+      <div class="hero-buttons">
+        <a href="#portfolio" class="btn btn-primary">
+          <span class="btn-text">View My Work</span>
+          <span class="btn-icon">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M5 12H19" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              <path d="M12 5L19 12L12 19" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </span>
+        </a>
+        <a href="#contact" class="btn btn-secondary">
+          <span class="btn-text">Get In Touch</span>
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <div class="scroll-indicator">
+    <svg width="40" height="40" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M12 5V19" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+      <path d="M19 12L12 19L5 12" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+    </svg>
+  </div>
+</section>
+
+<script>
+  // Title and subtitle animation
+  const heroTitle = document.querySelector('.hero-title') as HTMLElement;
+  const heroSubtitle = document.querySelector('.hero-subtitle') as HTMLElement;
+
+  if (heroTitle) {
+    setTimeout(() => {
+      heroTitle.style.opacity = '1';
+      heroTitle.style.transform = 'translateY(0)';
+    }, 800);
+  }
+
+  if (heroSubtitle) {
+    setTimeout(() => {
+      heroSubtitle.style.opacity = '1';
+      heroSubtitle.style.transform = 'translateY(0)';
+    }, 1300);
+  }
+
+  // 3D parallax effect on mouse move
+  const heroContent = document.getElementById('hero-content');
+
+  document.addEventListener('mousemove', (event) => {
+    if (!heroContent) return;
+    const { clientX, clientY } = event;
+    const { innerWidth, innerHeight } = window;
+    const x = (clientX / innerWidth - 0.5) * 20;
+    const y = (clientY / innerHeight - 0.5) * 20;
+
+    heroContent.style.transform = `perspective(1000px) rotateX(${y * 0.015}deg) rotateY(${-x * 0.015}deg)`;
+  });
+</script>

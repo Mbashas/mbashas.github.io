@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>404 - Page Not Found | Seth Mbasha</title>
+  <style>
+    :root {
+      --color-terracotta: #c8553d;
+      --color-charcoal: #0c0c0d;
+      --color-parchment: #f5f2e9;
+      --color-stone: #9c9990;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: 'Inter', system-ui, sans-serif;
+      background-color: var(--color-charcoal);
+      color: var(--color-parchment);
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 2rem;
+    }
+    .container { max-width: 600px; }
+    h1 {
+      font-size: 8rem;
+      font-weight: 900;
+      color: var(--color-terracotta);
+      line-height: 1;
+      margin-bottom: 1rem;
+    }
+    h2 {
+      font-size: 2rem;
+      margin-bottom: 1rem;
+    }
+    p {
+      color: var(--color-stone);
+      margin-bottom: 2rem;
+      font-size: 1.1rem;
+    }
+    a {
+      display: inline-block;
+      padding: 0.75rem 2rem;
+      background: var(--color-terracotta);
+      color: var(--color-parchment);
+      text-decoration: none;
+      border-radius: 4px;
+      font-weight: 600;
+      transition: all 0.3s ease;
+    }
+    a:hover {
+      background: #a93c27;
+      transform: translateY(-2px);
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>404</h1>
+    <h2>Page Not Found</h2>
+    <p>The page you're looking for doesn't exist or has been moved.</p>
+    <a href="/">Back to Home</a>
+  </div>
+</body>
+</html>

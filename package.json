@@ -1,45 +1,17 @@
 {
   "name": "seth-portfolio",
+  "type": "module",
   "version": "1.0.0",
-  "description": "Seth Mbasha - Portfolio Site",
-  "source": "src/index.html",
-  "homepage": "https://mbashas.github.io",
-  "scripts": {
-    "start": "parcel",
-    "build": "parcel build src/index.html src/projects.html src/blog.html src/blog-post.html --dist-dir dist",
-    "build-gh": "parcel build src/index.html src/projects.html src/blog.html src/blog-post.html --public-url 'https://mbashas.github.io'",
-    "predeploy": "npm run build-gh",
-    "deploy": "gh-pages -d dist"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/mbashas/mbashas.github.io.git"
-  },
+  "description": "Seth Mbasha's Portfolio - Static Site",
   "author": "Seth Mbasha",
   "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/mbashas/mbashas.github.io/issues"
+  "scripts": {
+    "dev": "astro dev",
+    "start": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview"
   },
   "dependencies": {
-    "gsap": "^3.12.7",
-    "react": "^18.2.0",
-    "react-dom": "^18.2.0",
-    "react-intersection-observer": "^9.16.0",
-    "react-router": "^6.14.2",
-    "react-router-dom": "^6.14.2",
-    "watch": "^0.13.0"
-  },
-  "devDependencies": {
-    "@parcel/transformer-image": "^2.7.0",
-    "eslint": "^8.23.0",
-    "eslint-config-prettier": "^8.5.0",
-    "eslint-plugin-jsx-a11y": "^6.6.1",
-    "eslint-plugin-prettier": "^4.2.1",
-    "eslint-plugin-react": "^7.31.7",
-    "gh-pages": "^6.2.0",
-    "html-webpack-plugin": "^5.5.0",
-    "parcel": "^2.7.0",
-    "prettier": "^2.7.1",
-    "process": "^0.11.10"
+    "astro": "^4.16.0"
   }
 }

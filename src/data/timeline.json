@@ -1,0 +1,34 @@
+[
+  {
+    "year": "2022",
+    "title": "Started Computer Science Journey",
+    "institution": "Uganda Christian University",
+    "description": "Began Bachelor of Science in Computer Science with a focus on embedded systems & robotics.",
+    "type": "education",
+    "isFuture": false
+  },
+  {
+    "year": "2023",
+    "title": "Embedded Systems Project",
+    "institution": "Uganda Industrial Research Institute",
+    "description": "Built an Arduino-based smart home prototype with sensors for motion, and light control.",
+    "type": "project",
+    "isFuture": false
+  },
+  {
+    "year": "2024",
+    "title": "Machine Learning Research",
+    "institution": "University Research Program",
+    "description": "Started research on NLP applications for local languages, focusing on Luganda text processing.",
+    "type": "research",
+    "isFuture": false
+  },
+  {
+    "year": "2026",
+    "title": "Expected Graduation",
+    "institution": "Uganda Christian University",
+    "description": "Anticipated completion of Bachelor's degree in Computer Science.",
+    "type": "education",
+    "isFuture": true
+  }
+]

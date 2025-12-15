@@ -1,0 +1,137 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Navbar from '../components/Navbar.astro';
+import Footer from '../components/Footer.astro';
+import projects from '../data/projects.json';
+
+const categories = ["All", ...new Set(projects.map(p => p.category))];
+---
+
+<BaseLayout title="Projects | Seth Mbasha">
+  <Navbar isHomePage={false} />
+  <main>
+    <section class="portfolio-section" style="padding-top: 120px;">
+      <div class="lightning-background">
+        <div class="lightning-glow"></div>
+        <div class="lightning-glow secondary"></div>
+        <div class="grid-pattern"></div>
+      </div>
+
+      <div class="container">
+        <div class="section-header animate-fade-in">
+          <h1 class="section-title">All Projects</h1>
+          <div class="section-title-underline"></div>
+          <p class="section-subtitle">
+            A comprehensive collection of my work across various domains
+          </p>
+        </div>
+
+        <div class="portfolio-filter">
+          <div class="filter-container">
+            {categories.map((category) => (
+              <button
+                class={`filter-btn ${category === 'All' ? 'active' : ''}`}
+                data-category={category}
+              >
+                {category}
+              </button>
+            ))}
+            <div class="filter-active-indicator"></div>
+          </div>
+        </div>
+
+        <div class="portfolio-bento" id="portfolio-grid">
+          {projects.map((project, index) => (
+            <div
+              class="portfolio-item animate-in"
+              style={`animation-delay: ${index * 0.1}s`}
+              data-category={project.category}
+            >
+              <div class="portfolio-item-inner">
+                <div class="portfolio-img-container">
+                  <div class="card-shine"></div>
+                  <img
+                    src={project.image}
+                    alt={project.title}
+                    class="portfolio-img"
+                    loading="lazy"
+                  />
+                  <div class="portfolio-overlay">
+                    <div class="portfolio-category">{project.category}</div>
+                    <h3 class="portfolio-title">{project.title}</h3>
+                    <p class="portfolio-description">{project.description}</p>
+                    <a
+                      href={project.link}
+                      class="portfolio-link"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      View Project
+                      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" class="link-arrow">
+                        <path d="M7 17L17 7M17 7H7M17 7V17" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                      </svg>
+                    </a>
+
+                    {project.isCaseStudy && (
+                      <a href={`/case/${project.id}`} class="view-details-btn">
+                        View Case Study
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" class="details-icon">
+                          <path d="M12 4V20M20 12L4 12" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                      </a>
+                    )}
+                  </div>
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+  </main>
+  <Footer />
+</BaseLayout>
+
+<script>
+  // Portfolio filtering
+  const filterBtns = document.querySelectorAll('.filter-btn');
+  const portfolioItems = document.querySelectorAll('.portfolio-item');
+  const filterIndicator = document.querySelector('.filter-active-indicator') as HTMLElement;
+
+  function updateFilterIndicator(btn: HTMLElement) {
+    if (filterIndicator) {
+      filterIndicator.style.width = `${btn.offsetWidth}px`;
+      filterIndicator.style.left = `${btn.offsetLeft}px`;
+    }
+  }
+
+  filterBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+      filterBtns.forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      updateFilterIndicator(btn as HTMLElement);
+
+      const category = btn.getAttribute('data-category');
+      portfolioItems.forEach(item => {
+        const itemCategory = item.getAttribute('data-category');
+        if (category === 'All' || itemCategory === category) {
+          (item as HTMLElement).style.display = 'block';
+        } else {
+          (item as HTMLElement).style.display = 'none';
+        }
+      });
+    });
+  });
+
+  const activeBtn = document.querySelector('.filter-btn.active') as HTMLElement;
+  if (activeBtn) updateFilterIndicator(activeBtn);
+
+  portfolioItems.forEach(item => {
+    item.addEventListener('mouseenter', () => {
+      item.querySelector('.portfolio-overlay')?.classList.add('active');
+    });
+    item.addEventListener('mouseleave', () => {
+      item.querySelector('.portfolio-overlay')?.classList.remove('active');
+    });
+  });
+</script>
