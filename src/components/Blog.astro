@@ -1,0 +1,37 @@
+---
+import posts from '../data/blog.json';
+---
+
+<section id="blog" class="section blog-section">
+  <div class="container">
+    <h2 class="text-center">From My Blog</h2>
+    <p class="lead text-center" style="margin-bottom: 3rem;">
+      Thoughts and insights on technology, innovation, and ancient wisdom applied to modern challenges
+    </p>
+
+    <div class="blog-grid">
+      {posts.slice(0, 3).map((post, index) => (
+        <div class="blog-card" style={`animation-delay: ${index * 0.1}s`}>
+          <img
+            src={post.image}
+            alt={post.title}
+            class="blog-img"
+            loading="lazy"
+          />
+          <div class="blog-content">
+            <div class="blog-date">{post.date}</div>
+            <h3 class="blog-title">{post.title}</h3>
+            <p class="blog-excerpt">{post.excerpt}</p>
+            <a href={post.link} class="blog-link">
+              Read More
+            </a>
+          </div>
+        </div>
+      ))}
+    </div>
+
+    <div class="text-center" style="margin-top: 3rem;">
+      <a href="/blog" class="btn">View All Posts</a>
+    </div>
+  </div>
+</section>

@@ -402,3 +402,149 @@
     transform: none;
   }
 }
+
+/* Case Study Page Styles */
+.case-study-section {
+  background-color: var(--color-charcoal);
+  min-height: 100vh;
+  padding-bottom: 4rem;
+}
+
+.back-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: var(--color-stone);
+  text-decoration: none;
+  font-family: var(--font-secondary);
+  margin-bottom: 2rem;
+  transition: all 0.3s ease;
+}
+
+.back-link:hover {
+  color: var(--color-terracotta);
+  transform: translateX(-5px);
+}
+
+.case-study-section .case-study-header {
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.case-study-category {
+  display: inline-block;
+  padding: 0.5rem 1rem;
+  background: var(--color-terracotta);
+  color: var(--color-parchment);
+  font-family: var(--font-secondary);
+  font-size: 0.85rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  border-radius: 2px;
+  margin-bottom: 1rem;
+}
+
+.case-study-section .case-study-title {
+  font-size: clamp(2rem, 5vw, 3.5rem);
+  color: var(--color-parchment);
+  font-family: var(--font-secondary);
+  margin-bottom: 1rem;
+}
+
+.case-study-section .case-study-description {
+  font-size: 1.2rem;
+  color: var(--color-stone);
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.case-study-image {
+  margin-bottom: 3rem;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+}
+
+.case-study-image img {
+  width: 100%;
+  height: auto;
+  max-height: 500px;
+  object-fit: cover;
+}
+
+.case-study-content {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.case-study-content .case-study-section {
+  margin-bottom: 3rem;
+  padding: 0;
+  min-height: auto;
+}
+
+.case-study-content h2 {
+  font-size: 1.75rem;
+  color: var(--color-terracotta);
+  font-family: var(--font-secondary);
+  margin-bottom: 1rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 2px solid rgba(200, 85, 61, 0.3);
+}
+
+.case-study-content p {
+  font-size: 1.1rem;
+  line-height: 1.8;
+  color: var(--color-stone);
+}
+
+.features-list {
+  list-style: none;
+  padding: 0;
+}
+
+.features-list li {
+  padding: 0.75rem 0 0.75rem 1.5rem;
+  position: relative;
+  color: var(--color-stone);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.features-list li::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 1.1rem;
+  width: 8px;
+  height: 8px;
+  background: var(--color-terracotta);
+  transform: rotate(45deg);
+}
+
+.tech-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+}
+
+.tech-tag {
+  padding: 0.5rem 1rem;
+  background: rgba(200, 85, 61, 0.1);
+  border: 1px solid rgba(200, 85, 61, 0.3);
+  border-radius: 2px;
+  color: var(--color-stone);
+  font-family: var(--font-secondary);
+  font-size: 0.9rem;
+}
+
+.case-study-cta {
+  margin-top: 3rem;
+  text-align: center;
+}
+
+.case-study-cta .btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+}

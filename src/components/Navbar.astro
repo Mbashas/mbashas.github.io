@@ -1,0 +1,79 @@
+---
+interface Props {
+  isHomePage?: boolean;
+}
+
+const { isHomePage = true } = Astro.props;
+
+const homeLinks = [
+  { name: 'Home', path: '#home' },
+  { name: 'About', path: '#about' },
+  { name: 'Portfolio', path: '#portfolio' },
+  { name: 'Blog', path: '#blog' },
+  { name: 'Contact', path: '#contact' },
+];
+
+const pageLinks = [
+  { name: 'Home', path: '/' },
+  { name: 'Projects', path: '/projects' },
+  { name: 'Blog', path: '/blog' },
+];
+
+const links = isHomePage ? homeLinks : pageLinks;
+---
+
+<header id="navbar">
+  <div class="container">
+    <div class="navbar">
+      <a href={isHomePage ? '#home' : '/'} class="logo">
+        Seth<span>Mbasha</span>
+      </a>
+
+      <button class="hamburger" aria-label="Toggle menu" aria-expanded="false">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M3 12H21" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+          <path d="M3 6H21" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+          <path d="M3 18H21" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+        </svg>
+      </button>
+
+      <ul class="nav-links">
+        {links.map((link) => (
+          <li>
+            <a href={link.path}>{link.name}</a>
+          </li>
+        ))}
+      </ul>
+    </div>
+  </div>
+</header>
+
+<script>
+  // Navbar scroll effect
+  const navbar = document.getElementById('navbar');
+  const hamburger = document.querySelector('.hamburger');
+  const navLinks = document.querySelector('.nav-links');
+
+  window.addEventListener('scroll', () => {
+    if (window.scrollY > 50) {
+      navbar?.classList.add('scrolled');
+    } else {
+      navbar?.classList.remove('scrolled');
+    }
+  });
+
+  // Mobile menu toggle
+  hamburger?.addEventListener('click', () => {
+    navLinks?.classList.toggle('active');
+    const isExpanded = hamburger.getAttribute('aria-expanded') === 'true';
+    hamburger.setAttribute('aria-expanded', (!isExpanded).toString());
+  });
+
+  // Close mobile menu when clicking a link
+  navLinks?.querySelectorAll('a').forEach(link => {
+    link.addEventListener('click', () => {
+      navLinks.classList.remove('active');
+      hamburger?.setAttribute('aria-expanded', 'false');
+    });
+  });
+</script>

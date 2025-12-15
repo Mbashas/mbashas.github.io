@@ -1,0 +1,197 @@
+---
+import projects from '../data/projects.json';
+
+const categories = ["All", ...new Set(projects.map(p => p.category))];
+---
+
+<section id="portfolio" class="portfolio-section">
+  <div class="lightning-background">
+    <div class="lightning-glow"></div>
+    <div class="lightning-glow secondary"></div>
+    <div class="grid-pattern"></div>
+  </div>
+
+  <div class="container">
+    <div class="section-header">
+      <h2 class="section-title">My Artifacts</h2>
+      <div class="section-title-underline"></div>
+      <p class="section-subtitle">
+        Explore my latest work spanning embedded systems, machine learning, and more
+      </p>
+    </div>
+
+    <div class="portfolio-filter">
+      <div class="filter-container">
+        {categories.map((category, index) => (
+          <button
+            class={`filter-btn ${category === 'All' ? 'active' : ''}`}
+            data-category={category}
+          >
+            {category}
+          </button>
+        ))}
+        <div class="filter-active-indicator"></div>
+      </div>
+    </div>
+
+    <div class="portfolio-bento" id="portfolio-grid">
+      {projects.map((project, index) => (
+        <div
+          class="portfolio-item animate-in"
+          style={`animation-delay: ${index * 0.1}s`}
+          data-category={project.category}
+        >
+          <div class="portfolio-item-inner">
+            <div class="portfolio-img-container">
+              <div class="card-shine"></div>
+              <img
+                src={project.image}
+                alt={project.title}
+                class="portfolio-img"
+                loading="lazy"
+              />
+              <div class="portfolio-overlay">
+                <div class="portfolio-category">{project.category}</div>
+                <h3 class="portfolio-title">{project.title}</h3>
+                <p class="portfolio-description">{project.description}</p>
+                <a
+                  href={project.link}
+                  class="portfolio-link"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  View Project
+                  <svg
+                    width="16"
+                    height="16"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                    class="link-arrow"
+                  >
+                    <path
+                      d="M7 17L17 7M17 7H7M17 7V17"
+                      stroke="currentColor"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    />
+                  </svg>
+                </a>
+
+                {project.isCaseStudy && (
+                  <a href={`/case/${project.id}`} class="view-details-btn">
+                    View Case Study
+                    <svg
+                      width="16"
+                      height="16"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      xmlns="http://www.w3.org/2000/svg"
+                      class="details-icon"
+                    >
+                      <path
+                        d="M12 4V20M20 12L4 12"
+                        stroke="currentColor"
+                        stroke-width="2"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                      />
+                    </svg>
+                  </a>
+                )}
+              </div>
+            </div>
+          </div>
+        </div>
+      ))}
+    </div>
+
+    <div class="portfolio-cta">
+      <a href="/projects" class="btn-view-all">
+        Browse All Projects
+        <svg
+          width="20"
+          height="20"
+          viewBox="0 0 24 24"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M5 12H19M19 12L12 5M19 12L12 19"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          />
+        </svg>
+      </a>
+    </div>
+  </div>
+</section>
+
+<script>
+  // Portfolio filtering
+  const filterBtns = document.querySelectorAll('.filter-btn');
+  const portfolioItems = document.querySelectorAll('.portfolio-item');
+  const filterIndicator = document.querySelector('.filter-active-indicator') as HTMLElement;
+
+  function updateFilterIndicator(btn: HTMLElement) {
+    if (filterIndicator) {
+      filterIndicator.style.width = `${btn.offsetWidth}px`;
+      filterIndicator.style.left = `${btn.offsetLeft}px`;
+    }
+  }
+
+  filterBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+      // Update active state
+      filterBtns.forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+
+      // Update indicator position
+      updateFilterIndicator(btn as HTMLElement);
+
+      // Filter items
+      const category = btn.getAttribute('data-category');
+
+      portfolioItems.forEach(item => {
+        const itemCategory = item.getAttribute('data-category');
+        if (category === 'All' || itemCategory === category) {
+          (item as HTMLElement).style.display = 'block';
+        } else {
+          (item as HTMLElement).style.display = 'none';
+        }
+      });
+    });
+  });
+
+  // Initialize indicator position
+  const activeBtn = document.querySelector('.filter-btn.active') as HTMLElement;
+  if (activeBtn) {
+    updateFilterIndicator(activeBtn);
+  }
+
+  // Hover effect for portfolio items
+  portfolioItems.forEach(item => {
+    item.addEventListener('mouseenter', () => {
+      item.querySelector('.portfolio-overlay')?.classList.add('active');
+    });
+    item.addEventListener('mouseleave', () => {
+      item.querySelector('.portfolio-overlay')?.classList.remove('active');
+    });
+  });
+
+  // Intersection Observer for animation
+  const portfolioObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('animate-fade-in');
+      }
+    });
+  }, { threshold: 0.1 });
+
+  document.querySelectorAll('.section-header, .portfolio-cta').forEach(el => {
+    portfolioObserver.observe(el);
+  });
+</script>

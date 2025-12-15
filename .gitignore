@@ -2,23 +2,23 @@
 logs
 *.log
 
-# Build files generated from Parcel
-dist
+# Build output
+dist/
 
-# Dependency directories
+# Dependencies
 node_modules/
 
-# Optional npm cache directory
+# Cache
 .npm
-
-# Optional eslint cache
 .eslintcache
+.astro/
 
-# dotenv environment variables file
+# Environment
 .env
-.env.test
+.env.*
 
-# parcel-bundler cache (https://parceljs.org/)
-.parcel-cache
-
+# OS
 .DS_Store
+
+# Backup
+_old_react_backup/

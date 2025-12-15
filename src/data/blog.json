@@ -1,0 +1,23 @@
+[
+  {
+    "title": "Building Systems and Communities",
+    "date": "April 15, 2024",
+    "excerpt": "Technology, thoughtfully applied, can help solve humanity's greatest challenges.",
+    "image": "https://images.unsplash.com/photo-1517292987719-0369a794ec0f?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60",
+    "link": "/blog"
+  },
+  {
+    "title": "The Future of AI and Human Thought Patterns",
+    "date": "March 22, 2024",
+    "excerpt": "Exploring the intersection of artificial intelligence and human cognition.",
+    "image": "https://images.unsplash.com/photo-1526378722484-bd91ca387e72?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60",
+    "link": "/blog"
+  },
+  {
+    "title": "Embedded Systems: Building the Future",
+    "date": "February 17, 2024",
+    "excerpt": "How embedded systems are shaping our technological landscape and enabling new possibilities.",
+    "image": "https://images.unsplash.com/photo-1518770660439-4636190af475?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60",
+    "link": "/blog"
+  }
+]
