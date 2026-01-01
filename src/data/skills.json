@@ -1,18 +1,60 @@
-[
-  {
-    "category": "Programming",
-    "items": ["C/C++", "Python", "JavaScript", "Java"]
-  },
-  {
-    "category": "Embedded Systems",
-    "items": ["Arduino", "Raspberry Pi", "ESP32", "Microcontrollers"]
-  },
-  {
-    "category": "Machine Learning",
-    "items": ["TensorFlow", "PyTorch", "Data Analysis", "NLP"]
-  },
-  {
-    "category": "Web Development",
-    "items": ["React", "Node.js", "HTML/CSS", "RESTful APIs"]
-  }
-]
+{
+  "technical": [
+    {
+      "category": "Programming",
+      "items": ["Python", "C/C++", "SQL", "JavaScript", "HTML/CSS", "React"]
+    },
+    {
+      "category": "ML & Data",
+      "items": ["PyTorch", "TensorFlow", "Hugging Face", "scikit-learn", "NumPy", "pandas"]
+    },
+    {
+      "category": "Cloud & Tools",
+      "items": ["AWS", "Git/GitHub", "Docker", "FastAPI", "Streamlit"]
+    },
+    {
+      "category": "Embedded",
+      "items": ["Arduino", "Raspberry Pi", "ESP32", "Microcontrollers"]
+    }
+  ],
+  "certifications": [
+    {
+      "name": "AWS Certified Cloud Practitioner",
+      "issuer": "Amazon Web Services"
+    },
+    {
+      "name": "Exploratory Data Analysis for Machine Learning",
+      "issuer": "IBM"
+    },
+    {
+      "name": "Data Analytics",
+      "issuer": "ALX"
+    },
+    {
+      "name": "Foundations of Data Science",
+      "issuer": "Google"
+    },
+    {
+      "name": "Foundations of Project Management",
+      "issuer": "Google"
+    },
+    {
+      "name": "IT Essentials",
+      "issuer": "Cisco"
+    }
+  ],
+  "languages": [
+    {
+      "name": "French",
+      "level": "Native"
+    },
+    {
+      "name": "Swahili",
+      "level": "Native"
+    },
+    {
+      "name": "English",
+      "level": "Proficient"
+    }
+  ]
+}

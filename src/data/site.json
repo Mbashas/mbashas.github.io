@@ -1,18 +1,23 @@
 {
-  "name": "Seth Mbasha",
-  "title": "Computer Science Student | Embedded Systems | Machine Learning",
-  "subtitle": "Building innovative solutions for tomorrow's greatest challenges.",
-  "bio": "Computer Science student passionate about embedded systems, machine learning, and using technology to solve real-world problems.",
-  "tagline": "Building systems that empower people",
-  "email": "sethmbashas@gmail.com",
+  "name": "Mbasha Seth",
+  "title": "CS Student | NLP Researcher | Equitech Fellow",
+  "subtitle": "Building data solutions for social impact across Africa",
+  "bio": "Computer Science student at Uganda Christian University (CGPA: 3.9/5.0) and Equitech Futures Applied Data Institute Fellow, selected as 1 of 25 globally. My work focuses on NLP for low-resource African languages, embedded systems, and data solutions for social impact. Currently building analytics tools for water utilities across Uganda, Cameroon, Malawi, and Lesotho.",
+  "tagline": "NLP for African Languages | Data for Social Impact",
+  "email": "sethmbasha@gmail.com",
   "phone": "+256 781 347 647",
   "location": "Mukono, Uganda",
   "workingHours": "Monday - Friday, 9AM - 5PM (EAT)",
   "social": {
     "github": "https://github.com/mbashas",
-    "linkedin": "https://www.linkedin.com/in/seth-mbasha",
+    "linkedin": "https://www.linkedin.com/in/mbashaseth",
     "x": "https://x.com/sethmbashas",
     "instagram": "https://instagram.com/onlymbasha"
   },
-  "spotifyEmbed": "https://open.spotify.com/embed/track/7xHWNBFm6ObGEQPaUxHuKO?utm_source=generator"
+  "education": {
+    "school": "Uganda Christian University",
+    "degree": "B.S. Computer Science",
+    "gpa": "3.9/5.0",
+    "graduationYear": "2025"
+  }
 }

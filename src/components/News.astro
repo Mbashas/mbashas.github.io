@@ -1,0 +1,98 @@
+---
+import news from '../data/news.json';
+---
+
+<section id="news" class="section-news">
+  <div class="container">
+    <div class="news-header">
+      <h2 class="news-title">News & Highlights</h2>
+    </div>
+
+    <ul class="news-list">
+      {news.map((item) => (
+        <li class="news-item">
+          <span class="news-date">{item.date}</span>
+          <div class="news-content">
+            <span class="news-item-title">{item.title}</span>
+            {item.description && (
+              <span class="news-description"> - {item.description}</span>
+            )}
+          </div>
+        </li>
+      ))}
+    </ul>
+  </div>
+</section>
+
+<style>
+  .section-news {
+    padding: var(--space-lg) 0;
+    background: var(--color-cream);
+  }
+
+  .news-header {
+    margin-bottom: var(--space-md);
+  }
+
+  .news-title {
+    font-size: 1.5rem;
+    color: var(--color-sapphire);
+    font-family: var(--font-primary);
+    font-weight: 600;
+    letter-spacing: 0.03em;
+    margin-bottom: 0;
+  }
+
+  .news-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  .news-item {
+    display: flex;
+    gap: 1.5rem;
+    padding: 0.875rem 0;
+    border-bottom: 1px solid rgba(197, 165, 114, 0.15);
+    align-items: baseline;
+  }
+
+  .news-item:last-child {
+    border-bottom: none;
+  }
+
+  .news-date {
+    font-family: var(--font-secondary);
+    font-size: 0.875rem;
+    color: var(--color-sapphire-muted);
+    font-weight: 500;
+    min-width: 100px;
+    flex-shrink: 0;
+  }
+
+  .news-content {
+    flex: 1;
+  }
+
+  .news-item-title {
+    font-family: var(--font-secondary);
+    font-weight: 500;
+    color: var(--color-charcoal);
+  }
+
+  .news-description {
+    color: var(--color-charcoal-light);
+    font-size: 0.95rem;
+  }
+
+  @media (max-width: 576px) {
+    .news-item {
+      flex-direction: column;
+      gap: 0.25rem;
+    }
+
+    .news-date {
+      min-width: auto;
+    }
+  }
+</style>

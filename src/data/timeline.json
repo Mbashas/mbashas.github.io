@@ -1,34 +1,58 @@
 [
   {
-    "year": "2022",
-    "title": "Started Computer Science Journey",
-    "institution": "Uganda Christian University",
-    "description": "Began Bachelor of Science in Computer Science with a focus on embedded systems & robotics.",
+    "year": "2025",
+    "title": "Equitech Futures Fellowship",
+    "institution": "Applied Data Institute",
+    "description": "Selected as 1 of 25 globally. Building data solutions for water utilities across Africa. Full scholarship ($9,500).",
+    "type": "fellowship",
+    "isFuture": false
+  },
+  {
+    "year": "2025",
+    "title": "Deep Learning Indaba & Conferences",
+    "institution": "Various",
+    "description": "Attended Deep Learning Indaba 2025, Cohere Labs ML Summer School, and Rhodes Forum on Technology & Society.",
     "type": "education",
     "isFuture": false
   },
   {
-    "year": "2023",
-    "title": "Embedded Systems Project",
-    "institution": "Uganda Industrial Research Institute",
-    "description": "Built an Arduino-based smart home prototype with sensors for motion, and light control.",
-    "type": "project",
+    "year": "2024-2025",
+    "title": "AIESEC Local Committee President",
+    "institution": "AIESEC Uganda",
+    "description": "Led 46% membership growth to 22 active members. Managed budget and partnerships.",
+    "type": "leadership",
     "isFuture": false
   },
   {
     "year": "2024",
-    "title": "Machine Learning Research",
-    "institution": "University Research Program",
-    "description": "Started research on NLP applications for local languages, focusing on Luganda text processing.",
-    "type": "research",
+    "title": "International Congress Egypt",
+    "institution": "AIESEC",
+    "description": "Represented AIESEC Uganda at International Congress. Received national recognition for volunteer engagement.",
+    "type": "achievement",
     "isFuture": false
   },
   {
-    "year": "2026",
-    "title": "Expected Graduation",
+    "year": "2024",
+    "title": "Embedded Systems Internship",
+    "institution": "Uganda Industrial Research Institute",
+    "description": "May-July 2024. Developed embedded systems projects including traffic management solutions.",
+    "type": "work",
+    "isFuture": false
+  },
+  {
+    "year": "2023-2024",
+    "title": "Global Consultant",
+    "institution": "AIESEC",
+    "description": "Information Management role supporting global AIESEC operations.",
+    "type": "work",
+    "isFuture": false
+  },
+  {
+    "year": "2022",
+    "title": "Started Computer Science",
     "institution": "Uganda Christian University",
-    "description": "Anticipated completion of Bachelor's degree in Computer Science.",
+    "description": "Began B.S. in Computer Science. Focus areas: AI, Data Structures, Embedded Systems, Cyber Security.",
     "type": "education",
-    "isFuture": true
+    "isFuture": false
   }
 ]

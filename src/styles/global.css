@@ -58,12 +58,23 @@
   --font-secondary: 'Inter', 'Segoe UI', system-ui, sans-serif;
   --font-accent: 'Cinzel', 'Times New Roman', serif;
 
-  /* Spacing */
-  --space-xs: 0.5rem;
-  --space-sm: 1rem;
-  --space-md: 2rem;
-  --space-lg: 4rem;
-  --space-xl: 8rem;
+  /* Spacing - Increased for minimalist breathing room */
+  --space-xs: 0.75rem;
+  --space-sm: 1.25rem;
+  --space-md: 2.5rem;
+  --space-lg: 5rem;
+  --space-xl: 10rem;
+  --space-2xl: 14rem;
+
+  /* Typography Scale - Minimalist */
+  --text-xs: 0.75rem;
+  --text-sm: 0.875rem;
+  --text-base: 1rem;
+  --text-lg: 1.125rem;
+  --text-xl: 1.25rem;
+  --text-2xl: 1.5rem;
+  --text-3xl: 2rem;
+  --text-4xl: 2.5rem;
 
   /* Transitions */
   --transition-fast: 0.2s ease;
@@ -92,12 +103,13 @@ body {
   background-color: var(--color-cream);
   color: var(--color-charcoal);
   font-size: 16px;
-  line-height: 1.6;
+  line-height: 1.75;
+  letter-spacing: 0.01em;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-/* Ornate border pattern - inspired by vestment embroidery */
+/* Subtle accent border - minimalist approach */
 .ornate-border {
   position: relative;
 }
@@ -108,52 +120,63 @@ body {
   top: 0;
   left: 0;
   right: 0;
-  height: 4px;
+  height: 2px;
   background: linear-gradient(
     90deg,
     transparent 0%,
-    var(--color-gold-dark) 10%,
-    var(--color-gold) 25%,
-    var(--color-gold-royal) 50%,
-    var(--color-gold) 75%,
-    var(--color-gold-dark) 90%,
+    var(--color-gold) 30%,
+    var(--color-gold) 70%,
     transparent 100%
   );
+  opacity: 0.6;
 }
 
-/* Cross pattern background decoration */
+/* Subtle background pattern - reduced opacity for minimalism */
 .cross-pattern {
-  background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M28 0v12h4V0h-4zm0 48v12h4V48h-4zM0 28v4h12v-4H0zm48 0v4h12v-4H48z' fill='%23C5A572' fill-opacity='0.05'/%3E%3C/svg%3E");
+  background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M28 0v12h4V0h-4zm0 48v12h4V48h-4zM0 28v4h12v-4H0zm48 0v4h12v-4H48z' fill='%23C5A572' fill-opacity='0.03'/%3E%3C/svg%3E");
 }
 
-/* Star/medallion decorative element */
+/* Minimal decorative accent */
 .medallion {
   position: relative;
 }
 
 .medallion::after {
-  content: '✦';
+  content: '';
   position: absolute;
-  color: var(--color-gold);
-  font-size: 1rem;
-  opacity: 0.6;
+  width: 4px;
+  height: 4px;
+  background-color: var(--color-gold);
+  border-radius: 50%;
+  opacity: 0.4;
 }
 
 h1, h2, h3, h4, h5, h6 {
   font-family: var(--font-primary);
   font-weight: 600;
-  line-height: 1.2;
-  margin-bottom: 1rem;
+  line-height: 1.3;
+  margin-bottom: 1.25rem;
   color: var(--color-charcoal);
-  letter-spacing: 0.02em;
+  letter-spacing: 0.03em;
 }
 
 h1 {
   font-weight: 700;
+  letter-spacing: 0.04em;
 }
 
 h2 {
   position: relative;
+  letter-spacing: 0.04em;
+}
+
+h3 {
+  letter-spacing: 0.02em;
+}
+
+p {
+  margin-bottom: 1.25rem;
+  letter-spacing: 0.015em;
 }
 
 a {
