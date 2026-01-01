@@ -1,36 +1,79 @@
 :root {
-  /* Core color palette */
-  --color-red: #ff2d2d;
-  --color-red-dark: #d40000;
-  --color-red-light: #ff5c5c;
-  
-  --color-black: #0a0a0a;
-  --color-black-light: #1a1a1a;
-  --color-black-lighter: #2a2a2a;
-  
-  --color-white: #ffffff;
-  --color-white-dim: #f0f0f0;
-  --color-white-dimmer: #e0e0e0;
-  
-  --color-gray: #888888;
-  --color-gray-light: #aaaaaa;
-  --color-gray-dark: #555555;
-  
-  /* Typography */
-  --font-primary: 'Inter', 'Segoe UI', system-ui, sans-serif;
-  --font-secondary: 'Space Grotesk', 'Roboto', sans-serif;
-  
+  /* Vestment-Inspired Color Palette */
+  /* Primary - Cream/Ivory (from vestment fabric) */
+  --color-cream: #FAF8F3;
+  --color-cream-warm: #F5F0E6;
+  --color-ivory: #FFFEF9;
+  --color-parchment: #EDE8DC;
+
+  /* Gold Accents (from embroidery and crosses) */
+  --color-gold: #C5A572;
+  --color-gold-light: #D4C4A8;
+  --color-gold-dark: #9A7B4F;
+  --color-gold-royal: #DAA520;
+  --color-gold-antique: #B8977A;
+
+  /* Sapphire Blue (from jewel accents) */
+  --color-sapphire: #1B365D;
+  --color-sapphire-light: #2A4A7A;
+  --color-sapphire-dark: #0F2B4C;
+  --color-sapphire-muted: #3D5A80;
+
+  /* Metallic/Pewter (from silver elements) */
+  --color-pewter: #8B8B83;
+  --color-silver: #A8A8A0;
+  --color-platinum: #E5E4E2;
+
+  /* Deep Tones (for text and contrast) */
+  --color-charcoal: #2C2420;
+  --color-charcoal-light: #3D3632;
+  --color-ink: #1A1815;
+
+  /* Accent Colors */
+  --color-burgundy: #722F37;
+  --color-wine: #8B3A3A;
+
+  /* Legacy compatibility mappings */
+  --color-red: var(--color-gold);
+  --color-red-dark: var(--color-gold-dark);
+  --color-red-light: var(--color-gold-light);
+  --color-black: var(--color-charcoal);
+  --color-black-light: var(--color-charcoal-light);
+  --color-black-lighter: #4A4540;
+  --color-white: var(--color-ivory);
+  --color-white-dim: var(--color-cream);
+  --color-white-dimmer: var(--color-parchment);
+  --color-gray: var(--color-pewter);
+  --color-gray-light: var(--color-silver);
+  --color-gray-dark: #5A5A52;
+
+  /* Theme colors for components */
+  --color-terracotta: var(--color-gold);
+  --color-terracotta-dark: var(--color-gold-dark);
+  --color-terracotta-light: var(--color-gold-light);
+  --color-stone: var(--color-pewter);
+
+  /* Typography - Elegant serif for headings */
+  --font-primary: 'Cormorant Garamond', 'Playfair Display', 'Georgia', serif;
+  --font-secondary: 'Inter', 'Segoe UI', system-ui, sans-serif;
+  --font-accent: 'Cinzel', 'Times New Roman', serif;
+
   /* Spacing */
   --space-xs: 0.5rem;
   --space-sm: 1rem;
   --space-md: 2rem;
   --space-lg: 4rem;
   --space-xl: 8rem;
-  
+
   /* Transitions */
   --transition-fast: 0.2s ease;
   --transition-normal: 0.3s ease;
   --transition-slow: 0.6s ease;
+
+  /* Ornate Design Elements */
+  --border-ornate: 2px solid var(--color-gold);
+  --shadow-gold: 0 4px 20px rgba(197, 165, 114, 0.3);
+  --shadow-elegant: 0 8px 32px rgba(44, 36, 32, 0.12);
 }
 
 /* Base reset */
@@ -45,29 +88,82 @@ html {
 }
 
 body {
-  font-family: var(--font-primary);
-  background-color: var(--color-black);
-  color: var(--color-white);
+  font-family: var(--font-secondary);
+  background-color: var(--color-cream);
+  color: var(--color-charcoal);
   font-size: 16px;
-  line-height: 1.5;
+  line-height: 1.6;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
+/* Ornate border pattern - inspired by vestment embroidery */
+.ornate-border {
+  position: relative;
+}
+
+.ornate-border::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    var(--color-gold-dark) 10%,
+    var(--color-gold) 25%,
+    var(--color-gold-royal) 50%,
+    var(--color-gold) 75%,
+    var(--color-gold-dark) 90%,
+    transparent 100%
+  );
+}
+
+/* Cross pattern background decoration */
+.cross-pattern {
+  background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M28 0v12h4V0h-4zm0 48v12h4V48h-4zM0 28v4h12v-4H0zm48 0v4h12v-4H48z' fill='%23C5A572' fill-opacity='0.05'/%3E%3C/svg%3E");
+}
+
+/* Star/medallion decorative element */
+.medallion {
+  position: relative;
+}
+
+.medallion::after {
+  content: '✦';
+  position: absolute;
+  color: var(--color-gold);
+  font-size: 1rem;
+  opacity: 0.6;
+}
+
 h1, h2, h3, h4, h5, h6 {
-  font-weight: 700;
+  font-family: var(--font-primary);
+  font-weight: 600;
   line-height: 1.2;
   margin-bottom: 1rem;
+  color: var(--color-charcoal);
+  letter-spacing: 0.02em;
+}
+
+h1 {
+  font-weight: 700;
+}
+
+h2 {
+  position: relative;
 }
 
 a {
-  color: var(--color-red);
+  color: var(--color-sapphire);
   text-decoration: none;
   transition: var(--transition-normal);
 }
 
 a:hover {
-  color: var(--color-red-light);
+  color: var(--color-gold-dark);
 }
 
 img {
@@ -225,14 +321,14 @@ section {
 
 /* Focus styles for accessibility */
 a:focus, button:focus {
-  outline: 2px solid var(--color-red);
+  outline: 2px solid var(--color-gold);
   outline-offset: 4px;
 }
 
 /* Text selection */
 ::selection {
-  background-color: var(--color-red);
-  color: var(--color-white);
+  background-color: var(--color-sapphire);
+  color: var(--color-ivory);
 }
 
 /* Custom Cursor Styles */
