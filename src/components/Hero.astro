@@ -22,7 +22,7 @@ const lastName = name.split(' ')[1] || '';
         {firstName.split('').map((letter, i) => (
           <span
             class="hero-letter"
-            style={`color: var(--color-terracotta); animation-delay: ${i * 0.07}s`}
+            style={`color: var(--color-sapphire); animation-delay: ${i * 0.07}s`}
           >
             {letter}
           </span>
@@ -31,7 +31,7 @@ const lastName = name.split(' ')[1] || '';
         {lastName.split('').map((letter, i) => (
           <span
             class="hero-letter"
-            style={`color: var(--color-parchment); animation-delay: ${(firstName.length + 1 + i) * 0.07}s`}
+            style={`color: var(--color-gold-dark); animation-delay: ${(firstName.length + 1 + i) * 0.07}s`}
           >
             {letter}
           </span>

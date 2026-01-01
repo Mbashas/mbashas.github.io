@@ -1,4 +1,4 @@
-/* Navbar Styles */
+/* Navbar Styles - Vestment-Inspired Elegance */
 header {
   position: fixed;
   top: 0;
@@ -10,10 +10,12 @@ header {
 }
 
 header.scrolled {
-  background-color: rgba(12, 12, 13, 0.95);
+  background-color: rgba(250, 248, 243, 0.95);
   backdrop-filter: blur(10px);
   padding: 1rem 0;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+  box-shadow:
+    0 4px 20px rgba(44, 36, 32, 0.08),
+    0 1px 0 rgba(197, 165, 114, 0.2);
 }
 
 .navbar {
@@ -23,20 +25,25 @@ header.scrolled {
 }
 
 .logo {
-  font-family: var(--font-secondary);
+  font-family: var(--font-primary);
   font-size: 1.5rem;
-  font-weight: 700;
-  color: var(--color-parchment);
+  font-weight: 600;
+  color: var(--color-sapphire);
   text-decoration: none;
   transition: all 0.3s ease;
+  letter-spacing: 0.02em;
 }
 
 .logo span {
-  color: var(--color-terracotta);
+  color: var(--color-gold-dark);
 }
 
 .logo:hover {
-  color: var(--color-white);
+  color: var(--color-sapphire-light);
+}
+
+.logo:hover span {
+  color: var(--color-gold);
 }
 
 .nav-links {
@@ -48,13 +55,13 @@ header.scrolled {
 }
 
 .nav-links a {
-  color: var(--color-stone);
+  color: var(--color-charcoal-light);
   text-decoration: none;
   font-family: var(--font-secondary);
-  font-size: 0.95rem;
+  font-size: 0.9rem;
   font-weight: 500;
   text-transform: uppercase;
-  letter-spacing: 1px;
+  letter-spacing: 1.5px;
   transition: all 0.3s ease;
   position: relative;
 }
@@ -66,12 +73,12 @@ header.scrolled {
   left: 0;
   width: 0;
   height: 2px;
-  background-color: var(--color-terracotta);
+  background: linear-gradient(90deg, var(--color-gold), var(--color-gold-light));
   transition: width 0.3s ease;
 }
 
 .nav-links a:hover {
-  color: var(--color-parchment);
+  color: var(--color-sapphire);
 }
 
 .nav-links a:hover::after {
@@ -79,7 +86,12 @@ header.scrolled {
 }
 
 .nav-links a.active {
-  color: var(--color-terracotta);
+  color: var(--color-sapphire);
+}
+
+.nav-links a.active::after {
+  width: 100%;
+  background: linear-gradient(90deg, var(--color-sapphire), var(--color-sapphire-light));
 }
 
 /* Hamburger Menu */
@@ -87,14 +99,14 @@ header.scrolled {
   display: none;
   background: none;
   border: none;
-  color: var(--color-parchment);
+  color: var(--color-sapphire);
   cursor: pointer;
   padding: 0.5rem;
   transition: color 0.3s ease;
 }
 
 .hamburger:hover {
-  color: var(--color-terracotta);
+  color: var(--color-gold-dark);
 }
 
 /* Mobile Styles */
@@ -110,7 +122,11 @@ header.scrolled {
     left: 0;
     right: 0;
     bottom: 0;
-    background-color: rgba(12, 12, 13, 0.98);
+    background: linear-gradient(
+      135deg,
+      rgba(250, 248, 243, 0.98) 0%,
+      rgba(237, 232, 220, 0.98) 100%
+    );
     flex-direction: column;
     justify-content: center;
     align-items: center;
@@ -124,6 +140,11 @@ header.scrolled {
   }
 
   .nav-links a {
-    font-size: 1.5rem;
+    font-size: 1.3rem;
+    color: var(--color-sapphire);
+  }
+
+  .nav-links a:hover {
+    color: var(--color-gold-dark);
   }
 }
