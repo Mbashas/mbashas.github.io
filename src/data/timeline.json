@@ -3,56 +3,35 @@
     "year": "2025",
     "title": "Equitech Futures Fellowship",
     "institution": "Applied Data Institute",
-    "description": "Selected as 1 of 25 globally. Building data solutions for water utilities across Africa. Full scholarship ($9,500).",
-    "type": "fellowship",
-    "isFuture": false
-  },
-  {
-    "year": "2025",
-    "title": "Deep Learning Indaba & Conferences",
-    "institution": "Various",
-    "description": "Attended Deep Learning Indaba 2025, Cohere Labs ML Summer School, and Rhodes Forum on Technology & Society.",
-    "type": "education",
-    "isFuture": false
+    "description": "Building data solutions for water utilities. Deep Learning Indaba, Rhodes Forum, GandaBERT launch.",
+    "type": "fellowship"
   },
   {
     "year": "2024-2025",
     "title": "AIESEC Local Committee President",
     "institution": "AIESEC Uganda",
     "description": "Led 46% membership growth to 22 active members. Managed budget and partnerships.",
-    "type": "leadership",
-    "isFuture": false
+    "type": "leadership"
   },
   {
     "year": "2024",
-    "title": "International Congress Egypt",
-    "institution": "AIESEC",
-    "description": "Represented AIESEC Uganda at International Congress. Received national recognition for volunteer engagement.",
-    "type": "achievement",
-    "isFuture": false
-  },
-  {
-    "year": "2024",
-    "title": "Embedded Systems Internship",
-    "institution": "Uganda Industrial Research Institute",
-    "description": "May-July 2024. Developed embedded systems projects including traffic management solutions.",
-    "type": "work",
-    "isFuture": false
+    "title": "International Congress Egypt & UIRI Internship",
+    "institution": "AIESEC / Uganda Industrial Research Institute",
+    "description": "Represented AIESEC Uganda internationally. Embedded systems development at UIRI (May-Jul).",
+    "type": "work"
   },
   {
     "year": "2023-2024",
-    "title": "Global Consultant",
-    "institution": "AIESEC",
-    "description": "Information Management role supporting global AIESEC operations.",
-    "type": "work",
-    "isFuture": false
+    "title": "AIESEC Global Consultant",
+    "institution": "AIESEC (Remote)",
+    "description": "Information Management role supporting global operations.",
+    "type": "work"
   },
   {
     "year": "2022",
-    "title": "Started Computer Science",
+    "title": "Started B.Sc. Computer Science",
     "institution": "Uganda Christian University",
-    "description": "Began B.S. in Computer Science. Focus areas: AI, Data Structures, Embedded Systems, Cyber Security.",
-    "type": "education",
-    "isFuture": false
+    "description": "Focus: AI, Data Structures, Embedded Systems, Cyber Security.",
+    "type": "education"
   }
 ]

@@ -1,37 +1,51 @@
 ---
-import posts from '../data/blog.json';
 ---
 
-<section id="blog" class="section blog-section">
+<section id="blog" class="blog-section">
   <div class="container">
-    <h2 class="text-center">From My Blog</h2>
-    <p class="lead text-center" style="margin-bottom: 3rem;">
-      Thoughts and insights on technology, innovation, and ancient wisdom applied to modern challenges
-    </p>
-
-    <div class="blog-grid">
-      {posts.slice(0, 3).map((post, index) => (
-        <div class="blog-card" style={`animation-delay: ${index * 0.1}s`}>
-          <img
-            src={post.image}
-            alt={post.title}
-            class="blog-img"
-            loading="lazy"
-          />
-          <div class="blog-content">
-            <div class="blog-date">{post.date}</div>
-            <h3 class="blog-title">{post.title}</h3>
-            <p class="blog-excerpt">{post.excerpt}</p>
-            <a href={post.link} class="blog-link">
-              Read More
-            </a>
-          </div>
-        </div>
-      ))}
-    </div>
-
-    <div class="text-center" style="margin-top: 3rem;">
-      <a href="/blog" class="btn">View All Posts</a>
+    <h2 class="section-title">Blog</h2>
+    <div class="coming-soon">
+      <p class="coming-soon-text">Coming Soon</p>
+      <p class="coming-soon-description">
+        Writing about NLP for low-resource languages, responsible AI, and building tech for social impact.
+      </p>
     </div>
   </div>
 </section>
+
+<style>
+  .blog-section {
+    padding: var(--space-lg) 0;
+    background: var(--color-cream);
+  }
+
+  .section-title {
+    font-size: 1.75rem;
+    color: var(--color-sapphire);
+    margin-bottom: var(--space-md);
+    font-weight: 600;
+  }
+
+  .coming-soon {
+    text-align: center;
+    padding: var(--space-lg) var(--space-md);
+    background: var(--color-ivory);
+    border-radius: 4px;
+    border: 1px dashed var(--color-parchment);
+  }
+
+  .coming-soon-text {
+    font-size: 1.1rem;
+    color: var(--color-sapphire-muted);
+    font-weight: 500;
+    margin-bottom: 0.5rem;
+  }
+
+  .coming-soon-description {
+    font-size: 0.9rem;
+    color: var(--color-charcoal-light);
+    max-width: 400px;
+    margin: 0 auto;
+    line-height: 1.5;
+  }
+</style>
