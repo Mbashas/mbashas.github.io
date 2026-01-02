@@ -1,68 +1,83 @@
 [
   {
-    "id": "smart-home-security",
-    "title": "Smart Home Security System",
-    "category": "Embedded Systems",
-    "image": "https://plus.unsplash.com/premium_photo-1661297461253-ae1968b5d46c?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3",
-    "link": "https://github.com/mbashas/smart-home-security",
-    "description": "Arduino-based security system with motion detection and alerts",
+    "id": "gandabert",
+    "title": "GandaBERT: Luganda News Classification",
+    "category": "NLP / Machine Learning",
+    "image": "https://images.unsplash.com/photo-1677442136019-21780ecad995?w=500&q=80",
+    "link": "https://github.com/mbashas/gandabert",
+    "demo": "https://gandabert-demo.vercel.app",
+    "description": "End-to-end NLP pipeline for low-resource Luganda language achieving 85.7% accuracy",
+    "featured": true,
+    "date": "2025",
     "isCaseStudy": true,
     "caseStudy": {
-      "overview": "This project implements a comprehensive home security solution using Arduino microcontrollers, ultrasonic and LDR sensors to detect intruders, automatically lock doors, and alert homeowners.",
-      "challenge": "Traditional security systems are expensive and often require professional installation. The challenge was to create an affordable, DIY security system that homeowners could install themselves while maintaining reliability and effectiveness in detecting potential intruders.",
-      "approach": "I approached this by first analyzing security vulnerabilities in typical homes and identifying key points that needed monitoring. After selecting appropriate sensors for different scenarios (motion, light changes), I designed a system architecture that would enable reliable communication between components.",
-      "solution": "The resulting system uses an Arduino microcontroller as its brain, connected to ultrasonic sensors for motion detection and Light Dependent Resistors (LDRs) to detect sudden light changes. When suspicious activity is detected, the system automatically locks doors via servo motors and sends alerts to the homeowner's mobile device.",
+      "overview": "GandaBERT is a groundbreaking NLP project that brings modern language understanding to Luganda, one of Uganda's major languages. This project addresses the critical gap in NLP tools for African languages.",
+      "challenge": "Luganda is a low-resource language with limited NLP datasets and tools. Creating accurate text classification required building datasets from scratch and adapting multilingual models for this specific linguistic context.",
+      "approach": "Built a novel 2,600-article dataset combining native news sources, machine translation, and synthetic data augmentation. Fine-tuned Multilingual BERT with custom preprocessing for Luganda's unique morphological features.",
+      "solution": "The final system achieves 85.7% accuracy across 5 news categories (Politics, Sports, Entertainment, Business, Technology). Deployed as a full-stack application with FastAPI backend and Vercel frontend.",
       "features": [
-        "Motion detection using ultrasonic sensors with adjustable sensitivity",
-        "Light change detection for identifying flashlight use or sudden illumination",
-        "Automatic door locking mechanism during security breaches",
-        "Mobile alert system with real-time notifications",
-        "Battery backup to ensure operation during power outages",
-        "Web interface for monitoring and controlling the system remotely"
+        "Novel 2,600+ article Luganda news dataset",
+        "Fine-tuned Multilingual BERT model",
+        "FastAPI REST backend with Hugging Face Inference Endpoints",
+        "Real-time classification web interface",
+        "85.7% accuracy across 5 categories"
       ],
-      "technologies": ["Arduino", "C++", "Ultrasonic Sensors", "LDR Sensors", "Servo Motors", "ESP8266 WiFi", "Mobile Notifications", "Real-time Monitoring"]
+      "technologies": ["Python", "PyTorch", "Hugging Face Transformers", "FastAPI", "Vercel", "scikit-learn"]
     }
   },
   {
-    "id": "weather-monitoring",
-    "title": "Weather Monitoring System",
-    "category": "IoT",
-    "image": "https://images.unsplash.com/photo-1492011221367-f47e3ccd77a0?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60",
-    "link": "https://github.com/mbashas/weather-monitoring",
-    "description": "Solar-powered weather monitoring using distributed sensors",
+    "id": "waterboard-analytics",
+    "title": "WaterBoard Analytics Dashboard",
+    "category": "Data Analytics",
+    "image": "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=500&q=80",
+    "link": "https://github.com/mbashas/waterboard-analytics",
+    "description": "Production analytics dashboard for water utilities across 4 African countries",
+    "featured": true,
+    "date": "2025",
+    "isCaseStudy": true,
+    "caseStudy": {
+      "overview": "Built during the Equitech Futures Fellowship, this dashboard provides actionable insights for water utility companies across Uganda, Cameroon, Malawi, and Lesotho.",
+      "challenge": "Water utilities in developing countries lack accessible tools to visualize performance metrics, track service ladder progress, and make data-driven decisions.",
+      "approach": "Designed a role-based dashboard system with JMP service ladder visualizations, integrated AI-powered data assistant using Google Gemini for natural language queries.",
+      "solution": "A production-ready Streamlit application with Plotly visualizations, role-based authentication, and context-aware AI chat for answering complex data questions.",
+      "features": [
+        "Multi-country water utility analytics",
+        "JMP service ladder visualizations",
+        "Role-based authentication system",
+        "AI data assistant powered by Google Gemini",
+        "Interactive Plotly dashboards"
+      ],
+      "technologies": ["Python", "Streamlit", "Plotly", "Google Gemini API", "pandas", "SQL"]
+    }
+  },
+  {
+    "id": "agora-hub",
+    "title": "Agora Hub - Task Management",
+    "category": "Full-Stack Development",
+    "image": "https://images.unsplash.com/photo-1507925921958-8a62f3d1a50d?w=500&q=80",
+    "link": "https://github.com/mbashas/agora-hub",
+    "description": "Full-stack collaborative task management with Django and React",
+    "date": "2024",
     "isCaseStudy": false
   },
   {
-    "id": "luganda-fake-news-detection",
-    "title": "Fake News Detection in Luganda",
-    "category": "Machine Learning",
-    "image": "https://images.unsplash.com/photo-1504711434969-e33886168f5c?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60",
-    "link": "https://github.com/mbashas/luganda-fake-news-detection",
-    "description": "NLP model for identifying misinformation in local languages",
-    "isCaseStudy": true,
-    "caseStudy": {
-      "overview": "This research project develops machine learning models to detect misinformation in content written in Luganda, one of Uganda's major languages, addressing a critical gap in content moderation tools for African languages.",
-      "challenge": "While fake news detection models exist for major world languages like English, local African languages like Luganda lack such tools. This creates vulnerability to misinformation campaigns in these language communities. Additionally, Luganda has unique linguistic features that make standard NLP approaches less effective.",
-      "approach": "The project began with collecting a diverse dataset of verified Luganda news articles and known misinformation. I then developed custom preprocessing steps specific to Luganda's morphological structure. Multiple model architectures were tested, including traditional machine learning classifiers with TF-IDF and more advanced deep learning approaches.",
-      "solution": "The final system implements a hybrid architecture combining BERT-based embeddings fine-tuned for Luganda with ensemble learning techniques. The model achieves over 87% accuracy in detecting misinformation, with particular strength in identifying emotionally manipulative language patterns common in fake news.",
-      "features": [
-        "Custom tokenization and preprocessing pipeline for Luganda language",
-        "Transfer learning using modified BERT architecture with Luganda adaptations",
-        "Ensemble model combining textual and contextual features",
-        "Web API for real-time classification of news content",
-        "Browser extension for end-users to verify article credibility",
-        "Explainable AI components to highlight suspicious text segments"
-      ],
-      "technologies": ["Python", "TensorFlow", "BERT", "NLP", "FastAPI", "Scikit-learn", "Text Analysis", "Sentiment Analysis", "Deep Learning"]
-    }
+    "id": "smart-traffic-light",
+    "title": "Smart Traffic Light System",
+    "category": "Embedded Systems",
+    "image": "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=500&q=80",
+    "link": "https://github.com/mbashas/smart-traffic-light",
+    "description": "Four-way adaptive traffic system with 8 ultrasonic sensors and emergency override",
+    "date": "2024",
+    "isCaseStudy": false
   },
   {
-    "id": "campus-food-management",
-    "title": "Campus Food Management System",
-    "category": "Web Development",
-    "image": "https://images.unsplash.com/photo-1498837167922-ddd27525d352?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60",
-    "link": "https://github.com/mbashas/campus-food-management",
-    "description": "Streamlined ordering system for university dining services",
+    "id": "smart-home-security",
+    "title": "Smart Home Security System",
+    "category": "Embedded Systems",
+    "image": "https://plus.unsplash.com/premium_photo-1661297461253-ae1968b5d46c?w=500&q=80",
+    "link": "https://github.com/mbashas/smart-home-security",
+    "description": "Arduino-based security with motion detection, door locks, and mobile alerts",
+    "date": "2023",
     "isCaseStudy": false
   }
 ]

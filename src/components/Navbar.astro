@@ -8,15 +8,17 @@ const { isHomePage = true } = Astro.props;
 const homeLinks = [
   { name: 'Home', path: '#home' },
   { name: 'About', path: '#about' },
-  { name: 'Portfolio', path: '#portfolio' },
+  { name: 'Projects', path: '#portfolio' },
   { name: 'Blog', path: '#blog' },
   { name: 'Contact', path: '#contact' },
+  { name: 'CV', path: '/resume.pdf', isExternal: true },
 ];
 
 const pageLinks = [
   { name: 'Home', path: '/' },
   { name: 'Projects', path: '/projects' },
   { name: 'Blog', path: '/blog' },
+  { name: 'CV', path: '/resume.pdf', isExternal: true },
 ];
 
 const links = isHomePage ? homeLinks : pageLinks;
@@ -26,7 +28,7 @@ const links = isHomePage ? homeLinks : pageLinks;
   <div class="container">
     <div class="navbar">
       <a href={isHomePage ? '#home' : '/'} class="logo">
-        Seth<span>Mbasha</span>
+        Mbasha<span>Seth</span>
       </a>
 
       <button class="hamburger" aria-label="Toggle menu" aria-expanded="false">
@@ -40,7 +42,13 @@ const links = isHomePage ? homeLinks : pageLinks;
       <ul class="nav-links">
         {links.map((link) => (
           <li>
-            <a href={link.path}>{link.name}</a>
+            <a
+              href={link.path}
+              target={link.isExternal ? '_blank' : undefined}
+              rel={link.isExternal ? 'noopener noreferrer' : undefined}
+            >
+              {link.name}
+            </a>
           </li>
         ))}
       </ul>

@@ -5,156 +5,300 @@ import site from '../data/site.json';
 ---
 
 <section id="about" class="section-about">
-  <div class="about-pattern"></div>
-  <div class="about-glow"></div>
-
   <div class="container">
-    <div class="section-header">
-      <h2 class="section-title">About Me</h2>
-      <div class="section-title-underline"></div>
+    <h2 class="section-title">About</h2>
+
+    <div class="about-grid">
+      <!-- Left: Portrait -->
+      <div class="about-portrait">
+        <img
+          src="/images/portrait.jpg"
+          alt={site.name}
+          class="portrait-image"
+          loading="lazy"
+        />
+      </div>
+
+      <!-- Right: Bio and Info -->
+      <div class="about-content">
+        <p class="about-bio">{site.bio}</p>
+
+        <div class="about-details">
+          <div class="detail-item">
+            <span class="detail-label">Education</span>
+            <span class="detail-value">{site.education.degree}, {site.education.school}</span>
+          </div>
+          <div class="detail-item">
+            <span class="detail-label">GPA</span>
+            <span class="detail-value">{site.education.gpa}</span>
+          </div>
+          <div class="detail-item">
+            <span class="detail-label">Location</span>
+            <span class="detail-value">{site.location}</span>
+          </div>
+        </div>
+      </div>
     </div>
 
-    <div class="about-content">
-      <!-- Row 1: Portrait and About text side-by-side -->
-      <div class="about-intro-row">
-        <!-- Portrait Column -->
-        <div class="about-portrait-container">
-          <div class="portrait-frame">
-            <img
-              src="/images/portrait.jpg"
-              alt="Seth Mbasha"
-              class="about-portrait-image"
-              loading="lazy"
-            />
+    <!-- Skills Section -->
+    <div class="skills-section">
+      <h3 class="subsection-title">Technical Skills</h3>
+      <div class="skills-grid">
+        {skills.technical.map((skillGroup) => (
+          <div class="skill-group">
+            <h4 class="skill-category">{skillGroup.category}</h4>
+            <p class="skill-items">{skillGroup.items.join(', ')}</p>
           </div>
-        </div>
-
-        <!-- About Text Column -->
-        <div class="about-text morphism-card">
-          <div class="card-content">
-            <p class="about-description">
-              I'm a Computer Science student and my passion lies at the intersection of software, hardware, automation and natural language processing.
-              Currently exploring ways to embed real-time applications (APIs) into AI-driven solutions. Always eager to learn, build, and collaborate!
-            </p>
-            <p class="fun-fact">Fun Fact: Avocados are technically large berries!</p>
-
-            <!-- Spotify Player Embed -->
-            <iframe
-              style="border-radius: 12px"
-              src={site.spotifyEmbed}
-              width="100%"
-              height="152"
-              frameborder="0"
-              allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
-              loading="lazy"
-              title="Spotify Embed"
-            ></iframe>
-
-            <p class="about-quote">
-              "Technology should be a tool for empowerment, connecting communities and solving problems
-              that matter. My goal is to build systems that make a meaningful difference in people's lives."
-            </p>
-          </div>
-          <div class="morphism-shine"></div>
-        </div>
+        ))}
       </div>
+    </div>
 
-      <!-- Row 2: Skills section (full width) -->
-      <div class="bento-grid">
-        <div class="bento-item skills-card">
-          <h3>Skills</h3>
-          <div class="skills-grid">
-            {skills.map((skillGroup, index) => (
-              <div class="skill-category" data-index={index}>
-                <h4 class="skill-category-title">
-                  <span class="skill-icon"></span>
-                  {skillGroup.category}
-                </h4>
-                <ul class="skill-list">
-                  {skillGroup.items.map((skill) => (
-                    <li class="skill-item">{skill}</li>
-                  ))}
-                </ul>
-              </div>
-            ))}
-          </div>
-        </div>
+    <!-- Certifications -->
+    <div class="certifications-section">
+      <h3 class="subsection-title">Certifications</h3>
+      <ul class="cert-list">
+        {skills.certifications.map((cert) => (
+          <li class="cert-item">
+            <span class="cert-name">{cert.name}</span>
+            <span class="cert-issuer">{cert.issuer}</span>
+          </li>
+        ))}
+      </ul>
+    </div>
+
+    <!-- Languages -->
+    <div class="languages-section">
+      <h3 class="subsection-title">Languages</h3>
+      <div class="language-list">
+        {skills.languages.map((lang) => (
+          <span class="language-item">
+            {lang.name} <span class="lang-level">({lang.level})</span>
+          </span>
+        ))}
       </div>
+    </div>
 
-      <!-- Row 3: Timeline section (full width) -->
-      <div class="timeline-container">
-        <h3 class="timeline-title">My Journey</h3>
-        <div class="timeline-title-divider"></div>
-        <div class="timeline">
-          <div class="timeline-track"></div>
-          <div class="timeline-cap-top"></div>
-          <div class="timeline-cap-bottom"></div>
-
-          {timeline.map((item, index) => (
-            <div
-              class={`timeline-item ${item.type} ${item.isFuture ? 'future' : ''}`}
-              style={`animation-delay: ${index * 0.2}s`}
-              data-index={index}
-            >
-              <div class="timeline-marker">
-                <div class="marker-inner">
-                  {item.type === 'education' ? (
-                    <svg viewBox="0 0 24 24" width="16" height="16">
-                      <path fill="currentColor" d="M12 3L1 9l11 6 9-4.91V17h2V9M5 13.18v4L12 21l7-3.82v-4L12 17l-7-3.82z" />
-                    </svg>
-                  ) : item.type === 'project' ? (
-                    <svg viewBox="0 0 24 24" width="16" height="16">
-                      <path fill="currentColor" d="M12 3c-4.97 0-9 4.03-9 9s4.03 9 9 9c.83 0 1.5-.67 1.5-1.5 0-.39-.15-.74-.39-1.01-.23-.26-.38-.61-.38-.99 0-.83.67-1.5 1.5-1.5H16c2.76 0 5-2.24 5-5 0-4.42-4.03-8-9-8zm-5.5 9c-.83 0-1.5-.67-1.5-1.5S5.67 9 6.5 9 8 9.67 8 10.5 7.33 12 6.5 12zm3-4C8.67 8 8 7.33 8 6.5S8.67 5 9.5 5 11 5.67 11 6.5 10.33 8 9.5 8zm5 0c-.83 0-1.5-.67-1.5-1.5S13.67 5 14.5 5s1.5.67 1.5 1.5S15.33 8 14.5 8zm3 4c-.83 0-1.5-.67-1.5-1.5S16.67 9 17.5 9s1.5.67 1.5 1.5-.67 1.5-1.5 1.5z" />
-                    </svg>
-                  ) : (
-                    <svg viewBox="0 0 24 24" width="16" height="16">
-                      <path fill="currentColor" d="M9.4 16.6L4.8 12l4.6-4.6L8 6l-6 6 6 6 1.4-1.4zm5.2 0l4.6-4.6-4.6-4.6L16 6l6 6-6 6-1.4-1.4z" />
-                    </svg>
-                  )}
-                </div>
-              </div>
-
-              <div class="timeline-content">
-                <div class="timeline-year">{item.year}</div>
-                <h4 class="timeline-item-title">{item.title}</h4>
-                <div class="timeline-institution">{item.institution}</div>
-                <p class="timeline-description">{item.description}</p>
-              </div>
+    <!-- Timeline -->
+    <div class="timeline-section">
+      <h3 class="subsection-title">Experience & Education</h3>
+      <div class="timeline">
+        {timeline.map((item) => (
+          <div class="timeline-item">
+            <span class="timeline-year">{item.year}</span>
+            <div class="timeline-content">
+              <h4 class="timeline-title">{item.title}</h4>
+              <p class="timeline-institution">{item.institution}</p>
+              <p class="timeline-description">{item.description}</p>
             </div>
-          ))}
-        </div>
+          </div>
+        ))}
       </div>
     </div>
   </div>
 </section>
 
-<script>
-  // Intersection Observer for animations
-  const observerOptions = {
-    threshold: 0.1,
-    rootMargin: '0px'
-  };
+<style>
+  .section-about {
+    padding: var(--space-xl) 0;
+    background: var(--color-cream);
+  }
 
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add('visible', 'animate-fade-in', 'animate-fade-in-up', 'animate-fade-in-left', 'animate-fade-in-right');
-      }
-    });
-  }, observerOptions);
+  .section-title {
+    font-size: 2rem;
+    color: var(--color-sapphire);
+    margin-bottom: var(--space-lg);
+    font-weight: 600;
+  }
 
-  // Observe elements
-  document.querySelectorAll('.section-header, .about-portrait-container, .about-text, .bento-grid, .timeline-container, .timeline-item').forEach(el => {
-    observer.observe(el);
-  });
+  .about-grid {
+    display: grid;
+    grid-template-columns: 200px 1fr;
+    gap: var(--space-lg);
+    margin-bottom: var(--space-xl);
+    align-items: start;
+  }
 
-  // Skills hover effect
-  document.querySelectorAll('.skill-category').forEach(category => {
-    category.addEventListener('mouseenter', () => {
-      category.classList.add('active');
-    });
-    category.addEventListener('mouseleave', () => {
-      category.classList.remove('active');
-    });
-  });
-</script>
+  .about-portrait {
+    position: sticky;
+    top: 100px;
+  }
+
+  .portrait-image {
+    width: 100%;
+    border-radius: 4px;
+    filter: grayscale(10%);
+  }
+
+  .about-bio {
+    font-size: 1.1rem;
+    line-height: 1.8;
+    color: var(--color-charcoal);
+    margin-bottom: var(--space-md);
+  }
+
+  .about-details {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+
+  .detail-item {
+    display: flex;
+    gap: 1rem;
+  }
+
+  .detail-label {
+    font-weight: 500;
+    color: var(--color-sapphire-muted);
+    min-width: 80px;
+  }
+
+  .detail-value {
+    color: var(--color-charcoal);
+  }
+
+  .subsection-title {
+    font-size: 1.25rem;
+    color: var(--color-sapphire);
+    margin-bottom: var(--space-sm);
+    font-weight: 600;
+    padding-bottom: 0.5rem;
+    border-bottom: 1px solid rgba(197, 165, 114, 0.2);
+  }
+
+  .skills-section,
+  .certifications-section,
+  .languages-section,
+  .timeline-section {
+    margin-bottom: var(--space-lg);
+  }
+
+  .skills-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: var(--space-md);
+  }
+
+  .skill-group {
+    padding: var(--space-sm) 0;
+  }
+
+  .skill-category {
+    font-size: 0.9rem;
+    color: var(--color-sapphire-muted);
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+
+  .skill-items {
+    color: var(--color-charcoal);
+    line-height: 1.6;
+    margin: 0;
+  }
+
+  .cert-list {
+    list-style: none;
+    padding: 0;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 0.75rem;
+  }
+
+  .cert-item {
+    display: flex;
+    justify-content: space-between;
+    padding: 0.5rem 0;
+    border-bottom: 1px solid rgba(197, 165, 114, 0.1);
+  }
+
+  .cert-name {
+    color: var(--color-charcoal);
+  }
+
+  .cert-issuer {
+    color: var(--color-sapphire-muted);
+    font-size: 0.9rem;
+  }
+
+  .language-list {
+    display: flex;
+    gap: 2rem;
+    flex-wrap: wrap;
+  }
+
+  .language-item {
+    color: var(--color-charcoal);
+  }
+
+  .lang-level {
+    color: var(--color-sapphire-muted);
+    font-size: 0.9rem;
+  }
+
+  .timeline {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+
+  .timeline-item {
+    display: grid;
+    grid-template-columns: 100px 1fr;
+    gap: 1.5rem;
+  }
+
+  .timeline-year {
+    color: var(--color-sapphire);
+    font-weight: 600;
+    font-size: 0.9rem;
+  }
+
+  .timeline-content {
+    padding-bottom: 1.5rem;
+    border-bottom: 1px solid rgba(197, 165, 114, 0.15);
+  }
+
+  .timeline-item:last-child .timeline-content {
+    border-bottom: none;
+  }
+
+  .timeline-title {
+    font-size: 1rem;
+    color: var(--color-charcoal);
+    margin-bottom: 0.25rem;
+    font-weight: 600;
+  }
+
+  .timeline-institution {
+    color: var(--color-sapphire-muted);
+    font-size: 0.9rem;
+    margin-bottom: 0.5rem;
+    font-style: italic;
+  }
+
+  .timeline-description {
+    color: var(--color-charcoal-light);
+    font-size: 0.95rem;
+    line-height: 1.6;
+    margin: 0;
+  }
+
+  @media (max-width: 768px) {
+    .about-grid {
+      grid-template-columns: 1fr;
+      gap: var(--space-md);
+    }
+
+    .about-portrait {
+      position: static;
+      max-width: 150px;
+    }
+
+    .timeline-item {
+      grid-template-columns: 1fr;
+      gap: 0.5rem;
+    }
+  }
+</style>

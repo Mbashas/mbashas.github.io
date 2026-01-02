@@ -1,197 +1,170 @@
 ---
 import projects from '../data/projects.json';
 
-const categories = ["All", ...new Set(projects.map(p => p.category))];
+// Show featured projects first
+const sortedProjects = [...projects].sort((a, b) => {
+  if (a.featured && !b.featured) return -1;
+  if (!a.featured && b.featured) return 1;
+  return 0;
+});
 ---
 
 <section id="portfolio" class="portfolio-section">
-  <div class="lightning-background">
-    <div class="lightning-glow"></div>
-    <div class="lightning-glow secondary"></div>
-    <div class="grid-pattern"></div>
-  </div>
-
   <div class="container">
-    <div class="section-header">
-      <h2 class="section-title">My Artifacts</h2>
-      <div class="section-title-underline"></div>
-      <p class="section-subtitle">
-        Explore my latest work spanning embedded systems, machine learning, and more
-      </p>
-    </div>
+    <h2 class="section-title">Projects</h2>
 
-    <div class="portfolio-filter">
-      <div class="filter-container">
-        {categories.map((category, index) => (
-          <button
-            class={`filter-btn ${category === 'All' ? 'active' : ''}`}
-            data-category={category}
-          >
-            {category}
-          </button>
-        ))}
-        <div class="filter-active-indicator"></div>
-      </div>
-    </div>
-
-    <div class="portfolio-bento" id="portfolio-grid">
-      {projects.map((project, index) => (
-        <div
-          class="portfolio-item animate-in"
-          style={`animation-delay: ${index * 0.1}s`}
-          data-category={project.category}
-        >
-          <div class="portfolio-item-inner">
-            <div class="portfolio-img-container">
-              <div class="card-shine"></div>
-              <img
-                src={project.image}
-                alt={project.title}
-                class="portfolio-img"
-                loading="lazy"
-              />
-              <div class="portfolio-overlay">
-                <div class="portfolio-category">{project.category}</div>
-                <h3 class="portfolio-title">{project.title}</h3>
-                <p class="portfolio-description">{project.description}</p>
-                <a
-                  href={project.link}
-                  class="portfolio-link"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  View Project
-                  <svg
-                    width="16"
-                    height="16"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    xmlns="http://www.w3.org/2000/svg"
-                    class="link-arrow"
-                  >
-                    <path
-                      d="M7 17L17 7M17 7H7M17 7V17"
-                      stroke="currentColor"
-                      stroke-width="2"
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                    />
-                  </svg>
-                </a>
-
-                {project.isCaseStudy && (
-                  <a href={`/case/${project.id}`} class="view-details-btn">
-                    View Case Study
-                    <svg
-                      width="16"
-                      height="16"
-                      viewBox="0 0 24 24"
-                      fill="none"
-                      xmlns="http://www.w3.org/2000/svg"
-                      class="details-icon"
-                    >
-                      <path
-                        d="M12 4V20M20 12L4 12"
-                        stroke="currentColor"
-                        stroke-width="2"
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                      />
-                    </svg>
-                  </a>
-                )}
-              </div>
-            </div>
+    <div class="projects-grid">
+      {sortedProjects.map((project) => (
+        <article class={`project-card ${project.featured ? 'featured' : ''}`}>
+          <div class="project-header">
+            <span class="project-date">{project.date}</span>
+            <span class="project-category">{project.category}</span>
           </div>
-        </div>
+
+          <h3 class="project-title">{project.title}</h3>
+          <p class="project-description">{project.description}</p>
+
+          <div class="project-links">
+            <a href={project.link} target="_blank" rel="noopener noreferrer" class="project-link">
+              GitHub
+            </a>
+            {project.demo && (
+              <a href={project.demo} target="_blank" rel="noopener noreferrer" class="project-link">
+                Demo
+              </a>
+            )}
+            {project.isCaseStudy && (
+              <a href={`/case/${project.id}`} class="project-link case-study-link">
+                Case Study
+              </a>
+            )}
+          </div>
+        </article>
       ))}
     </div>
 
-    <div class="portfolio-cta">
-      <a href="/projects" class="btn-view-all">
-        Browse All Projects
-        <svg
-          width="20"
-          height="20"
-          viewBox="0 0 24 24"
-          fill="none"
-          xmlns="http://www.w3.org/2000/svg"
-        >
-          <path
-            d="M5 12H19M19 12L12 5M19 12L12 19"
-            stroke="currentColor"
-            stroke-width="2"
-            stroke-linecap="round"
-            stroke-linejoin="round"
-          />
-        </svg>
+    <div class="view-all">
+      <a href="/projects" class="view-all-link">
+        View All Projects
       </a>
     </div>
   </div>
 </section>
 
-<script>
-  // Portfolio filtering
-  const filterBtns = document.querySelectorAll('.filter-btn');
-  const portfolioItems = document.querySelectorAll('.portfolio-item');
-  const filterIndicator = document.querySelector('.filter-active-indicator') as HTMLElement;
+<style>
+  .portfolio-section {
+    padding: var(--space-xl) 0;
+    background: var(--color-parchment);
+  }
 
-  function updateFilterIndicator(btn: HTMLElement) {
-    if (filterIndicator) {
-      filterIndicator.style.width = `${btn.offsetWidth}px`;
-      filterIndicator.style.left = `${btn.offsetLeft}px`;
+  .section-title {
+    font-size: 2rem;
+    color: var(--color-sapphire);
+    margin-bottom: var(--space-lg);
+    font-weight: 600;
+  }
+
+  .projects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: var(--space-md);
+  }
+
+  .project-card {
+    background: var(--color-ivory);
+    padding: var(--space-md);
+    border-radius: 4px;
+    border-left: 3px solid var(--color-gold);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+  }
+
+  .project-card.featured {
+    border-left-color: var(--color-sapphire);
+  }
+
+  .project-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px rgba(44, 36, 32, 0.08);
+  }
+
+  .project-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 0.75rem;
+  }
+
+  .project-date {
+    font-size: 0.85rem;
+    color: var(--color-sapphire);
+    font-weight: 600;
+  }
+
+  .project-category {
+    font-size: 0.75rem;
+    color: var(--color-charcoal-light);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+
+  .project-title {
+    font-size: 1.2rem;
+    color: var(--color-charcoal);
+    margin-bottom: 0.5rem;
+    font-weight: 600;
+  }
+
+  .project-description {
+    color: var(--color-charcoal-light);
+    font-size: 0.95rem;
+    line-height: 1.6;
+    margin-bottom: 1rem;
+  }
+
+  .project-links {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+  }
+
+  .project-link {
+    font-size: 0.85rem;
+    color: var(--color-sapphire);
+    text-decoration: none;
+    padding-bottom: 2px;
+    border-bottom: 1px solid transparent;
+    transition: border-color 0.2s ease;
+  }
+
+  .project-link:hover {
+    border-bottom-color: var(--color-gold);
+  }
+
+  .case-study-link {
+    color: var(--color-gold-dark);
+  }
+
+  .view-all {
+    margin-top: var(--space-lg);
+    text-align: center;
+  }
+
+  .view-all-link {
+    color: var(--color-sapphire);
+    font-size: 0.9rem;
+    text-decoration: none;
+    padding-bottom: 2px;
+    border-bottom: 1px solid var(--color-gold);
+    transition: color 0.2s ease;
+  }
+
+  .view-all-link:hover {
+    color: var(--color-gold-dark);
+  }
+
+  @media (max-width: 768px) {
+    .projects-grid {
+      grid-template-columns: 1fr;
     }
   }
-
-  filterBtns.forEach(btn => {
-    btn.addEventListener('click', () => {
-      // Update active state
-      filterBtns.forEach(b => b.classList.remove('active'));
-      btn.classList.add('active');
-
-      // Update indicator position
-      updateFilterIndicator(btn as HTMLElement);
-
-      // Filter items
-      const category = btn.getAttribute('data-category');
-
-      portfolioItems.forEach(item => {
-        const itemCategory = item.getAttribute('data-category');
-        if (category === 'All' || itemCategory === category) {
-          (item as HTMLElement).style.display = 'block';
-        } else {
-          (item as HTMLElement).style.display = 'none';
-        }
-      });
-    });
-  });
-
-  // Initialize indicator position
-  const activeBtn = document.querySelector('.filter-btn.active') as HTMLElement;
-  if (activeBtn) {
-    updateFilterIndicator(activeBtn);
-  }
-
-  // Hover effect for portfolio items
-  portfolioItems.forEach(item => {
-    item.addEventListener('mouseenter', () => {
-      item.querySelector('.portfolio-overlay')?.classList.add('active');
-    });
-    item.addEventListener('mouseleave', () => {
-      item.querySelector('.portfolio-overlay')?.classList.remove('active');
-    });
-  });
-
-  // Intersection Observer for animation
-  const portfolioObserver = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add('animate-fade-in');
-      }
-    });
-  }, { threshold: 0.1 });
-
-  document.querySelectorAll('.section-header, .portfolio-cta').forEach(el => {
-    portfolioObserver.observe(el);
-  });
-</script>
+</style>
