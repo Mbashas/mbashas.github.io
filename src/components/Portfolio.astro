@@ -22,7 +22,20 @@ const sortedProjects = [...projects].sort((a, b) => {
           </div>
 
           <h3 class="project-title">{project.title}</h3>
+
+          {project.problem && (
+            <p class="project-problem">{project.problem}</p>
+          )}
+
           <p class="project-description">{project.description}</p>
+
+          {project.tech && (
+            <div class="project-tech">
+              {project.tech.map((t) => (
+                <span class="tech-tag">{t}</span>
+              ))}
+            </div>
+          )}
 
           <div class="project-links">
             <a href={project.link} target="_blank" rel="noopener noreferrer" class="project-link">
@@ -33,20 +46,9 @@ const sortedProjects = [...projects].sort((a, b) => {
                 Demo
               </a>
             )}
-            {project.isCaseStudy && (
-              <a href={`/case/${project.id}`} class="project-link case-study-link">
-                Case Study
-              </a>
-            )}
           </div>
         </article>
       ))}
-    </div>
-
-    <div class="view-all">
-      <a href="/projects" class="view-all-link">
-        View All Projects
-      </a>
     </div>
   </div>
 </section>
@@ -58,7 +60,7 @@ const sortedProjects = [...projects].sort((a, b) => {
   }
 
   .section-title {
-    font-size: 2rem;
+    font-size: 1.75rem;
     color: var(--color-sapphire);
     margin-bottom: var(--space-lg);
     font-weight: 600;
@@ -66,13 +68,13 @@ const sortedProjects = [...projects].sort((a, b) => {
 
   .projects-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
     gap: var(--space-md);
   }
 
   .project-card {
     background: var(--color-ivory);
-    padding: var(--space-md);
+    padding: 1.5rem;
     border-radius: 4px;
     border-left: 3px solid var(--color-gold);
     transition: transform 0.2s ease, box-shadow 0.2s ease;
@@ -91,34 +93,58 @@ const sortedProjects = [...projects].sort((a, b) => {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-bottom: 0.75rem;
+    margin-bottom: 0.5rem;
   }
 
   .project-date {
-    font-size: 0.85rem;
+    font-size: 0.8rem;
     color: var(--color-sapphire);
     font-weight: 600;
   }
 
   .project-category {
-    font-size: 0.75rem;
+    font-size: 0.7rem;
     color: var(--color-charcoal-light);
     text-transform: uppercase;
     letter-spacing: 0.05em;
   }
 
   .project-title {
-    font-size: 1.2rem;
+    font-size: 1.1rem;
     color: var(--color-charcoal);
     margin-bottom: 0.5rem;
     font-weight: 600;
+    line-height: 1.3;
+  }
+
+  .project-problem {
+    font-size: 0.85rem;
+    color: var(--color-sapphire-muted);
+    font-style: italic;
+    margin-bottom: 0.5rem;
+    line-height: 1.4;
   }
 
   .project-description {
     color: var(--color-charcoal-light);
-    font-size: 0.95rem;
-    line-height: 1.6;
-    margin-bottom: 1rem;
+    font-size: 0.9rem;
+    line-height: 1.5;
+    margin-bottom: 0.75rem;
+  }
+
+  .project-tech {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem;
+    margin-bottom: 0.75rem;
+  }
+
+  .tech-tag {
+    font-size: 0.75rem;
+    color: var(--color-sapphire);
+    background: rgba(27, 54, 93, 0.08);
+    padding: 0.2rem 0.5rem;
+    border-radius: 3px;
   }
 
   .project-links {
@@ -138,28 +164,6 @@ const sortedProjects = [...projects].sort((a, b) => {
 
   .project-link:hover {
     border-bottom-color: var(--color-gold);
-  }
-
-  .case-study-link {
-    color: var(--color-gold-dark);
-  }
-
-  .view-all {
-    margin-top: var(--space-lg);
-    text-align: center;
-  }
-
-  .view-all-link {
-    color: var(--color-sapphire);
-    font-size: 0.9rem;
-    text-decoration: none;
-    padding-bottom: 2px;
-    border-bottom: 1px solid var(--color-gold);
-    transition: color 0.2s ease;
-  }
-
-  .view-all-link:hover {
-    color: var(--color-gold-dark);
   }
 
   @media (max-width: 768px) {

@@ -1,23 +1,20 @@
 {
-  "name": "Mbasha Seth",
-  "title": "CS Student | NLP Researcher | Equitech Fellow",
-  "subtitle": "Building data solutions for social impact across Africa",
-  "bio": "Computer Science student at Uganda Christian University (CGPA: 3.9/5.0) and Equitech Futures Applied Data Institute Fellow, selected as 1 of 25 globally. My work focuses on NLP for low-resource African languages, embedded systems, and data solutions for social impact. Currently building analytics tools for water utilities across Uganda, Cameroon, Malawi, and Lesotho.",
-  "tagline": "NLP for African Languages | Data for Social Impact",
+  "name": "Seth Mbasha",
+  "tagline": "Applied AI/ML for Social Infrastructure in African Contexts",
+  "subtitle": "NLP · Data Systems · Embedded Systems · Social Impact",
+  "bio": "I'm a Computer Science student at Uganda Christian University and Equitech Futures Applied Data Institute Fellow. My research focuses on building AI systems that work for African contexts—from NLP tools for low-resource languages to data infrastructure for public utilities. Currently developing analytics platforms for water utilities across Uganda, Cameroon, Malawi, and Lesotho, and investigating responsible AI deployment through research on spurious correlations in medical imaging models. I bring a multilingual perspective (French, Swahili, English) and experience bridging technical solutions with real-world infrastructure challenges.",
+  "researchInterests": "Edge AI and NLP for low-resource contexts, with applications in public infrastructure and information access. Interested in how data systems can improve decision-making for essential services in resource-constrained environments, and in building ML tools that account for the realities of African data ecosystems.",
   "email": "sethmbasha@gmail.com",
   "phone": "+256 781 347 647",
   "location": "Mukono, Uganda",
-  "workingHours": "Monday - Friday, 9AM - 5PM (EAT)",
   "social": {
     "github": "https://github.com/mbashas",
     "linkedin": "https://www.linkedin.com/in/mbashaseth",
     "x": "https://x.com/sethmbashas",
-    "instagram": "https://instagram.com/onlymbasha"
+    "email": "sethmbasha@gmail.com"
   },
   "education": {
     "school": "Uganda Christian University",
-    "degree": "B.S. Computer Science",
-    "gpa": "3.9/5.0",
-    "graduationYear": "2025"
+    "degree": "B.S. Computer Science"
   }
 }

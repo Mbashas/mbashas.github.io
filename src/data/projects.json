@@ -1,45 +1,47 @@
 [
   {
     "id": "gandabert",
-    "title": "GandaBERT: Luganda News Classification",
+    "title": "GandaBERT: Luganda Content Classification",
     "category": "NLP / Machine Learning",
     "image": "https://images.unsplash.com/photo-1677442136019-21780ecad995?w=500&q=80",
     "link": "https://github.com/mbashas/gandabert",
     "demo": "https://gandabert-demo.vercel.app",
-    "description": "End-to-end NLP pipeline for low-resource Luganda language achieving 85.7% accuracy",
+    "problem": "Luganda, spoken by millions, lacks basic NLP infrastructure for information verification",
+    "description": "End-to-end pipeline from dataset creation to deployed web application. Created novel 2,600-article dataset, fine-tuned Multilingual BERT achieving 85.7% accuracy across 5 categories.",
+    "tech": ["Python", "PyTorch", "Hugging Face", "FastAPI", "Vercel"],
     "featured": true,
     "date": "2025",
     "isCaseStudy": true,
     "caseStudy": {
-      "overview": "GandaBERT is a groundbreaking NLP project that brings modern language understanding to Luganda, one of Uganda's major languages. This project addresses the critical gap in NLP tools for African languages.",
-      "challenge": "Luganda is a low-resource language with limited NLP datasets and tools. Creating accurate text classification required building datasets from scratch and adapting multilingual models for this specific linguistic context.",
-      "approach": "Built a novel 2,600-article dataset combining native news sources, machine translation, and synthetic data augmentation. Fine-tuned Multilingual BERT with custom preprocessing for Luganda's unique morphological features.",
-      "solution": "The final system achieves 85.7% accuracy across 5 news categories (Politics, Sports, Entertainment, Business, Technology). Deployed as a full-stack application with FastAPI backend and Vercel frontend.",
+      "overview": "GandaBERT brings modern language understanding to Luganda, addressing the critical gap in NLP tools for African languages.",
+      "challenge": "Luganda is a low-resource language with limited NLP datasets. Creating accurate classification required building datasets from scratch and adapting multilingual models.",
+      "solution": "Built a novel 2,600-article dataset combining native sources, machine translation, and synthetic data. Fine-tuned Multilingual BERT with custom preprocessing for Luganda's morphological features. Deployed via FastAPI + Hugging Face Inference Endpoints + Vercel.",
       "features": [
         "Novel 2,600+ article Luganda news dataset",
         "Fine-tuned Multilingual BERT model",
-        "FastAPI REST backend with Hugging Face Inference Endpoints",
+        "FastAPI REST backend with Hugging Face Inference",
         "Real-time classification web interface",
         "85.7% accuracy across 5 categories"
       ],
-      "technologies": ["Python", "PyTorch", "Hugging Face Transformers", "FastAPI", "Vercel", "scikit-learn"]
+      "technologies": ["Python", "PyTorch", "Hugging Face Transformers", "FastAPI", "Vercel"]
     }
   },
   {
     "id": "waterboard-analytics",
-    "title": "WaterBoard Analytics Dashboard",
+    "title": "WaterBoard Analytics — Multi-Country Utility Dashboard",
     "category": "Data Analytics",
     "image": "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=500&q=80",
     "link": "https://github.com/mbashas/waterboard-analytics",
-    "description": "Production analytics dashboard for water utilities across 4 African countries",
+    "problem": "Water utilities across 4 African countries lack unified analytics for operational decisions",
+    "description": "Production dashboard with AI-powered natural language querying. Role-based authentication, JMP service ladder visualizations, Google Gemini integration for context-aware data assistant.",
+    "tech": ["Python", "Streamlit", "Plotly", "Google Gemini API"],
     "featured": true,
     "date": "2025",
     "isCaseStudy": true,
     "caseStudy": {
-      "overview": "Built during the Equitech Futures Fellowship, this dashboard provides actionable insights for water utility companies across Uganda, Cameroon, Malawi, and Lesotho.",
-      "challenge": "Water utilities in developing countries lack accessible tools to visualize performance metrics, track service ladder progress, and make data-driven decisions.",
-      "approach": "Designed a role-based dashboard system with JMP service ladder visualizations, integrated AI-powered data assistant using Google Gemini for natural language queries.",
-      "solution": "A production-ready Streamlit application with Plotly visualizations, role-based authentication, and context-aware AI chat for answering complex data questions.",
+      "overview": "Built during Equitech Futures Fellowship, providing actionable insights for water utility companies across Uganda, Cameroon, Malawi, and Lesotho.",
+      "challenge": "Water utilities in developing countries lack accessible tools to visualize performance metrics and make data-driven decisions.",
+      "solution": "Designed a role-based dashboard system with JMP service ladder visualizations and AI-powered data assistant using Google Gemini for natural language queries.",
       "features": [
         "Multi-country water utility analytics",
         "JMP service ladder visualizations",
@@ -47,16 +49,30 @@
         "AI data assistant powered by Google Gemini",
         "Interactive Plotly dashboards"
       ],
-      "technologies": ["Python", "Streamlit", "Plotly", "Google Gemini API", "pandas", "SQL"]
+      "technologies": ["Python", "Streamlit", "Plotly", "Google Gemini API", "pandas"]
     }
   },
   {
+    "id": "malaria-detection",
+    "title": "Malaria Detection & Responsible AI Research",
+    "category": "Machine Learning / Health",
+    "image": "https://images.unsplash.com/photo-1576086213369-97a306d36557?w=500&q=80",
+    "link": "https://github.com/mbashas/malaria-detection",
+    "problem": "Medical imaging models can learn spurious correlations that reduce reliability in deployment",
+    "description": "Investigating shortcut learning in malaria detection models using Ghana health data. Focus on model reliability and responsible AI for global health applications.",
+    "tech": ["Python", "PyTorch", "YOLO"],
+    "featured": true,
+    "date": "2025",
+    "isCaseStudy": false
+  },
+  {
     "id": "agora-hub",
-    "title": "Agora Hub - Task Management",
+    "title": "Agora Hub — Collaborative Task Management",
     "category": "Full-Stack Development",
     "image": "https://images.unsplash.com/photo-1507925921958-8a62f3d1a50d?w=500&q=80",
     "link": "https://github.com/mbashas/agora-hub",
-    "description": "Full-stack collaborative task management with Django and React",
+    "description": "Full-stack application with Django REST backend and React frontend. User authentication, CRUD operations, real-time status tracking.",
+    "tech": ["Django", "React", "PostgreSQL"],
     "date": "2024",
     "isCaseStudy": false
   },
@@ -66,7 +82,8 @@
     "category": "Embedded Systems",
     "image": "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=500&q=80",
     "link": "https://github.com/mbashas/smart-traffic-light",
-    "description": "Four-way adaptive traffic system with 8 ultrasonic sensors and emergency override",
+    "description": "Adaptive four-way traffic system using 8 ultrasonic sensors. Real-time vehicle detection with emergency vehicle override capability.",
+    "tech": ["Arduino Mega", "C/C++"],
     "date": "2024",
     "isCaseStudy": false
   },
@@ -76,7 +93,8 @@
     "category": "Embedded Systems",
     "image": "https://plus.unsplash.com/premium_photo-1661297461253-ae1968b5d46c?w=500&q=80",
     "link": "https://github.com/mbashas/smart-home-security",
-    "description": "Arduino-based security with motion detection, door locks, and mobile alerts",
+    "description": "Motion detection and alert system with PCB design.",
+    "tech": ["Arduino", "C/C++"],
     "date": "2023",
     "isCaseStudy": false
   }

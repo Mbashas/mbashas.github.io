@@ -10,20 +10,20 @@
     },
     {
       "category": "Cloud & Tools",
-      "items": ["AWS", "Git/GitHub", "Docker", "FastAPI", "Streamlit"]
+      "items": ["AWS", "Git/GitHub", "Streamlit", "FastAPI", "LaTeX"]
     },
     {
       "category": "Embedded",
-      "items": ["Arduino", "Raspberry Pi", "ESP32", "Microcontrollers"]
+      "items": ["Arduino", "Raspberry Pi", "Microcontrollers"]
     }
   ],
   "certifications": [
     {
       "name": "AWS Certified Cloud Practitioner",
-      "issuer": "Amazon Web Services"
+      "issuer": "AWS"
     },
     {
-      "name": "Exploratory Data Analysis for Machine Learning",
+      "name": "EDA for Machine Learning",
       "issuer": "IBM"
     },
     {
@@ -54,7 +54,7 @@
     },
     {
       "name": "English",
-      "level": "Proficient"
+      "level": "Professional"
     }
   ]
 }

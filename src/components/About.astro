@@ -29,15 +29,17 @@ import site from '../data/site.json';
             <span class="detail-value">{site.education.degree}, {site.education.school}</span>
           </div>
           <div class="detail-item">
-            <span class="detail-label">GPA</span>
-            <span class="detail-value">{site.education.gpa}</span>
-          </div>
-          <div class="detail-item">
             <span class="detail-label">Location</span>
             <span class="detail-value">{site.location}</span>
           </div>
         </div>
       </div>
+    </div>
+
+    <!-- Research Interests -->
+    <div class="research-section">
+      <h3 class="subsection-title">Research Interests</h3>
+      <p class="research-text">{site.researchInterests}</p>
     </div>
 
     <!-- Skills Section -->
@@ -72,7 +74,7 @@ import site from '../data/site.json';
       <div class="language-list">
         {skills.languages.map((lang) => (
           <span class="language-item">
-            {lang.name} <span class="lang-level">({lang.level})</span>
+            <strong>{lang.name}</strong> ({lang.level})
           </span>
         ))}
       </div>
@@ -104,7 +106,7 @@ import site from '../data/site.json';
   }
 
   .section-title {
-    font-size: 2rem;
+    font-size: 1.75rem;
     color: var(--color-sapphire);
     margin-bottom: var(--space-lg);
     font-weight: 600;
@@ -112,9 +114,9 @@ import site from '../data/site.json';
 
   .about-grid {
     display: grid;
-    grid-template-columns: 200px 1fr;
+    grid-template-columns: 180px 1fr;
     gap: var(--space-lg);
-    margin-bottom: var(--space-xl);
+    margin-bottom: var(--space-lg);
     align-items: start;
   }
 
@@ -126,11 +128,10 @@ import site from '../data/site.json';
   .portrait-image {
     width: 100%;
     border-radius: 4px;
-    filter: grayscale(10%);
   }
 
   .about-bio {
-    font-size: 1.1rem;
+    font-size: 1.05rem;
     line-height: 1.8;
     color: var(--color-charcoal);
     margin-bottom: var(--space-md);
@@ -139,12 +140,13 @@ import site from '../data/site.json';
   .about-details {
     display: flex;
     flex-direction: column;
-    gap: 0.75rem;
+    gap: 0.5rem;
   }
 
   .detail-item {
     display: flex;
     gap: 1rem;
+    font-size: 0.95rem;
   }
 
   .detail-label {
@@ -158,7 +160,7 @@ import site from '../data/site.json';
   }
 
   .subsection-title {
-    font-size: 1.25rem;
+    font-size: 1.15rem;
     color: var(--color-sapphire);
     margin-bottom: var(--space-sm);
     font-weight: 600;
@@ -166,6 +168,7 @@ import site from '../data/site.json';
     border-bottom: 1px solid rgba(197, 165, 114, 0.2);
   }
 
+  .research-section,
   .skills-section,
   .certifications-section,
   .languages-section,
@@ -173,44 +176,55 @@ import site from '../data/site.json';
     margin-bottom: var(--space-lg);
   }
 
+  .research-text {
+    font-size: 1rem;
+    line-height: 1.7;
+    color: var(--color-charcoal);
+    font-style: italic;
+    padding-left: 1rem;
+    border-left: 3px solid var(--color-gold);
+  }
+
   .skills-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    gap: var(--space-md);
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: var(--space-sm);
   }
 
   .skill-group {
-    padding: var(--space-sm) 0;
+    padding: var(--space-xs) 0;
   }
 
   .skill-category {
-    font-size: 0.9rem;
+    font-size: 0.8rem;
     color: var(--color-sapphire-muted);
     font-weight: 600;
-    margin-bottom: 0.5rem;
+    margin-bottom: 0.25rem;
     text-transform: uppercase;
     letter-spacing: 0.05em;
   }
 
   .skill-items {
     color: var(--color-charcoal);
-    line-height: 1.6;
+    line-height: 1.5;
     margin: 0;
+    font-size: 0.95rem;
   }
 
   .cert-list {
     list-style: none;
     padding: 0;
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 0.75rem;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 0.5rem;
   }
 
   .cert-item {
     display: flex;
     justify-content: space-between;
-    padding: 0.5rem 0;
+    padding: 0.4rem 0;
     border-bottom: 1px solid rgba(197, 165, 114, 0.1);
+    font-size: 0.9rem;
   }
 
   .cert-name {
@@ -219,44 +233,40 @@ import site from '../data/site.json';
 
   .cert-issuer {
     color: var(--color-sapphire-muted);
-    font-size: 0.9rem;
+    font-size: 0.85rem;
   }
 
   .language-list {
     display: flex;
-    gap: 2rem;
+    gap: 1.5rem;
     flex-wrap: wrap;
   }
 
   .language-item {
     color: var(--color-charcoal);
-  }
-
-  .lang-level {
-    color: var(--color-sapphire-muted);
-    font-size: 0.9rem;
+    font-size: 0.95rem;
   }
 
   .timeline {
     display: flex;
     flex-direction: column;
-    gap: 1.5rem;
+    gap: 1.25rem;
   }
 
   .timeline-item {
     display: grid;
-    grid-template-columns: 100px 1fr;
-    gap: 1.5rem;
+    grid-template-columns: 90px 1fr;
+    gap: 1.25rem;
   }
 
   .timeline-year {
     color: var(--color-sapphire);
     font-weight: 600;
-    font-size: 0.9rem;
+    font-size: 0.85rem;
   }
 
   .timeline-content {
-    padding-bottom: 1.5rem;
+    padding-bottom: 1.25rem;
     border-bottom: 1px solid rgba(197, 165, 114, 0.15);
   }
 
@@ -265,23 +275,23 @@ import site from '../data/site.json';
   }
 
   .timeline-title {
-    font-size: 1rem;
+    font-size: 0.95rem;
     color: var(--color-charcoal);
-    margin-bottom: 0.25rem;
+    margin-bottom: 0.15rem;
     font-weight: 600;
   }
 
   .timeline-institution {
     color: var(--color-sapphire-muted);
-    font-size: 0.9rem;
-    margin-bottom: 0.5rem;
+    font-size: 0.85rem;
+    margin-bottom: 0.35rem;
     font-style: italic;
   }
 
   .timeline-description {
     color: var(--color-charcoal-light);
-    font-size: 0.95rem;
-    line-height: 1.6;
+    font-size: 0.9rem;
+    line-height: 1.5;
     margin: 0;
   }
 
@@ -293,12 +303,12 @@ import site from '../data/site.json';
 
     .about-portrait {
       position: static;
-      max-width: 150px;
+      max-width: 140px;
     }
 
     .timeline-item {
       grid-template-columns: 1fr;
-      gap: 0.5rem;
+      gap: 0.35rem;
     }
   }
 </style>
