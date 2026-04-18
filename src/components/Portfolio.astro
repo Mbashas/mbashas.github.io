@@ -55,15 +55,17 @@ const sortedProjects = [...projects].sort((a, b) => {
 
 <style>
   .portfolio-section {
-    padding: var(--space-xl) 0;
-    background: var(--color-parchment);
+    padding: var(--space-lg) 0;
+    background: var(--color-cream);
+    border-top: 1px solid rgba(197, 165, 114, 0.2);
   }
 
   .section-title {
     font-size: 1.75rem;
     color: var(--color-sapphire);
-    margin-bottom: var(--space-lg);
+    margin-bottom: var(--space-md);
     font-weight: 600;
+    letter-spacing: 0.02em;
   }
 
   .projects-grid {
@@ -76,17 +78,39 @@ const sortedProjects = [...projects].sort((a, b) => {
     background: var(--color-ivory);
     padding: 1.5rem;
     border-radius: 4px;
+    border: 1px solid var(--color-parchment);
     border-left: 3px solid var(--color-gold);
-    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    transition: transform 0.2s ease, box-shadow 0.2s ease, border-left-color 0.2s ease;
+    position: relative;
   }
 
   .project-card.featured {
     border-left-color: var(--color-sapphire);
   }
 
+  .project-card.featured::before {
+    content: 'Featured';
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    font-size: 0.65rem;
+    color: var(--color-sapphire);
+    background: rgba(27, 54, 93, 0.08);
+    padding: 0.15rem 0.5rem;
+    border-radius: 3px;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    font-weight: 600;
+  }
+
   .project-card:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 8px 24px rgba(44, 36, 32, 0.08);
+    transform: translateY(-3px);
+    box-shadow: 0 12px 28px rgba(44, 36, 32, 0.08);
+    border-left-color: var(--color-gold-dark);
+  }
+
+  .project-card.featured:hover {
+    border-left-color: var(--color-sapphire-dark);
   }
 
   .project-header {
@@ -169,6 +193,10 @@ const sortedProjects = [...projects].sort((a, b) => {
   @media (max-width: 768px) {
     .projects-grid {
       grid-template-columns: 1fr;
+    }
+
+    .project-card {
+      padding: 1.25rem;
     }
   }
 </style>
