@@ -1,0 +1,1389 @@
+---
+const site = {
+  name: "Seth Mbasha",
+  hero: {
+    sentence:
+      "I am working across AI engineering, data science, and machine learning — my work moves toward problems where technical rigor reaches communities current technology overlooks.",
+    focus:
+      "NLP for low-resource African languages · Edge AI and embedded systems for African infrastructure · Narrowing the digital divide through quiet, deliberate work.",
+  },
+  about:
+    "Computer Science at Uganda Christian University. Equitech Futures Applied Data Institute Fellow. The work moves between NLP research on low-resource languages, data systems for social impact, embedded engineering, and leadership across technical and operational rooms. The practical question underneath it all is the same one, what does it take to deploy something useful where infrastructure is thin?",
+  email: "sethmbasha@gmail.com",
+  social: {
+    github: "https://github.com/mbashas",
+    linkedin: "https://www.linkedin.com/in/mbashaseth",
+    x: "https://x.com/dearmbasha",
+  },
+};
+
+const featured = [
+  {
+    id: "gandabert",
+    title: "GandaBERT",
+    sub: "A classifier for Luganda news, built from a corpus that did not exist.",
+    category: "Natural Language Processing",
+    year: "2025",
+    cs: {
+      challenge:
+        "Luganda is spoken by millions across Uganda. It has almost no public NLP infrastructure — no labeled corpus large enough to train against, no off-the-shelf classifier to fall back on. The task was not only to fit a model, but to make one possible.",
+      approach:
+        "I assembled a 2,600-article corpus by combining native sources, careful machine translation of English news, and synthetic augmentation calibrated to the language's morphology. I fine-tuned Multilingual BERT, then served the model through a small FastAPI layer with a lightweight web demo so anyone could try it on a paragraph of their own.",
+      outcome:
+        "The classifier reaches 85.7% accuracy across five categories. The corpus, more than the model, is the part I expect to outlive this project.",
+    },
+    tech: ["Python", "PyTorch", "Hugging Face", "FastAPI"],
+    links: {
+      code: "https://github.com/mbashas/gandabert",
+      demo: "https://gandabert-demo.vercel.app",
+    },
+  },
+  {
+    id: "waterboard",
+    title: "WaterBoard Analytics",
+    sub: "A shared dashboard for water utilities in four countries.",
+    category: "Data Systems",
+    year: "2025",
+    cs: {
+      challenge:
+        "Operators in Uganda, Cameroon, Malawi, and Lesotho were comparing performance against the WHO/UNICEF service ladder by spreadsheet. Regulators could not run their own questions; engineers became a bottleneck for everyone else.",
+      approach:
+        "I designed a role-based dashboard separating regulator, operator, and admin views over one schema, and built service-ladder visualizations that drill down by country. A small assistant, backed by Gemini, translates plain-language questions into pandas queries against the live data, with previews and guard-rails before anything runs.",
+      outcome:
+        "Shipped during the Equitech Futures Fellowship as production tooling for partner utilities. People without engineering backgrounds can ask their own questions and get answers they can cite.",
+    },
+    tech: ["Python", "Streamlit", "Plotly", "Gemini API", "pandas"],
+    links: { code: "https://github.com/mbashas/waterboard-analytics" },
+  },
+  {
+    id: "malaria",
+    title: "Malaria Detection",
+    sub: "Looking for the shortcuts a model takes when no one is watching.",
+    category: "Responsible AI",
+    year: "2025",
+    cs: {
+      challenge:
+        "Medical-imaging models can learn the wrong things — backgrounds, scanner artifacts, label leakage — and still post good numbers in the lab. The failures show up later, in places the original authors do not see.",
+      approach:
+        "I am probing shortcut learning in malaria-detection models trained on Ghana health data, comparing what the network actually attends to against the regions a clinician would. The work is ongoing.",
+      outcome:
+        "Early-stage, but oriented toward a deployment standard, not a benchmark score: a model that can be honestly used in a clinic in Accra, not only one that ranks well on a held-out set.",
+    },
+    tech: ["Python", "PyTorch"],
+    links: { code: "https://github.com/mbashas/malaria-detection" },
+  },
+];
+
+const otherWork = [
+  {
+    year: "2024",
+    title: "Agora Hub",
+    sub: "Collaborative task management — Django + React.",
+    link: "https://github.com/mbashas/agora-hub",
+  },
+  {
+    year: "2024",
+    title: "Smart Traffic Light",
+    sub: "Adaptive four-way intersection with eight ultrasonic sensors and an emergency-vehicle override.",
+    link: "https://github.com/mbashas/smart-traffic-light",
+  },
+  {
+    year: "2023",
+    title: "Smart Home Security",
+    sub: "Motion-detection alerting with a custom PCB layout.",
+    link: "https://github.com/mbashas/smart-home-security",
+  },
+];
+
+const path = [
+  {
+    year: "2025",
+    title: "Equitech Futures Fellow",
+    inst: "Applied Data Institute · 1 of 25 selected globally",
+    desc: "A 10-week intensive in Bayesian statistics, deep learning, and causal inference — running alongside data work for water utilities in Uganda, Cameroon, Malawi, and Lesotho, and a parallel research in investigating spurious correlation thread on malaria detection models.",
+  },
+  {
+    year: "2025",
+    title: "Rhodes Forum · Deep Learning Indaba · Cohere Labs · Stanford",
+    inst: "Where curiosity led",
+    desc: "Conferences, workshops, and convenings — including Stanford's Precision Medicine & Data Science in Diabetes program. Time spent listening to where the field is heading, what others are wrestling with, and which questions deserve to come home with me.",
+  },
+  {
+    year: "2024 — 2025",
+    title: "Local Committee President",
+    inst: "AIESEC Uganda",
+    desc: "Led the chapter through 46% growth in active membership; managed budget and partnerships with Baraka Community Foundation and Happy Times Childcare Initiative.",
+  },
+  {
+    year: "2024",
+    title: "Embedded Systems Intern",
+    inst: "Uganda Industrial Research Institute",
+    desc: "Three months on hardware projects between research seasons — sensor integration, PCB design, and a working security-system prototype.",
+  },
+  {
+    year: "2023 — 2024",
+    title: "Global Consultant",
+    inst: "AIESEC International · Information Management",
+    desc: "Resolved global platform issues, translated user feedback into product fixes, and helped close the loop between members and engineering.",
+  },
+  {
+    year: "2022 — 2026",
+    title: "B.Sc. Computer Science",
+    inst: "Uganda Christian University",
+    desc: "AI, data structures, big-data analytics, robotics, embedded systems. Graduating July 2026.",
+  },
+];
+
+const recognition = [
+  { name: "AWS Certified Cloud Practitioner", issuer: "Amazon Web Services" },
+  { name: "Exploratory Data Analysis for Machine Learning", issuer: "IBM" },
+  { name: "Precision Medicine & Data Science in Diabetes", issuer: "Stanford Deep Data Research Center" },
+  { name: "Foundations of Data Science", issuer: "Google" },
+  { name: "Data Analytics", issuer: "ALX" },
+  { name: "IT Essentials", issuer: "Cisco" },
+];
+
+const reading = [
+  {
+    title: "Where Good Ideas Come From",
+    author: "Steven Johnson",
+    quote: "Chance favors the connected mind.",
+  },
+  {
+    title: "What Is Intelligence?",
+    subtitle: "Lessons from AI about evolution, computing, and minds",
+    author: "Blaise Agüera y Arcas",
+  },
+];
+
+const contact = {
+  pull: "“The best way to predict the future is to invent it. The second best is to talk with someone who is.”",
+  pullAttr: "— a working belief",
+  currently:
+    "Sharpening technical depth, mapping the research landscape, and learning to recognise the problems I am ready to take on.",
+};
+
+const cross = (size = 22) => `
+  <svg width="${size}" height="${size}" viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linejoin="round" aria-hidden="true">
+    <path d="M16 3 L18 7 L22 7 L22 11 L26 13 L28 16 L26 19 L22 21 L22 25 L18 25 L16 29 L14 25 L10 25 L10 21 L6 19 L4 16 L6 13 L10 11 L10 7 L14 7 Z"></path>
+    <circle cx="16" cy="16" r="1.6" fill="currentColor" stroke="none"></circle>
+  </svg>`;
+
+const arrow = (size = 14) => `
+  <svg width="${size}" height="${size}" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+    <path d="M3 8 H13 M9 4 L13 8 L9 12"></path>
+  </svg>`;
+
+const emailDisplay = site.email.replace("@", "[at]");
+---
+
+<div class="lp-page">
+  <nav class="lp-nav" aria-label="Primary navigation">
+    <div class="lp-wrap lp-nav-inner">
+      <a class="lp-brand" href="#top">
+        <span set:html={cross(20)} />
+        <span>Mbasha Seth</span>
+      </a>
+      <div class="lp-nav-links">
+        <a href="#work">Work</a>
+        <a href="#path">Path</a>
+        <a href="#contact">Contact</a>
+      </div>
+    </div>
+  </nav>
+
+  <main>
+    <header class="lp-hero" id="top">
+      <div class="lp-wrap">
+        <div class="lp-crest lp-reveal" set:html={cross(44)} />
+        <h1 class="lp-display lp-reveal">
+          Mbasha <span>Seth</span>
+        </h1>
+        <p class="lp-hero-line lp-reveal">{site.hero.sentence}</p>
+        <p class="lp-hero-focus lp-reveal">{site.hero.focus}</p>
+      </div>
+    </header>
+
+    <section id="work" class="lp-section">
+      <div class="lp-wrap">
+        <div class="lp-section-head lp-reveal">
+          <div class="lp-ornament" aria-hidden="true">
+            <span class="lp-rule"></span>
+            <span set:html={cross()} />
+            <span class="lp-rule"></span>
+          </div>
+          <h2 class="lp-section-title">Selected Work</h2>
+          <p class="lp-saying"><em>Gakyali Mabaga.</em></p>
+          <p class="lp-sub">
+            A Luganda saying — <em>so little done, so much more to do.</em> Three projects already shipped, with the rest of the road still ahead.
+          </p>
+        </div>
+
+        <div class="lp-work-list lp-reveal">
+          {featured.map((project) => (
+            <details class="lp-work-details">
+              <summary class="lp-work-item">
+                <span class="lp-work-year">{project.year}</span>
+                <span class="lp-work-body">
+                  <span class="lp-work-title">{project.title}</span>
+                  <span class="lp-work-sub">{project.sub}</span>
+                  <span class="lp-work-category">{project.category}</span>
+                </span>
+                <span class="lp-work-arrow" set:html={arrow(16)} />
+              </summary>
+
+              <div class="lp-case-study">
+                <div class="lp-case-inner">
+                  <div class="lp-ornament lp-ornament-left" aria-hidden="true">
+                    <span class="lp-rule"></span>
+                    <span set:html={cross(18)} />
+                    <span class="lp-rule"></span>
+                  </div>
+                  <div class="lp-case-block">
+                    <h3>The challenge</h3>
+                    <p>{project.cs.challenge}</p>
+                  </div>
+                  <div class="lp-case-block">
+                    <h3>The approach</h3>
+                    <p>{project.cs.approach}</p>
+                  </div>
+                  <div class="lp-case-block">
+                    <h3>Where it stands</h3>
+                    <p>{project.cs.outcome}</p>
+                  </div>
+                  <div class="lp-case-block">
+                    <h3>Built with</h3>
+                    <p class="lp-tech">{project.tech.join(" · ")}</p>
+                  </div>
+                  <div class="lp-case-links">
+                    {project.links.demo && (
+                      <a href={project.links.demo} target="_blank" rel="noopener noreferrer" class="lp-primary-link">
+                        View demo <span set:html={arrow(12)} />
+                      </a>
+                    )}
+                    {project.links.code && (
+                      <a href={project.links.code} target="_blank" rel="noopener noreferrer">
+                        Source <span set:html={arrow(12)} />
+                      </a>
+                    )}
+                  </div>
+                </div>
+              </div>
+            </details>
+          ))}
+        </div>
+
+        <details class="lp-other-work lp-reveal">
+          <summary>
+            <span class="lp-label-closed">Other work</span>
+            <span class="lp-label-open">Hide other work</span>
+          </summary>
+          <div class="lp-other-list">
+            {otherWork.map((item) => (
+              <a class="lp-other-item" href={item.link} target="_blank" rel="noopener noreferrer">
+                <span class="lp-other-year">{item.year}</span>
+                <span>
+                  <span class="lp-other-title">{item.title}</span>
+                  <span class="lp-other-sub">{item.sub}</span>
+                </span>
+                <span class="lp-other-link">View →</span>
+              </a>
+            ))}
+          </div>
+        </details>
+      </div>
+    </section>
+
+    <section id="path" class="lp-section">
+      <div class="lp-wrap">
+        <div class="lp-section-head lp-reveal">
+          <div class="lp-ornament" aria-hidden="true">
+            <span class="lp-rule"></span>
+            <span set:html={cross()} />
+            <span class="lp-rule"></span>
+          </div>
+          <h2 class="lp-section-title">Where the journey has taken me</h2>
+          <p class="lp-saying"><em>A journey of a thousand miles begins with a single step.</em></p>
+          <p class="lp-sub">{site.about}</p>
+        </div>
+
+        <div class="lp-path lp-reveal">
+          {path.map((item) => (
+            <article class="lp-path-item">
+              <div class="lp-path-year">{item.year}</div>
+              <div>
+                <h3 class="lp-path-title">{item.title}</h3>
+                <p class="lp-path-inst">{item.inst}</p>
+                <p class="lp-path-desc">{item.desc}</p>
+              </div>
+            </article>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <section id="recognition" class="lp-section">
+      <div class="lp-wrap">
+        <div class="lp-section-head lp-reveal">
+          <div class="lp-ornament" aria-hidden="true">
+            <span class="lp-rule"></span>
+            <span set:html={cross()} />
+            <span class="lp-rule"></span>
+          </div>
+          <h2 class="lp-section-title">Learnings</h2>
+          <p class="lp-sub">Short courses and certifications taken along the way</p>
+        </div>
+
+        <div class="lp-recognition lp-reveal">
+          <div class="lp-rec-list">
+            {recognition.map((item) => (
+              <article class="lp-rec-item">
+                <h3 class="lp-rec-name">{item.name}</h3>
+                <p class="lp-rec-issuer">{item.issuer}</p>
+              </article>
+            ))}
+          </div>
+          <div class="lp-rec-more">
+            <a href="https://www.linkedin.com/in/mbashaseth/details/certifications/" target="_blank" rel="noopener noreferrer">
+              View all on LinkedIn ↗
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="reading" class="lp-section">
+      <div class="lp-wrap">
+        <div class="lp-section-head lp-reveal">
+          <div class="lp-ornament" aria-hidden="true">
+            <span class="lp-rule"></span>
+            <span set:html={cross()} />
+            <span class="lp-rule"></span>
+          </div>
+          <h2 class="lp-section-title">Currently reading</h2>
+          <p class="lp-sub">Side reading, running parallel to the work.</p>
+        </div>
+
+        <div class="lp-reading lp-reveal">
+          {reading.map((book) => (
+            <article class="lp-book">
+              <h3 class="lp-book-title">{book.title}</h3>
+              {book.subtitle && <p class="lp-book-subtitle">{book.subtitle}</p>}
+              <p class="lp-book-author">{book.author}</p>
+              {book.quote && (
+                <blockquote class="lp-book-quote">
+                  <p>&ldquo;{book.quote}&rdquo;</p>
+                </blockquote>
+              )}
+            </article>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <section id="contact" class="lp-contact lp-section">
+      <div class="lp-wrap">
+        <div class="lp-section-head lp-reveal">
+          <div class="lp-ornament" aria-hidden="true">
+            <span class="lp-rule"></span>
+            <span set:html={cross()} />
+            <span class="lp-rule"></span>
+          </div>
+        </div>
+        <h2 class="lp-contact-title lp-reveal">Let&rsquo;s <span>talk.</span></h2>
+        <blockquote class="lp-contact-pull lp-reveal">
+          <p>{contact.pull}</p>
+          <cite>{contact.pullAttr}</cite>
+        </blockquote>
+        <div class="lp-contact-grid lp-reveal">
+          <div class="lp-contact-cell">
+            <div class="lp-contact-label">Email</div>
+            <div class="lp-contact-value"><a href={`mailto:${site.email}`}>{emailDisplay}</a></div>
+          </div>
+          <div class="lp-contact-cell">
+            <div class="lp-contact-label">Currently</div>
+            <div class="lp-contact-value">{contact.currently}</div>
+          </div>
+          <div class="lp-contact-cell">
+            <div class="lp-contact-label">Languages</div>
+            <div class="lp-contact-value">English · Swahili · French · Luganda</div>
+          </div>
+        </div>
+        <div class="lp-contact-social lp-reveal">
+          <a href={site.social.github} target="_blank" rel="noopener noreferrer">GitHub</a>
+          <a href={site.social.linkedin} target="_blank" rel="noopener noreferrer">LinkedIn</a>
+          <a href={site.social.x} target="_blank" rel="noopener noreferrer">X</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="lp-closing">
+      <div class="lp-wrap">
+        <div class="lp-ornament lp-reveal" aria-hidden="true">
+          <span class="lp-rule"></span>
+          <span set:html={cross(28)} />
+          <span class="lp-rule"></span>
+        </div>
+        <h2 class="lp-closing-quote lp-reveal">Gakyali Mabaga.</h2>
+        <p class="lp-closing-attr lp-reveal">Luganda — so little done, so much more to do.</p>
+      </div>
+    </section>
+  </main>
+
+  <footer class="lp-footer">
+    <div class="lp-wrap">
+      <div class="lp-ornament" aria-hidden="true">
+        <span class="lp-rule"></span>
+        <span set:html={cross(18)} />
+        <span class="lp-rule"></span>
+      </div>
+      <div>Mbasha Seth · Uganda · MMXXVI</div>
+    </div>
+  </footer>
+</div>
+
+<script>
+  (() => {
+    document.documentElement.classList.add("lp-js-ready");
+
+    const nav = document.querySelector(".lp-nav");
+    const updateNav = () => nav?.classList.toggle("is-scrolled", window.scrollY > 8);
+    updateNav();
+    window.addEventListener("scroll", updateNav, { passive: true });
+
+    const revealAll = () => {
+      document.querySelectorAll(".lp-reveal").forEach((el) => el.classList.add("is-in"));
+    };
+
+    if ("IntersectionObserver" in window) {
+      const observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) entry.target.classList.add("is-in");
+          });
+        },
+        { threshold: 0.05 }
+      );
+
+      document.querySelectorAll(".lp-reveal").forEach((el) => observer.observe(el));
+      setTimeout(revealAll, 800);
+    } else {
+      revealAll();
+    }
+
+    const details = Array.from(document.querySelectorAll(".lp-work-details"));
+    details.forEach((detail) => {
+      detail.addEventListener("toggle", () => {
+        if (detail.open) {
+          details.forEach((other) => {
+            if (other !== detail) other.removeAttribute("open");
+          });
+        }
+      });
+    });
+  })();
+</script>
+
+<style is:global>
+  .lp-page {
+    --lp-paper: #faf8f3;
+    --lp-paper-2: #f2eee3;
+    --lp-ink: #2c2420;
+    --lp-ink-2: #5a4f47;
+    --lp-ink-3: #8b7e72;
+    --lp-rule: #e5ddc9;
+    --lp-gold: #b59b6e;
+    --lp-gold-2: #9c8358;
+    --lp-sapphire: #1b365d;
+    --lp-display: "Cinzel", "Trajan Pro", "Cormorant Garamond", Georgia, serif;
+    --lp-serif: "Cormorant Garamond", "EB Garamond", Georgia, serif;
+    --lp-sans: "Inter", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    --lp-mono: "JetBrains Mono", ui-monospace, "SF Mono", Menlo, monospace;
+    --lp-maxw: 1080px;
+    --lp-pad: clamp(24px, 5vw, 72px);
+    --lp-fast: 220ms cubic-bezier(0.2, 0.7, 0.2, 1);
+    --lp-base: 420ms cubic-bezier(0.2, 0.7, 0.2, 1);
+    --lp-slow: 720ms cubic-bezier(0.2, 0.7, 0.2, 1);
+
+    min-height: 100vh;
+    background: var(--lp-paper);
+    color: var(--lp-ink);
+    font-family: var(--lp-serif);
+    font-size: 19px;
+    line-height: 1.6;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .lp-page * {
+    box-sizing: border-box;
+  }
+
+  .lp-page a {
+    color: inherit;
+    text-decoration: none;
+  }
+
+  .lp-page :where(h1, h2, h3, h4, p, blockquote, figure) {
+    margin: 0;
+  }
+
+  .lp-page ::selection {
+    background: var(--lp-sapphire);
+    color: var(--lp-paper);
+  }
+
+  .lp-wrap {
+    max-width: var(--lp-maxw);
+    margin: 0 auto;
+    padding-left: var(--lp-pad);
+    padding-right: var(--lp-pad);
+  }
+
+  .lp-nav {
+    position: sticky;
+    top: 0;
+    z-index: 50;
+    background: color-mix(in oklab, var(--lp-paper) 90%, transparent);
+    border-bottom: 1px solid transparent;
+    backdrop-filter: saturate(140%) blur(10px);
+    -webkit-backdrop-filter: saturate(140%) blur(10px);
+    transition: border-color var(--lp-base);
+  }
+
+  .lp-nav.is-scrolled {
+    border-bottom-color: var(--lp-rule);
+  }
+
+  .lp-nav-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 72px;
+  }
+
+  .lp-brand,
+  .lp-nav-links,
+  .lp-work-year,
+  .lp-work-category,
+  .lp-case-block h3,
+  .lp-case-links a,
+  .lp-other-work summary,
+  .lp-other-year,
+  .lp-other-link,
+  .lp-rec-issuer,
+  .lp-contact-label,
+  .lp-contact-social,
+  .lp-footer {
+    font-family: var(--lp-display);
+    text-transform: uppercase;
+  }
+
+  .lp-brand {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    color: var(--lp-ink);
+    font-size: 13px;
+    letter-spacing: 0.32em;
+  }
+
+  .lp-brand svg {
+    color: var(--lp-gold);
+    display: block;
+  }
+
+  .lp-nav-links {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+  }
+
+  .lp-nav-links a {
+    position: relative;
+    padding: 6px 0;
+    color: var(--lp-ink-2);
+    font-size: 11px;
+    letter-spacing: 0.28em;
+    transition: color var(--lp-fast);
+  }
+
+  .lp-nav-links a::after,
+  .lp-contact-social a::after,
+  .lp-rec-more a::after {
+    content: "";
+    position: absolute;
+    left: 50%;
+    right: 50%;
+    bottom: 0;
+    height: 1px;
+    background: var(--lp-gold);
+    transition: left var(--lp-base), right var(--lp-base);
+  }
+
+  .lp-nav-links a:hover,
+  .lp-contact-social a:hover,
+  .lp-rec-more a:hover {
+    color: var(--lp-ink);
+  }
+
+  .lp-nav-links a:hover::after,
+  .lp-contact-social a:hover::after,
+  .lp-rec-more a:hover::after {
+    left: 0;
+    right: 0;
+  }
+
+  .lp-hero {
+    position: relative;
+    padding: clamp(96px, 16vw, 200px) 0 clamp(80px, 12vw, 160px);
+    text-align: center;
+  }
+
+  .lp-crest {
+    display: flex;
+    justify-content: center;
+    margin-bottom: clamp(28px, 4vw, 48px);
+    color: var(--lp-gold);
+  }
+
+  .lp-display {
+    max-width: 16ch;
+    margin: 0 auto;
+    color: var(--lp-ink);
+    font-family: var(--lp-display);
+    font-size: clamp(40px, 6.4vw, 88px);
+    font-weight: 400;
+    line-height: 1.04;
+    letter-spacing: 0.02em;
+    text-transform: uppercase;
+  }
+
+  .lp-display span,
+  .lp-contact-title span {
+    color: var(--lp-sapphire);
+    font-family: var(--lp-serif);
+    font-style: italic;
+    font-weight: 400;
+    letter-spacing: -0.005em;
+    text-transform: none;
+  }
+
+  .lp-hero-line {
+    max-width: 36ch;
+    margin: clamp(28px, 4vw, 44px) auto 0;
+    color: var(--lp-ink-2);
+    font-family: var(--lp-serif);
+    font-size: clamp(20px, 2.2vw, 26px);
+    font-style: italic;
+    line-height: 1.5;
+  }
+
+  .lp-hero-focus {
+    max-width: 56ch;
+    margin: 24px auto 0;
+    color: var(--lp-ink-3);
+    font-family: var(--lp-serif);
+    font-size: clamp(15px, 1.4vw, 17px);
+    letter-spacing: 0.005em;
+    line-height: 1.55;
+  }
+
+  .lp-section {
+    padding: clamp(72px, 12vw, 144px) 0;
+  }
+
+  .lp-section-head {
+    margin-bottom: clamp(48px, 8vw, 96px);
+    text-align: center;
+  }
+
+  .lp-section-title {
+    color: var(--lp-ink);
+    font-family: var(--lp-display);
+    font-size: clamp(22px, 2.4vw, 28px);
+    font-weight: 400;
+    letter-spacing: 0.24em;
+    line-height: 1.2;
+    text-transform: uppercase;
+  }
+
+  .lp-sub {
+    max-width: 50ch;
+    margin: 18px auto 0;
+    color: var(--lp-ink-2);
+    font-family: var(--lp-serif);
+    font-size: clamp(18px, 1.8vw, 22px);
+    font-style: italic;
+    line-height: 1.5;
+  }
+
+  .lp-sub em {
+    color: var(--lp-sapphire);
+  }
+
+  .lp-saying {
+    margin-top: 22px;
+    color: var(--lp-gold-2);
+    font-family: var(--lp-display);
+    font-size: clamp(15px, 1.4vw, 18px);
+    font-weight: 500;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+  }
+
+  .lp-saying em {
+    font-family: var(--lp-serif);
+    font-weight: 400;
+    letter-spacing: 0;
+    text-transform: none;
+  }
+
+  .lp-ornament {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 18px;
+    margin-bottom: 24px;
+    color: var(--lp-gold);
+  }
+
+  .lp-ornament svg {
+    display: block;
+  }
+
+  .lp-rule {
+    width: min(120px, 22vw);
+    height: 1px;
+    background: linear-gradient(to right, transparent, var(--lp-rule) 30%, var(--lp-rule) 70%, transparent);
+  }
+
+  .lp-work-list {
+    border-top: 1px solid var(--lp-rule);
+  }
+
+  .lp-work-details {
+    border-bottom: 1px solid var(--lp-rule);
+  }
+
+  .lp-work-details summary {
+    list-style: none;
+  }
+
+  .lp-work-details summary::-webkit-details-marker {
+    display: none;
+  }
+
+  .lp-work-item {
+    display: grid;
+    grid-template-columns: 80px 1fr 24px;
+    gap: 32px;
+    align-items: baseline;
+    padding: clamp(28px, 4vw, 44px) clamp(8px, 2vw, 24px);
+    cursor: pointer;
+    transition: background var(--lp-base);
+  }
+
+  .lp-work-item:hover {
+    background: color-mix(in oklab, var(--lp-paper-2) 60%, transparent);
+  }
+
+  .lp-work-year {
+    color: var(--lp-gold-2);
+    font-size: 11px;
+    letter-spacing: 0.18em;
+  }
+
+  .lp-work-body {
+    min-width: 0;
+  }
+
+  .lp-work-title,
+  .lp-work-sub,
+  .lp-work-category,
+  .lp-other-title,
+  .lp-other-sub {
+    display: block;
+  }
+
+  .lp-work-title {
+    color: var(--lp-ink);
+    font-family: var(--lp-display);
+    font-size: clamp(22px, 2.6vw, 32px);
+    font-weight: 400;
+    letter-spacing: 0.02em;
+    line-height: 1.2;
+  }
+
+  .lp-work-sub {
+    max-width: 56ch;
+    margin-top: 10px;
+    color: var(--lp-ink-2);
+    font-family: var(--lp-serif);
+    font-size: clamp(17px, 1.7vw, 20px);
+    font-style: italic;
+    line-height: 1.5;
+  }
+
+  .lp-work-category {
+    margin-top: 14px;
+    color: var(--lp-ink-3);
+    font-size: 10px;
+    letter-spacing: 0.28em;
+  }
+
+  .lp-work-arrow {
+    align-self: center;
+    color: var(--lp-gold);
+    display: grid;
+    place-items: center;
+    transition: transform var(--lp-base);
+  }
+
+  .lp-work-item:hover .lp-work-arrow {
+    transform: translateX(6px);
+  }
+
+  .lp-work-details[open] .lp-work-arrow {
+    transform: rotate(90deg);
+  }
+
+  .lp-case-study {
+    overflow: hidden;
+  }
+
+  .lp-case-inner {
+    max-width: 68ch;
+    padding: clamp(32px, 5vw, 64px) clamp(8px, 2vw, 24px) clamp(40px, 6vw, 80px) clamp(8px, 2vw, 112px);
+  }
+
+  .lp-ornament-left {
+    justify-content: flex-start;
+    margin-bottom: 28px;
+  }
+
+  .lp-ornament-left .lp-rule {
+    width: 60px;
+  }
+
+  .lp-case-block {
+    margin-bottom: 32px;
+  }
+
+  .lp-case-block h3 {
+    margin-bottom: 14px;
+    color: var(--lp-gold-2);
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.28em;
+  }
+
+  .lp-case-block p {
+    color: var(--lp-ink);
+    font-family: var(--lp-serif);
+    font-size: 19px;
+    line-height: 1.65;
+  }
+
+  .lp-tech {
+    color: var(--lp-ink-2);
+    font-family: var(--lp-mono);
+    font-size: 13px;
+    letter-spacing: 0.02em;
+  }
+
+  .lp-case-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 24px;
+    margin-top: 24px;
+  }
+
+  .lp-case-links a {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    border: 1px solid var(--lp-rule);
+    padding: 12px 22px;
+    color: var(--lp-ink);
+    font-size: 11px;
+    letter-spacing: 0.28em;
+    transition: border-color var(--lp-fast), color var(--lp-fast), background var(--lp-fast);
+  }
+
+  .lp-case-links a:hover {
+    border-color: var(--lp-gold);
+  }
+
+  .lp-case-links .lp-primary-link {
+    border-color: var(--lp-sapphire);
+    background: var(--lp-sapphire);
+    color: var(--lp-paper);
+  }
+
+  .lp-case-links .lp-primary-link:hover {
+    border-color: var(--lp-ink);
+    background: var(--lp-ink);
+  }
+
+  .lp-other-work {
+    margin-top: 56px;
+    text-align: center;
+  }
+
+  .lp-other-work summary {
+    display: inline-flex;
+    border: 1px solid var(--lp-rule);
+    padding: 14px 28px;
+    color: var(--lp-ink-2);
+    cursor: pointer;
+    font-size: 11px;
+    letter-spacing: 0.28em;
+    list-style: none;
+    transition: border-color var(--lp-fast), color var(--lp-fast);
+  }
+
+  .lp-other-work summary::-webkit-details-marker {
+    display: none;
+  }
+
+  .lp-other-work summary:hover {
+    border-color: var(--lp-gold);
+    color: var(--lp-ink);
+  }
+
+  .lp-label-open,
+  .lp-other-work[open] .lp-label-closed {
+    display: none;
+  }
+
+  .lp-other-work[open] .lp-label-open {
+    display: inline;
+  }
+
+  .lp-other-list {
+    margin-top: 48px;
+  }
+
+  .lp-other-item {
+    display: grid;
+    grid-template-columns: 80px 1fr auto;
+    gap: 32px;
+    align-items: baseline;
+    border-bottom: 1px solid var(--lp-rule);
+    padding: 22px clamp(8px, 2vw, 24px);
+    text-align: left;
+    transition: background var(--lp-base);
+  }
+
+  .lp-other-item:first-child {
+    border-top: 1px solid var(--lp-rule);
+  }
+
+  .lp-other-item:hover {
+    background: color-mix(in oklab, var(--lp-paper-2) 60%, transparent);
+  }
+
+  .lp-other-year {
+    color: var(--lp-gold-2);
+    font-size: 11px;
+    letter-spacing: 0.18em;
+  }
+
+  .lp-other-title {
+    color: var(--lp-ink);
+    font-family: var(--lp-display);
+    font-size: 17px;
+    letter-spacing: 0.02em;
+  }
+
+  .lp-other-sub {
+    margin-top: 4px;
+    color: var(--lp-ink-2);
+    font-family: var(--lp-serif);
+    font-size: 16px;
+    font-style: italic;
+  }
+
+  .lp-other-link {
+    color: var(--lp-gold);
+    font-size: 10px;
+    letter-spacing: 0.28em;
+    transition: color var(--lp-fast);
+  }
+
+  .lp-other-item:hover .lp-other-link {
+    color: var(--lp-sapphire);
+  }
+
+  .lp-path,
+  .lp-recognition {
+    max-width: 760px;
+    margin: 0 auto;
+  }
+
+  .lp-path {
+    max-width: 720px;
+  }
+
+  .lp-path-item {
+    display: grid;
+    grid-template-columns: 120px 1fr;
+    gap: 32px;
+    align-items: baseline;
+    border-bottom: 1px solid var(--lp-rule);
+    padding: 28px 0;
+  }
+
+  .lp-path-item:first-child {
+    border-top: 1px solid var(--lp-rule);
+  }
+
+  .lp-path-year {
+    color: var(--lp-gold-2);
+    font-family: var(--lp-display);
+    font-size: 12px;
+    letter-spacing: 0.18em;
+  }
+
+  .lp-path-title {
+    color: var(--lp-ink);
+    font-family: var(--lp-display);
+    font-size: 18px;
+    font-weight: 400;
+    letter-spacing: 0.04em;
+  }
+
+  .lp-path-inst {
+    margin-top: 6px;
+    color: var(--lp-ink-2);
+    font-family: var(--lp-serif);
+    font-size: 17px;
+    font-style: italic;
+  }
+
+  .lp-path-desc {
+    max-width: 52ch;
+    margin-top: 8px;
+    color: var(--lp-ink-2);
+    font-family: var(--lp-serif);
+    font-size: 17px;
+    line-height: 1.55;
+  }
+
+  .lp-rec-list {
+    border-top: 1px solid var(--lp-rule);
+  }
+
+  .lp-rec-item {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: 24px;
+    align-items: baseline;
+    border-bottom: 1px solid var(--lp-rule);
+    padding: 22px 8px;
+  }
+
+  .lp-rec-name {
+    color: var(--lp-ink);
+    font-family: var(--lp-serif);
+    font-size: 19px;
+    font-weight: 400;
+    line-height: 1.4;
+  }
+
+  .lp-rec-issuer {
+    color: var(--lp-gold-2);
+    font-size: 11px;
+    letter-spacing: 0.18em;
+    white-space: nowrap;
+  }
+
+  .lp-rec-more {
+    margin-top: 40px;
+    text-align: center;
+  }
+
+  .lp-rec-more a,
+  .lp-contact-social a {
+    position: relative;
+    padding: 6px 0;
+    color: var(--lp-ink-2);
+    font-family: var(--lp-display);
+    font-size: 11px;
+    letter-spacing: 0.28em;
+    text-transform: uppercase;
+    transition: color var(--lp-fast);
+  }
+
+  .lp-reading {
+    max-width: 720px;
+    margin: 0 auto;
+  }
+
+  .lp-book {
+    text-align: center;
+    padding: clamp(36px, 5vw, 56px) 8px;
+    border-bottom: 1px solid var(--lp-rule);
+  }
+
+  .lp-book:first-child {
+    border-top: 1px solid var(--lp-rule);
+  }
+
+  .lp-book-title {
+    color: var(--lp-ink);
+    font-family: var(--lp-display);
+    font-size: clamp(20px, 2.4vw, 26px);
+    font-weight: 400;
+    letter-spacing: 0.06em;
+    line-height: 1.25;
+    text-transform: uppercase;
+  }
+
+  .lp-book-subtitle {
+    margin-top: 10px;
+    color: var(--lp-ink-2);
+    font-family: var(--lp-serif);
+    font-size: clamp(15px, 1.4vw, 17px);
+    font-style: italic;
+    line-height: 1.4;
+  }
+
+  .lp-book-author {
+    margin-top: 16px;
+    color: var(--lp-gold-2);
+    font-family: var(--lp-display);
+    font-size: 11px;
+    letter-spacing: 0.28em;
+    text-transform: uppercase;
+  }
+
+  .lp-book-quote {
+    max-width: 56ch;
+    margin: clamp(22px, 2.8vw, 30px) auto 0;
+    border: 0;
+    padding: 0;
+  }
+
+  .lp-book-quote p {
+    color: var(--lp-ink-2);
+    font-family: var(--lp-serif);
+    font-size: clamp(17px, 1.7vw, 20px);
+    font-style: italic;
+    line-height: 1.55;
+  }
+
+  .lp-contact {
+    text-align: center;
+  }
+
+  .lp-contact-title {
+    max-width: 18ch;
+    margin: 0 auto;
+    color: var(--lp-ink);
+    font-family: var(--lp-display);
+    font-size: clamp(32px, 4.6vw, 56px);
+    font-weight: 400;
+    letter-spacing: 0.06em;
+    line-height: 1.15;
+    text-transform: uppercase;
+  }
+
+  .lp-contact-pull {
+    max-width: 720px;
+    margin: 36px auto 56px;
+    border: 0;
+    padding: 0;
+    text-align: center;
+  }
+
+  .lp-contact-pull p {
+    color: var(--lp-ink);
+    font-family: var(--lp-serif);
+    font-size: clamp(20px, 2.4vw, 28px);
+    font-style: italic;
+    font-weight: 300;
+    letter-spacing: -0.01em;
+    line-height: 1.45;
+  }
+
+  .lp-contact-pull cite {
+    display: block;
+    margin-top: 18px;
+    color: var(--lp-gold-2);
+    font-family: var(--lp-display);
+    font-size: 11px;
+    font-style: normal;
+    letter-spacing: 0.24em;
+    text-transform: uppercase;
+  }
+
+  .lp-contact-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    max-width: 800px;
+    margin: 0 auto;
+    border-top: 1px solid var(--lp-rule);
+    border-bottom: 1px solid var(--lp-rule);
+  }
+
+  .lp-contact-cell {
+    border-right: 1px solid var(--lp-rule);
+    padding: 32px 24px;
+    text-align: center;
+  }
+
+  .lp-contact-cell:last-child {
+    border-right: 0;
+  }
+
+  .lp-contact-label {
+    margin-bottom: 12px;
+    color: var(--lp-gold-2);
+    font-size: 10px;
+    letter-spacing: 0.28em;
+  }
+
+  .lp-contact-value {
+    color: var(--lp-ink);
+    font-family: var(--lp-serif);
+    font-size: 17px;
+  }
+
+  .lp-contact-value a:hover {
+    color: var(--lp-sapphire);
+  }
+
+  .lp-contact-social {
+    display: flex;
+    justify-content: center;
+    gap: 32px;
+    margin-top: 56px;
+  }
+
+  .lp-closing {
+    border-top: 1px solid var(--lp-rule);
+    padding: clamp(96px, 14vw, 180px) 0 clamp(72px, 10vw, 120px);
+    text-align: center;
+  }
+
+  .lp-closing .lp-ornament {
+    margin-bottom: 40px;
+  }
+
+  .lp-closing-quote {
+    max-width: 18ch;
+    margin: 0 auto;
+    color: var(--lp-sapphire);
+    font-family: var(--lp-display);
+    font-size: clamp(22px, 3vw, 38px);
+    font-weight: 400;
+    letter-spacing: 0.06em;
+    line-height: 1.2;
+    text-transform: uppercase;
+  }
+
+  .lp-closing-attr {
+    margin-top: 24px;
+    color: var(--lp-ink-3);
+    font-family: var(--lp-serif);
+    font-size: clamp(17px, 1.6vw, 20px);
+    font-style: italic;
+    letter-spacing: 0.005em;
+  }
+
+  .lp-footer {
+    padding: 56px 0;
+    color: var(--lp-ink-3);
+    font-size: 10px;
+    letter-spacing: 0.28em;
+    text-align: center;
+  }
+
+  .lp-footer .lp-ornament {
+    margin-bottom: 24px;
+  }
+
+  .lp-footer .lp-rule {
+    width: 80px;
+  }
+
+  .lp-reveal {
+    opacity: 1;
+    transform: none;
+    transition: opacity 900ms ease, transform 900ms cubic-bezier(0.2, 0.7, 0.2, 1);
+  }
+
+  .lp-js-ready .lp-reveal {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+
+  .lp-js-ready .lp-reveal.is-in {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  @media (max-width: 760px) {
+    .lp-nav-links {
+      display: none;
+    }
+  }
+
+  @media (max-width: 700px) {
+    .lp-contact-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .lp-contact-cell {
+      border-right: 0;
+      border-bottom: 1px solid var(--lp-rule);
+    }
+
+    .lp-contact-cell:last-child {
+      border-bottom: 0;
+    }
+  }
+
+  @media (max-width: 640px) {
+    .lp-work-item,
+    .lp-other-item {
+      grid-template-columns: 1fr;
+      gap: 8px;
+    }
+
+    .lp-work-arrow {
+      display: none;
+    }
+
+    .lp-case-inner {
+      padding-left: clamp(8px, 2vw, 24px);
+    }
+  }
+
+  @media (max-width: 600px) {
+    .lp-path-item,
+    .lp-rec-item {
+      grid-template-columns: 1fr;
+      gap: 6px;
+    }
+
+    .lp-rec-issuer {
+      white-space: normal;
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .lp-reveal,
+    .lp-nav,
+    .lp-work-item,
+    .lp-work-arrow,
+    .lp-case-links a,
+    .lp-other-item,
+    .lp-contact-social a::after,
+    .lp-rec-more a::after {
+      transition: none;
+    }
+  }
+</style>
