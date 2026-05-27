@@ -1,44 +1,23 @@
-# Seth Mbasha — Portfolio Website
+# mbashas.github.io
 
-Personal portfolio website showcasing work at the intersection of AI engineering, data science, machine learning, and technology for African contexts.
+Personal portfolio site built with Astro and deployed to GitHub Pages via GitHub Actions.
 
-## 🚀 Technologies Used
+## Development
 
-- **Framework:** [Astro](https://astro.build/) (Static Site Output)
-- **Styling:** Vanilla CSS
-- **Interactivity:** Lightweight Vanilla JavaScript (Custom Cursor, scroll progress, scroll animations)
+```bash
+npm install
+npm run dev
+```
 
-## 🛠️ Local Development
+Astro dev server runs at `http://localhost:4321`.
 
-To run the project locally, ensure you have [Node.js](https://nodejs.org/) installed:
+## Build
 
-1. **Install Dependencies:**
-   ```bash
-   npm install
-   ```
+```bash
+npm run build
+npm run preview
+```
 
-2. **Start Development Server:**
-   ```bash
-   npm run dev
-   ```
-   Open your browser to [http://localhost:4321](http://localhost:4321) to preview the site.
+## Deploy
 
-3. **Build Production Assets:**
-   ```bash
-   npm run build
-   ```
-   Static output files are built into the `dist/` directory.
-
-4. **Preview Production Build Locally:**
-   ```bash
-   npm run preview
-   ```
-
-## 📦 Directory Structure
-
-- `src/components/` - Astro UI components (e.g. Navigation, Footer, Landing Layout)
-- `src/data/` - Static JSON data files for projects and blog posts
-- `src/layouts/` - Base page layout containing metadata, scripts, and global styles
-- `src/pages/` - Site routing and page entrypoints (Index, Projects, Blog, Case Studies)
-- `src/styles/` - Curated stylesheets (Global styling, page-specific layout styling)
-- `public/` - Public assets (e.g. favicons, scripts, images)
+Deployment is handled by the GitHub Actions workflow in `.github/workflows/deploy.yml` on push to the default branch.

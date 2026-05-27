@@ -4,7 +4,7 @@
   "version": "1.0.0",
   "description": "Seth Mbasha's Portfolio - Static Site",
   "author": "Seth Mbasha",
-  "license": "ISC",
+  "license": "MIT",
   "scripts": {
     "dev": "astro dev",
     "start": "astro dev",

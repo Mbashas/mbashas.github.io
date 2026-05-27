@@ -1,18 +1,13 @@
 ---
-import '../styles/global.css';
-import '../styles/portfolio.css';
-import '../styles/casestudy.css';
-import '../styles/navbar.css';
-import '../styles/blog.css';
-
 interface Props {
   title?: string;
   description?: string;
 }
 
 const {
-  title = "Mbasha | AI Engineer & Data Scientist",
-  description = "Portfolio of Seth Mbasha — working across AI engineering, data science, machine learning, and technology for African contexts."
+  title = "Mbasha Seth | AI Engineer & Data Scientist",
+  description =
+    "Portfolio of Seth Mbasha — working across AI engineering, data science, machine learning, and technology for African contexts.",
 } = Astro.props;
 ---
 
@@ -23,39 +18,29 @@ const {
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="description" content={description} />
     <meta name="author" content="Seth Mbasha" />
-    <meta name="keywords" content="Seth Mbasha, Computer Science, Embedded Systems, Machine Learning, Portfolio, Uganda" />
 
-    <!-- Open Graph / Social -->
     <meta property="og:type" content="website" />
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
-    <meta property="og:site_name" content="Seth Mbasha Portfolio" />
 
-    <!-- Twitter -->
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content={title} />
-    <meta name="twitter:description" content={description} />
 
-    <link rel="icon" type="image/svg+xml" href="/fav.svg" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <!-- Classical typography used by the portfolio handoff design -->
-    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=EB+Garamond:ital,wght@0,400;0,500;1,400&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=Inter:wght@400;500&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+
+    <style>
+      html,
+      body {
+        margin: 0;
+        background: #faf8f3;
+      }
+    </style>
 
     <title>{title}</title>
   </head>
   <body>
-    <!-- Custom Cursor Elements -->
-    <div id="cursor-dot" class="cursor-element"></div>
-    <div id="cursor-outline" class="cursor-element"></div>
-
-    <!-- Scroll Progress Bar -->
-    <div class="scroll-progress"></div>
-
     <slot />
-
-    <!-- Cursor and Interactivity Script -->
-    <script is:inline src="/scripts/cursor.js"></script>
-    <script is:inline src="/scripts/main.js"></script>
   </body>
 </html>

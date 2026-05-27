@@ -1,7 +1,7 @@
 import { defineConfig } from 'astro/config';
 
 export default defineConfig({
-  site: 'https://mbashas.github.io',
+  site: 'https://mbasha.ai',
   base: '/',
   output: 'static',
   build: {
