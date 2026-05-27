@@ -5,10 +5,10 @@ const site = {
     sentence:
       "I am working across AI engineering, data science, and machine learning — my work moves toward problems where technical rigor reaches communities current technology overlooks.",
     focus:
-      "NLP for low-resource African languages · Edge AI and embedded systems for African infrastructure · Narrowing the digital divide through quiet, deliberate work.",
+      "NLP for low-resource African languages · Edge AI and embedded systems for African infrastructure · On a mission to narrow the digital divide.",
   },
   about:
-    "Computer Science at Uganda Christian University. Equitech Futures Applied Data Institute Fellow. The work moves between NLP research on low-resource languages, data systems for social impact, embedded engineering, and leadership across technical and operational rooms. The practical question underneath it all is the same one, what does it take to deploy something useful where infrastructure is thin?",
+    "Computer Science at Uganda Christian University. Equitech Futures Applied Data Institute Fellow. The work moves between NLP research on low-resource languages, data systems for social impact, embedded engineering, and leadership across technical and operational roles. The question underneath it all is, how can I engineer tech to help solve society's most pressing problems?",
   email: "sethmbasha@gmail.com",
   social: {
     github: "https://github.com/mbashas",
@@ -83,7 +83,7 @@ const otherWork = [
   },
   {
     year: "2024",
-    title: "Smart Traffic Light",
+    title: "Smart Traffic Light (Group Project)",
     sub: "Adaptive four-way intersection with eight ultrasonic sensors and an emergency-vehicle override.",
     link: "https://github.com/mbashas/smart-traffic-light",
   },
@@ -124,7 +124,7 @@ const path = [
     year: "2023 — 2024",
     title: "Global Consultant",
     inst: "AIESEC International · Information Management",
-    desc: "Resolved global platform issues, translated user feedback into product fixes, and helped close the loop between members and engineering.",
+    desc: "Resolved global member inquiries for the organization's internal platform using Zendesk, gathering user feedback to identify bug fixes and translate insights into actionable platform improvements.",
   },
   {
     year: "2022 — 2026",
@@ -137,7 +137,10 @@ const path = [
 const recognition = [
   { name: "AWS Certified Cloud Practitioner", issuer: "Amazon Web Services" },
   { name: "Exploratory Data Analysis for Machine Learning", issuer: "IBM" },
-  { name: "Precision Medicine & Data Science in Diabetes", issuer: "Stanford Deep Data Research Center" },
+  {
+    name: "Precision Medicine & Data Science in Diabetes",
+    issuer: "Stanford Deep Data Research Center",
+  },
   { name: "Foundations of Data Science", issuer: "Google" },
   { name: "Data Analytics", issuer: "ALX" },
   { name: "IT Essentials", issuer: "Cisco" },
@@ -215,62 +218,70 @@ const emailDisplay = site.email.replace("@", "[at]");
           <h2 class="lp-section-title">Selected Work</h2>
           <p class="lp-saying"><em>Gakyali Mabaga.</em></p>
           <p class="lp-sub">
-            A Luganda saying — <em>so little done, so much more to do.</em> Three projects already shipped, with the rest of the road still ahead.
+            A Luganda saying — <em>so little done, so much more to do.</em> Three projects already shipped,
+            with the rest of the road still ahead.
           </p>
         </div>
 
         <div class="lp-work-list lp-reveal">
-          {featured.map((project) => (
-            <details class="lp-work-details">
-              <summary class="lp-work-item">
-                <span class="lp-work-year">{project.year}</span>
-                <span class="lp-work-body">
-                  <span class="lp-work-title">{project.title}</span>
-                  <span class="lp-work-sub">{project.sub}</span>
-                  <span class="lp-work-category">{project.category}</span>
-                </span>
-                <span class="lp-work-arrow" set:html={arrow(16)} />
-              </summary>
+          {
+            featured.map((project) => (
+              <details class="lp-work-details">
+                <summary class="lp-work-item">
+                  <span class="lp-work-year">{project.year}</span>
+                  <span class="lp-work-body">
+                    <span class="lp-work-title">{project.title}</span>
+                    <span class="lp-work-sub">{project.sub}</span>
+                    <span class="lp-work-category">{project.category}</span>
+                  </span>
+                  <span class="lp-work-arrow" set:html={arrow(16)} />
+                </summary>
 
-              <div class="lp-case-study">
-                <div class="lp-case-inner">
-                  <div class="lp-ornament lp-ornament-left" aria-hidden="true">
-                    <span class="lp-rule"></span>
-                    <span set:html={cross(18)} />
-                    <span class="lp-rule"></span>
-                  </div>
-                  <div class="lp-case-block">
-                    <h3>The challenge</h3>
-                    <p>{project.cs.challenge}</p>
-                  </div>
-                  <div class="lp-case-block">
-                    <h3>The approach</h3>
-                    <p>{project.cs.approach}</p>
-                  </div>
-                  <div class="lp-case-block">
-                    <h3>Where it stands</h3>
-                    <p>{project.cs.outcome}</p>
-                  </div>
-                  <div class="lp-case-block">
-                    <h3>Built with</h3>
-                    <p class="lp-tech">{project.tech.join(" · ")}</p>
-                  </div>
-                  <div class="lp-case-links">
-                    {project.links.demo && (
-                      <a href={project.links.demo} target="_blank" rel="noopener noreferrer" class="lp-primary-link">
-                        View demo <span set:html={arrow(12)} />
-                      </a>
-                    )}
-                    {project.links.code && (
-                      <a href={project.links.code} target="_blank" rel="noopener noreferrer">
-                        Source <span set:html={arrow(12)} />
-                      </a>
-                    )}
+                <div class="lp-case-study">
+                  <div class="lp-case-inner">
+                    <div class="lp-ornament lp-ornament-left" aria-hidden="true">
+                      <span class="lp-rule" />
+                      <span set:html={cross(18)} />
+                      <span class="lp-rule" />
+                    </div>
+                    <div class="lp-case-block">
+                      <h3>The challenge</h3>
+                      <p>{project.cs.challenge}</p>
+                    </div>
+                    <div class="lp-case-block">
+                      <h3>The approach</h3>
+                      <p>{project.cs.approach}</p>
+                    </div>
+                    <div class="lp-case-block">
+                      <h3>Where it stands</h3>
+                      <p>{project.cs.outcome}</p>
+                    </div>
+                    <div class="lp-case-block">
+                      <h3>Built with</h3>
+                      <p class="lp-tech">{project.tech.join(" · ")}</p>
+                    </div>
+                    <div class="lp-case-links">
+                      {project.links.demo && (
+                        <a
+                          href={project.links.demo}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          class="lp-primary-link"
+                        >
+                          View demo <span set:html={arrow(12)} />
+                        </a>
+                      )}
+                      {project.links.code && (
+                        <a href={project.links.code} target="_blank" rel="noopener noreferrer">
+                          Source <span set:html={arrow(12)} />
+                        </a>
+                      )}
+                    </div>
                   </div>
                 </div>
-              </div>
-            </details>
-          ))}
+              </details>
+            ))
+          }
         </div>
 
         <details class="lp-other-work lp-reveal">
@@ -279,16 +290,18 @@ const emailDisplay = site.email.replace("@", "[at]");
             <span class="lp-label-open">Hide other work</span>
           </summary>
           <div class="lp-other-list">
-            {otherWork.map((item) => (
-              <a class="lp-other-item" href={item.link} target="_blank" rel="noopener noreferrer">
-                <span class="lp-other-year">{item.year}</span>
-                <span>
-                  <span class="lp-other-title">{item.title}</span>
-                  <span class="lp-other-sub">{item.sub}</span>
-                </span>
-                <span class="lp-other-link">View →</span>
-              </a>
-            ))}
+            {
+              otherWork.map((item) => (
+                <a class="lp-other-item" href={item.link} target="_blank" rel="noopener noreferrer">
+                  <span class="lp-other-year">{item.year}</span>
+                  <span>
+                    <span class="lp-other-title">{item.title}</span>
+                    <span class="lp-other-sub">{item.sub}</span>
+                  </span>
+                  <span class="lp-other-link">View →</span>
+                </a>
+              ))
+            }
           </div>
         </details>
       </div>
@@ -308,16 +321,18 @@ const emailDisplay = site.email.replace("@", "[at]");
         </div>
 
         <div class="lp-path lp-reveal">
-          {path.map((item) => (
-            <article class="lp-path-item">
-              <div class="lp-path-year">{item.year}</div>
-              <div>
-                <h3 class="lp-path-title">{item.title}</h3>
-                <p class="lp-path-inst">{item.inst}</p>
-                <p class="lp-path-desc">{item.desc}</p>
-              </div>
-            </article>
-          ))}
+          {
+            path.map((item) => (
+              <article class="lp-path-item">
+                <div class="lp-path-year">{item.year}</div>
+                <div>
+                  <h3 class="lp-path-title">{item.title}</h3>
+                  <p class="lp-path-inst">{item.inst}</p>
+                  <p class="lp-path-desc">{item.desc}</p>
+                </div>
+              </article>
+            ))
+          }
         </div>
       </div>
     </section>
@@ -336,15 +351,21 @@ const emailDisplay = site.email.replace("@", "[at]");
 
         <div class="lp-recognition lp-reveal">
           <div class="lp-rec-list">
-            {recognition.map((item) => (
-              <article class="lp-rec-item">
-                <h3 class="lp-rec-name">{item.name}</h3>
-                <p class="lp-rec-issuer">{item.issuer}</p>
-              </article>
-            ))}
+            {
+              recognition.map((item) => (
+                <article class="lp-rec-item">
+                  <h3 class="lp-rec-name">{item.name}</h3>
+                  <p class="lp-rec-issuer">{item.issuer}</p>
+                </article>
+              ))
+            }
           </div>
           <div class="lp-rec-more">
-            <a href="https://www.linkedin.com/in/mbashaseth/details/certifications/" target="_blank" rel="noopener noreferrer">
+            <a
+              href="https://www.linkedin.com/in/mbashaseth/details/certifications/"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
               View all on LinkedIn ↗
             </a>
           </div>
@@ -365,18 +386,20 @@ const emailDisplay = site.email.replace("@", "[at]");
         </div>
 
         <div class="lp-reading lp-reveal">
-          {reading.map((book) => (
-            <article class="lp-book">
-              <h3 class="lp-book-title">{book.title}</h3>
-              {book.subtitle && <p class="lp-book-subtitle">{book.subtitle}</p>}
-              <p class="lp-book-author">{book.author}</p>
-              {book.quote && (
-                <blockquote class="lp-book-quote">
-                  <p>&ldquo;{book.quote}&rdquo;</p>
-                </blockquote>
-              )}
-            </article>
-          ))}
+          {
+            reading.map((book) => (
+              <article class="lp-book">
+                <h3 class="lp-book-title">{book.title}</h3>
+                {book.subtitle && <p class="lp-book-subtitle">{book.subtitle}</p>}
+                <p class="lp-book-author">{book.author}</p>
+                {book.quote && (
+                  <blockquote class="lp-book-quote">
+                    <p>&ldquo;{book.quote}&rdquo;</p>
+                  </blockquote>
+                )}
+              </article>
+            ))
+          }
         </div>
       </div>
     </section>
@@ -618,7 +641,9 @@ const emailDisplay = site.email.replace("@", "[at]");
     bottom: 0;
     height: 1px;
     background: var(--lp-gold);
-    transition: left var(--lp-base), right var(--lp-base);
+    transition:
+      left var(--lp-base),
+      right var(--lp-base);
   }
 
   .lp-nav-links a:hover,
@@ -755,7 +780,13 @@ const emailDisplay = site.email.replace("@", "[at]");
   .lp-rule {
     width: min(120px, 22vw);
     height: 1px;
-    background: linear-gradient(to right, transparent, var(--lp-rule) 30%, var(--lp-rule) 70%, transparent);
+    background: linear-gradient(
+      to right,
+      transparent,
+      var(--lp-rule) 30%,
+      var(--lp-rule) 70%,
+      transparent
+    );
   }
 
   .lp-work-list {
@@ -854,7 +885,8 @@ const emailDisplay = site.email.replace("@", "[at]");
 
   .lp-case-inner {
     max-width: 68ch;
-    padding: clamp(32px, 5vw, 64px) clamp(8px, 2vw, 24px) clamp(40px, 6vw, 80px) clamp(8px, 2vw, 112px);
+    padding: clamp(32px, 5vw, 64px) clamp(8px, 2vw, 24px) clamp(40px, 6vw, 80px)
+      clamp(8px, 2vw, 112px);
   }
 
   .lp-ornament-left {
@@ -908,7 +940,10 @@ const emailDisplay = site.email.replace("@", "[at]");
     color: var(--lp-ink);
     font-size: 11px;
     letter-spacing: 0.28em;
-    transition: border-color var(--lp-fast), color var(--lp-fast), background var(--lp-fast);
+    transition:
+      border-color var(--lp-fast),
+      color var(--lp-fast),
+      background var(--lp-fast);
   }
 
   .lp-case-links a:hover {
@@ -940,7 +975,9 @@ const emailDisplay = site.email.replace("@", "[at]");
     font-size: 11px;
     letter-spacing: 0.28em;
     list-style: none;
-    transition: border-color var(--lp-fast), color var(--lp-fast);
+    transition:
+      border-color var(--lp-fast),
+      color var(--lp-fast);
   }
 
   .lp-other-work summary::-webkit-details-marker {
@@ -1312,7 +1349,9 @@ const emailDisplay = site.email.replace("@", "[at]");
   .lp-reveal {
     opacity: 1;
     transform: none;
-    transition: opacity 900ms ease, transform 900ms cubic-bezier(0.2, 0.7, 0.2, 1);
+    transition:
+      opacity 900ms ease,
+      transform 900ms cubic-bezier(0.2, 0.7, 0.2, 1);
   }
 
   .lp-js-ready .lp-reveal {
